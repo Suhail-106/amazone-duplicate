@@ -1,0 +1,399 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home and KItchen</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body class="w-screen h-screen overflow-x-hidden">
+    {% include 'header.html' %}
+
+    <div class="w-full h-10 bg-white flex gap-1 p-2 text-center shadow text-[14px]">
+        <a href="{% url 'home&kitchen' %}">
+        <div class="w-30 h-full font-semibold"><h1>Amazone Home</h1></div>
+        </a>
+        <a href="#shopforkitchen">
+        <div class="w-54 h-full"><h1>Kitchen & Home Appliences</h1></div>
+        </a>
+        <a href="#Largeappliences">
+        <div class="w-34 h-full"><h1>Large Appliences</h1></div>
+        </a>
+        <a href="#Kitchen&Dinning">
+        <div class="w-34 h-full"><h1>Kitchen & Dinning</h1></div>
+        </a>
+        <a href="#Furniture">
+        <div class="w-17 h-full"><h1>Furniture</h1></div>
+        </a>
+        <a href="#HomeFurnishing">
+        <div class="w-34 h-full"><h1>Home Furnishing</h1></div>
+        </a>
+        <a href="#HomeDecor">
+        <div class="w-24 h-full"><h1>Home Decor</h1></div>
+        </a>
+        <a href="#HomeImprovement">
+        <div class="w-39 h-full"><h1>Home Imporovement</h1></div>
+        </a>
+        <a href="#Garden&Outdoors">
+        <div class="w-34 h-full"><h1>Garden & Outdoor</h1></div>
+        </a>
+        <a href="#Storage&Organisations">
+        <div class="w-44 h-full"><h1>Storage & Organisations</h1></div>
+        </a>
+        <a href="#Lighting">
+        <div class="w-19 h-full"><h1>Lighting</h1></div>
+        </a>
+    </div>
+
+    <div class="w-full h-auto p-5">
+        <h1 class="text-3xl font-semibold text-orange-700">Buy products across Home,Kitchen,Garden,Furniture,Sports and more now online at Amazone India</h1>
+        <p>Browse through the wide range of Home and Kitchen products such as cooler, Water bottles, mosquito nets, cycles, 
+            bedsheets, juicers, office chairs and more online at Amazone.in
+        </p>
+        <div class="w-full h-auto flex gap-4 p-4 py-7">
+             <div class="min-w-35 h-50 text-center">
+                <a href="#styleYourBedroom">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNXYtLlV27vy69mpUZeYo_IFwqczeSeVeRPg&s" alt="">
+                </div>
+                <h1 class="text-xl font-semibold leading-5">Bedding &<br> decor</h1>
+                </a>
+             </div>
+             <div class="min-w-35 h-50  p-2 text-center">
+                <a href="#Largeappliences">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRthR3H3k7m_jqFAi_K0ioET3pgUcPs_dffQQ&s" alt="">
+                </div>
+                <h1 class="text-xl font-semibold">Appliances</h1>
+               </a>
+             </div>
+             <div class="min-w-35 h-50 p-2 text-center">
+                <a href="#Fitness">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStOpIPabPtKeOU0xeNEQido_jcxO4DdFEuOw&s" alt="">
+                </div>
+                <h1 class="text-xl font-semibold ">Fitness</h1>
+                </a>
+             </div>
+             <div class="min-w-35 h-50  p-2 text-center">
+                <a href="#Storage&Organisations">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm9gz16RFulg7WhTdnj00GDwAHt4x2Hf_enQ&s" alt="">
+                </div>
+                <h1 class="text-xl font-semibold leading-5">Automotive<br> products</h1>
+                </a>
+             </div>
+             <div class="min-w-35 h-50 p-2 text-center">
+                <a href="#Kitchen&Dinning">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://m.media-amazon.com/images/I/71sBdeK2z7L.jpg" alt="">
+                </div>
+                <h1 class="text-xl font-semibold">Kitchenware</h1>
+            </a>
+             </div>
+            <div class="min-w-35 h-50  p-2 text-center">
+                <a href="#HomeImprovement">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTycJG0KOM2iOtZ5Bd1kAlkGJW0ycHAmAVEw&s" alt="">
+                </div>
+                <h1 class="text-xl font-semibold leading-5">Home<br> Improvement</h1>
+             </a>
+             </div>
+             <div class="min-w-35 h-50 p-2 text-center">
+                <a href="#Furniture">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://jcblhandtools.com/wp-content/uploads/2024/12/Guide-to-Workshop-Hand-Tools-2.webp" alt="">
+                </div>
+                <h1 class="text-xl font-semibold">Tools</h1>
+                </a>
+             </div>
+             <div class="min-w-35 h-50  p-2 text-center">
+                <a href="#shopforkitchen">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj3w_NFbiJdG4ltg965QkpN8MtF1b0kyO9Iw&s" alt="">
+                </div>
+                <h1 class="text-xl font-semibold leading-5">Home<br>essentials</h1>
+                </a>
+             </div>
+             <div class="min-w-35 h-50  p-2 text-center">
+                <a href="#Garden&Outdoors">
+                <div class="w-35 h-35 rounded-full ">
+                    <img class="w-full h-full rounded-full" src="https://kingsbox.com/blog/wp-content/uploads/2019/07/Cinkani-outdoor-rack-3600-Dejan-Kobal-LOW-24-800x533.jpg" alt="">
+                </div>
+                <h1 class="text-xl font-semibold">Outdoors</h1>
+                <a href="#Garden&Outdoors">
+             </div>
+            
+        </div>
+    </div>
+
+    <div class="w-full h-auto p-4">
+        <div id="styleYourBedroom" class="w-full h-auto border-25  border-amber-500 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl wave1 my-3
+             text-center flex justify-center items-center">
+                <h1>Style your bedroom</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave1">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+    <div class="w-full h-auto p-4">
+        <div id="shopforkitchen" class="w-full h-auto border-25  border-red-500 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave2">
+                <h1>Shop for kitchen</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave2">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+    <div class="w-full h-auto p-4">
+        <div id="Largeappliences" class="w-full h-auto border-25  border-blue-700 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave3">
+                <h1>Large Appliences</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave3">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+     <div class="w-full h-auto p-4">
+        <div id="Fitness" class="w-full h-auto border-25  border-green-700 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave4">
+                <h1>Fitness</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave4">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+
+    <div class="w-full h-auto p-4">
+        <div id="Kitchen&Dinning" class="w-full h-auto border-25  border-red-500 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave2">
+                <h1>Kitchen & Dinning</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave2">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+    <div class="w-full h-auto p-4">
+        <div id="HomeImprovement" class="w-full h-auto border-25  border-blue-700 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave3">
+                <h1>Home Improvement</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave3">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+    <div class="w-full h-auto p-4">
+        <div id="HomeFurnishing" class="w-full h-auto border-25  border-green-700 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave4">
+                <h1>Home Furnishing</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave4">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+     <div class="w-full h-auto p-4">
+        <div id="HomeDecor" class="w-full h-auto border-25  border-red-500 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave2">
+                <h1>Home Decor</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave2">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+ <div class="w-full h-auto p-4">
+        <div id="Furniture" class="w-full h-auto border-25  border-blue-700 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave3">
+                <h1>Furniture</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave3">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+  <div class="w-full h-auto p-4">
+        <div id="Garden&Outdoors" class="w-full h-auto border-25  border-green-700 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave4">
+                <h1>Gaarden & Outdoors</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave4">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+     <div class="w-full h-auto p-4">
+        <div id="Storage&Organisations" class="w-full h-auto border-25  border-blue-700 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave3">
+                <h1>Storage & Organisations</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave3">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+ <div class="w-full h-auto p-4">
+        <div id="Lighting" class="w-full h-auto border-25  border-red-500 p-2 shadow-md shadow-black"> 
+             <div class="w-full h-35 text-7xl font-bold font-serif rounded-t-2xl my-3 text-center flex justify-center items-center wave2">
+                <h1>Lighting</h1>
+             </div>
+             <div class="w-full h-auto flex gap-2 px-4 flex-wrap">
+              {% for bedroom in bedroom %}
+              <a href="{% url 'bedroomaddtocart' bedroom.id %}">
+               <div class="min-w-47 h-58 ">
+                  <div class="w-full h-40 rounded-t-2xl wave2">
+                    <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                  </div>
+                <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                    <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                </div>
+            </div>
+            </a>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+</html>

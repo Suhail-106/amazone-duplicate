@@ -1,0 +1,88 @@
+html{scroll-behavior: smooth;}
+
+
+.wave {
+     background: linear-gradient(-45deg, #1e90ff, #00bfff, #1e90ff, #4682b4);
+     background-size: 400% 400%;
+     animation: wave 8s ease infinite;
+ }
+
+ @keyframes wave {
+     0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+   100% {   background-position: 0% 50%;}
+ }
+
+ .wave1 {
+     background: linear-gradient(-45deg, #d2b48c, #deb887, #f5deb3, #e6d3b3);
+     background-size: 300% 300%;
+     animation: wave1 6s ease-in-out infinite;
+ }
+ @keyframes wave1 {
+     0% {background-position: 0% 50%; }
+
+     50% {background-position: 100% 50%; }
+
+     100% {background-position: 0% 50%;}
+ }
+
+ .wave2 {
+     background: linear-gradient(-45deg, #5f795c, #9db486, #8aa894, #336b38);
+     background-size: 300% 300%;
+     animation: wave1 6s ease-in-out infinite;
+ }
+
+ @keyframes wave2 {
+     0% {
+         background-position: 0% 50%;
+     }
+
+     50% {
+         background-position: 100% 50%;
+     }
+
+     100% {
+         background-position: 0% 50%;
+     }
+ }
+
+  .wave3 {
+      background: linear-gradient(-45deg, #c1cedc, #b9c1de, #9daeeb, #7f91d3);
+      background-size: 300% 300%;
+      animation: wave1 6s ease-in-out infinite;
+  }
+
+  @keyframes wave3 {
+      0% {
+          background-position: 0% 50%;
+      }
+
+      50% {
+          background-position: 100% 50%;
+      }
+
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+
+  .wave4 {
+      background: linear-gradient(-45deg, #e2e2cd, #dbdeb9, #e9eb9d, #ccd37f);
+      background-size: 300% 300%;
+      animation: wave1 6s ease-in-out infinite;
+  }
+
+  @keyframes wave4 {
+      0% {
+          background-position: 0% 50%;
+      }
+
+      50% {
+          background-position: 100% 50%;
+      }
+
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+

@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart</title>
+  <link href="{% static 'output.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-4">
+
+  <div class="max-w-6xl mx-auto p-4">
+    <h2 class="text-2xl font-bold mb-6">🛒 Your Cart ({{ cart_count }} item)</h2>
+
+    {% if cart_items %}
+      <ul class="space-y-4">
+        {% for item in cart_items %}
+          <li class="flex items-center bg-white hover:scale-105 transition-transform
+          duration-75 ease-in-out p-4 rounded shadow ">
+            {% comment %} Dynamically pick correct image based on content {% endcomment %}
+            {% with content=item.content %}
+              {% if content == item.product.content1 %}
+                <img src="{{ item.product.image1 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
+              {% elif content == item.product.content2 %}
+                <img src="{{ item.product.image2 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
+              {% elif content == item.product.content3 %}
+                <img src="{{ item.product.image3 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
+              {% elif content == item.product.content4 %}
+                <img src="{{ item.product.image4 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
+              {% endif %}
+            {% endwith %}
+
+            
+            {# for mobile section #}
+            {% for mob in mobile %}
+            {% if mob.nameofmobile == item.content %}
+            <img src="{{ mob.imagemobile }}" alt="{{ mob.nameofmobile}}"
+            class="w-20 h-20 object-cover rounded mr-4">
+            {% endif %}
+            {% endfor %}
+           
+            
+            {# for bestseller #}
+            {% for best in bestseller %}
+            {% if best.contentm == item.content %}
+            <img  class="w-20 h-20 object-cover hover:scale-110 transition-transform
+            ease-in-out duration-700 rounded mr-4" src="{{ best.Imagem }}" alt="{{ best.contentm }}">
+            {% endif %}
+            {% endfor %}
+            
+            {# for freshvegitables #}
+            {% for fresh in fresh %}
+            {% if fresh.nameoffresh == item.content %}
+            <img class="w-20 h-20 object-cover hover:scale-110 transition-transform
+            ease-in-out duration-700 rounded mr-4"
+             src="{{ fresh.vegitablebimagefresh }}" alt="{{ fresh.nameoffresh }}">
+             {% endif %}
+             {% endfor %}
+
+              {# mainmobile items #}
+              {% for m in mainmobile %}
+                {% if m.nameofmobile == item.content or m.specsofcamera == item.content or m.specsofdurability == item.content %}
+                  <img class="w-20 h-20 object-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ m.mainimagemobile }}" alt="">
+               {% endif %}
+              {% endfor %}
+
+             {# electronicslaptop #}
+             {% for elaptop in electronicslaptop %}
+             {% if elaptop.laptopname == item.content %}
+              <img class="w-20 h-20 object-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ elaptop.laptopimage }}" alt="">
+               {% endif %}
+              {% endfor %}
+            
+
+              {# electronics headphones #}
+
+               {% for elheadphones in electronicsheadphones %}
+                {% if elheadphones.headphonesname == item.content %}
+              <img class="w-20 h-20 object-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ elheadphones.headphonesimage }}" alt="">
+               {% endif %}
+              {% endfor %}
+
+               {# fashion vocalforlocal #}
+               
+               {% for vocalforlocal in vocalforlocal %}
+                {% if vocalforlocal.interestincontent == item.content %}
+              <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ vocalforlocal.image }}" alt="">
+               {% endif %}
+              {% endfor %}
+           
+                {# fashion vocalforlocal1 #}
+               
+               {% for vocalforlocal1 in vocalforlocal1 %}
+                {% if vocalforlocal1.interestincontent1 == item.content %}
+              <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ vocalforlocal1.image1 }}" alt="">
+               {% endif %}
+              {% endfor %}
+
+                {# fashion shopclothing #}
+               
+               {% for shopclothing in shopclothing %}
+                {% if shopclothing.contentshopclothing == item.content %}
+              <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ shopclothing.imageshopclothing }}" alt="">
+               {% endif %}
+              {% endfor %}
+
+               {# fashion shopfootwear #}
+               
+               {% for shopfootwear in shopfootwear %}
+                {% if shopfootwear.contentshopfootwear == item.content %}
+              <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ shopfootwear.imageshopfootwear }}" alt="">
+               {% endif %}
+              {% endfor %}
+
+                {# fashion shopbudget #}
+               
+               {% for Budgetaddons in Budgetaddons %}
+                {% if Budgetaddons.contentshopBudget == item.content %}
+                 <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ Budgetaddons.imageshopBudget }}" alt="">
+               {% endif %}
+              {% endfor %}
+
+                 {# fashion shopBeauty #}
+               
+               {% for shopBeauty in shopBeauty %}
+                {% if shopBeauty.contentshopBeauty == item.content %}
+                 <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ shopBeauty.imageshopBeauty  }}" alt="">
+               {% endif %}
+              {% endfor %}
+
+                  {# Home&kitchen bedroom #}
+               
+               {% for bedroom in bedroom %}
+                {% if bedroom.content == item.content %}
+                 <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ bedroom.image  }}" alt="">
+               {% endif %}
+              {% endfor %}
+
+
+              
+
+
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold">{{ item.content }}</h3>
+              <p class="text-sm text-gray-600">Price: ₹{{ item.price }} |
+                <span class="text-sm text-gray-600">Quantity: {{ item.quantity }}</span>
+              </p>
+              <p class="font-semibold">Offer: {{ item.off174 }}%  </p> 
+              <p class="font-bold">Total pay: ₹{{ item.offer }}
+                <span>
+                    <form method="post" action="{% url 'remove_from_cart' item.id %}">
+                    {% csrf_token %}
+                     <button type="submit" class="bg-blue-600 text-white px-4 rounded hover:bg-red-500 font-bold">Remove</button>
+                   </form>
+                </span>
+              </p> 
+                    
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-center text-gray-500">🛒 Your cart is empty.</p>
+    {% endif %}
+  </div>
+    <!-- 💰 Total Section -->
+    <!-- 💰 Total Section -->
+<div class="mt-6 bg-white p-4 rounded shadow text-xl font-bold flex flex-wrap">
+ <div class="w-full flex justify-between"><span>Total offer precentage:</span>
+    
+    <span> {{ total_offer_percentage }} %</span>
+  </div>
+  <div class="w-full flex justify-between"><span>Total offer amount:</span>
+    
+    <span> ₹ {{ total_offer }}</span>
+  </div>
+    
+  <div class="w-full flex justify-between"><span>Total Price:</span>
+     <span>₹ {{ total_price }}</span></div>
+  
+</div>
+
+
+</body>
+</html>

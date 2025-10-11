@@ -1,0 +1,313 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body class="w-screen h-screen overflow-x-hidden">
+     {% include "header.html" %}
+    <div class="w-screen h-auto overflow-x-hidden">
+         <div class="w-full h-90 flex flex-wrap">
+             <div class="w-full h-12 shadow gap-45 p-2 flex">
+              <a href="{% url 'vocalforlocal' %}">
+                 <h1 class="text-xl font-semibold ">Amazone Fashion</h1> 
+                 </a>
+                  <a href="#ShopClothing">
+                    <h1 class=" ">Women</h1>
+                  </a>
+                   <a href="#ShopClothing">
+                    <h1>Men</h1>
+                   </a>
+                   <a href="#vocalforlocalKids">
+                 <h1>kids</h1>
+                 </a>
+                 <a href="#BudgetAdd-Ons">
+                 <h1>Bag & Luggage</h1>
+                 </a>
+                 <a href="#ShopSportsFootwear">
+                 <h1>Sportswear</h1>             
+                  </a>
+             </div>
+             <div class="w-full h-60 gap-10 flex overflow-x-auto overflow-y-hidden">
+                <div class="min-w-50 h-full bg-slate-50 text-center p-2  rounded shadow">
+                  <a href="#ShopClothing">
+                    <div class="w-45 h-45 bg-slate-200 rounded-full ">
+                         <img class="w-full h-full " src="https://i.postimg.cc/y8bMfXb4/portrait-handsome-smiling-young-man-folded-arms-smiling-joyful-cheerful-men-crossed-hands-isolated-s.png" alt="">
+                    </div>
+                    <h2 class="font-semibold">Men's clothing</h2>
+                    </a>
+                </div>
+
+                <div class="min-w-50 h-full bg-slate-50 text-center p-2 rounded shadow">
+                   <a href="#ShopClothing">
+                    <div class="w-45 h-45 bg-slate-200 rounded-full ">
+                         <img class="w-full h-full " src="https://i.postimg.cc/MpV1nwD7/edwed-20240517130459-1-large-removebg-preview.png" alt="">
+                    </div>
+                    <h2 class="font-semibold">Women's clothing</h2>
+                  </a>
+                </div>
+
+                <div class="min-w-50 h-full bg-slate-50 text-center p-2 rounded shadow">
+                  <a href="#vocalforlocalKids">
+                    <div class="w-45 h-45 bg-slate-200 rounded-full ">
+                         <img class="w-full h-full " src="https://i.postimg.cc/Dz5JGwbX/images-removebg-preview-3.png" alt="">
+                    </div>
+                    <h2 class="font-semibold">Kids Fashion</h2>
+                  </a>
+                </div>
+
+                <div class="min-w-50 h-full bg-slate-50 text-center p-2 rounded shadow">
+                    <div class="w-45 h-45 bg-slate-200 rounded-full ">
+                         <img class="w-full h-full " src="https://i.postimg.cc/nM8CxsN6/istockphoto-1279108197-170667a-1671687926903-1671687937504-1671687937504-removebg-preview.png" alt="">
+                    </div>
+                    <h2 class="font-semibold">Footwear</h2>
+                </div>
+
+                <div class="min-w-50 h-full bg-slate-50 text-center p-2 rounded shadow">
+                  <a href="#BudgetAdd-Ons">
+                    <div class="w-45 h-45 bg-slate-200 rounded-full ">
+                         <img class="w-full h-full " src="https://i.postimg.cc/bwh9HddC/images-removebg-preview-4.png" alt="">
+                    </div>
+                    <h2 class="font-semibold">Luggage and bags</h2>
+                    </a>
+                </div>
+
+                <div class="min-w-50 h-full bg-slate-50 text-center p-2 rounded shadow">
+                  <a href="#BudgetAdd-Ons">
+                    <div class="w-45 h-45 bg-slate-200 rounded-full ">
+                         <img class="w-full h-full " src="https://i.postimg.cc/28wVM52X/SPLF64-K57300-SG-3-removebg-preview.png" alt="">
+                    </div>
+                    <h2 class="font-semibold">Sunglasses</h2>
+                  </a>
+                </div>
+
+                <div class="min-w-50 h-full bg-slate-50 text-center p-2 rounded shadow">
+                  <a href="#BudgetAdd-Ons">
+                    <div class="w-45 h-45 bg-slate-200 rounded-full ">
+                         <img class="w-full h-full " src="https://i.postimg.cc/9MKG4QvB/gems-1-2048x2048-removebg-preview.png" alt="">
+                    </div>
+                    <h2 class="font-semibold">Jewellery</h2>
+                  </a>
+                </div>
+
+                <a href="{% url 'filtered_products' %}">
+                  <div class="min-w-50 h-full bg-slate-50 text-center p-2 rounded shadow">
+                    <a href="#BudgetAdd-Ons">
+                    <div class="w-45 h-45 bg-slate-200 rounded-full ">
+                         <img class="w-full h-full " src="https://i.postimg.cc/ZYv8G6ds/images-removebg-preview-5.png" alt="">
+                    </div>
+                    <h2 class="font-semibold">Watches</h2>
+                  </a>
+                   </div>
+                 </a>
+                
+             </div>
+         </div>
+        </div>
+
+        <div class="w-full h-40 bg-white p-2 px-5">
+             <div class="w-full h-full p-4 px-50  flex gap-25 bg-gradient-to-r from-green-400 via-red-400  to-green-500
+             [clip-path:polygon(0%_0%,50%_0%,100%_0%,100%_100%,99%_95%,1%_95%,0%_100%,0%_50%)]">
+                  <div class="w-70 h-full ">
+                    <h1 class="text-4xl font-bold text-white text-shadow-lg text-shadow-black">ULTIMATE BRANDSALE</h1>
+                    <h1 class="text-xl font-semibold text-shadow">Freedom edit on {% now "d-m-y" %}</h1>
+                  </div>
+                  <div class="w-70 h-full  text-center font-serif  font-semibold text-shadowf">
+                    <h1 class="text-4xl ">Get up to </h1>
+                    <h1 class="text-4xl ">20% cashback*</h1>
+                    <h1 class="text-2xl">on first order</h1>
+                  </div>
+                  <div class="w-70 h-full  text-center py-10 px-10">
+                    <a href="{% url 'register' %}">
+                     <h1 class="p-2 bg-black text-white">sign up now</h1>
+                     </a>
+                  </div>
+             </div>
+        </div>
+
+
+        <div class="w-full h-auto  p-2 px-5">
+            <h1 class="font-semibold text-xl">Vocal for local</h1>
+            <div class="w-full h-auto  p-2 px-5">
+                 <div class="w-full h-92 gap-5 px-3 bg-orange-400 flex p-4 ">
+                    {% for vocalforlocal in vocalforlocal %}
+                    <a href="{% url 'vocalforlocal1_addtocart'  vocalforlocal.id %}">
+                   <div class="min-w-55 h-full">
+                      <div class="w-full h-50">
+                         <img class="w-full h-full rounded-t-2xl" src="{{ vocalforlocal.image }}" alt="">
+                      </div>
+                      <div class="w-full h-15 bg-white p-2  ">
+                        <img class="w-50 h-full mx-auto px-10" src="{{ vocalforlocal.logo }}" alt="">
+                      </div>
+                      <div class="w-full h-20 bg-red-100 rounded-b-2xl text-center p-2">
+                        <h1>{{ vocalforlocal.interestincontent }}</h1>
+                        <h1 class="text-2xl font-bold">Min. {{ vocalforlocal.offer }}% off</h1>
+                      </div>
+                   </div>
+                   {% endfor %}
+                   </a>
+                 </div>
+
+                  <div id="vocalforlocalKids" class="w-full h-92 gap-5 px-3 bg-white flex p-4 ">
+                    {% for vocalforlocal1 in vocalforlocal1 %}
+                     <a href="{% url 'vocalforlocal2_addtocart'  vocalforlocal1.id %}">
+                    <div class="min-w-55 h-full ">
+                      <div class="w-full h-50  ">
+                         <img class="w-full h-full rounded-t-2xl" src="{{ vocalforlocal1.image1 }}" alt="">
+                      </div>
+                      <div class="w-full h-15 bg-white p-2  ">
+                        <img class="w-50 h-full mx-auto px-10" src="{{ vocalforlocal1.logo1 }}" alt="">
+                      </div>
+                      <div class="w-full h-20 bg-blue-600 text-white rounded-b-2xl text-center p-2">
+                        <h1>{{ vocalforlocal1.interestincontent1 }}</h1>
+                        <h1 class="text-2xl font-bold">Min. {{ vocalforlocal1.offer1 }}% off</h1>
+                      </div>
+                   </div>
+                  </a>
+                   {% endfor %}
+                 </div>
+                 
+                  <div class="w-full h-92 gap-5 px-3 bg-green-400 flex p-4 ">
+                    {% for vocalforlocal in vocalforlocal %}
+                    <a href="{% url 'vocalforlocal1_addtocart'  vocalforlocal.id %}">
+                   <div class="min-w-55 h-full ">
+                      <div class="w-full h-50  ">
+                         <img class="w-full h-full rounded-t-2xl" src="{{ vocalforlocal.image }}" alt="">
+                      </div>
+                      <div class="w-full h-15 bg-white p-2  ">
+                        <img class="w-50 h-full mx-auto px-10" src="{{ vocalforlocal.logo }}" alt="">
+                      </div>
+                      <div class="w-full h-20 bg-green-300 rounded-b-2xl text-center p-2">
+                        <h1>{{ vocalforlocal.interestincontent }}</h1>
+                        <h1 class="text-2xl font-bold">Min. {{ vocalforlocal.offer }}% off</h1>
+                      </div>
+                   </div>
+                  </a>
+                   {% endfor %}
+                 </div>
+            </div>
+        </div>
+         
+          <div id="ShopClothing" class="w-full h-auto p-5 ">
+            <h1 class="font-semibold text-xl px-5">Shop clothing</h1>
+              <div class="w-full h-auto flex  gap-5 px-10 p-5">
+                {% for shopclothing in shopclothing %}
+                <a href="{% url 'shopclothing_addtocart' shopclothing.id %}">
+                  <div class="w-55 h-100 ">
+                    <div class="w-full h-75">
+                        <img class="w-full h-full rounded-t-2xl" src="{{ shopclothing.imageshopclothing }}" alt="">
+                    </div>
+                    <div class="w-full h-25 text-center font-serif bg-red-100 py-2 font-bold rounded-b-2xl">
+                        <h1 class="text-2xl">{{ shopclothing.contentshopclothing }}</h1>
+                        <h1 class="text-xl text-orange-500">Under ₹{{ shopclothing.priceshopclothing }}</h1>
+                    </div>
+                  </div>
+                  </a>
+                  {% endfor %}  
+             </div>
+          </div>
+
+          <div id="ShopFootwear" class="w-full h-auto p-5 ">
+            <h1 class="font-semibold text-xl ">Shop footwear</h1>
+              <div class="w-full h-auto flex bg-red-100 gap-5 px-10 p-5 rounded shadow">
+                {% for shopfootwear in shopfootwear %}
+                <a href="{% url 'shopfootwear_addtocart' shopfootwear.id %}">
+                  <div class="w-55 h-55">
+                    <div class="w-full h-35">
+                        <img class="w-full h-full rounded-2xl" src="{{ shopfootwear.imageshopfootwear }}" alt="">
+                    </div>
+                    <div class="w-full h-15 text-center font-serif py-2 font-bold rounded-b-2xl">
+                        <h1 class="text-xl">{{ shopfootwear.contentshopfootwear }}</h1>
+                        <h1 class=" text-orange-500">Under ₹{{ shopfootwear.priceshopfootwear }}</h1>
+                    </div>
+                  </div>
+                  </a>
+                  {% endfor %}  
+             </div>
+          </div>
+
+          
+          <div id="BudgetAdd-Ons" class="w-full h-auto p-5 ">
+            <h1 class="font-semibold text-xl ">Budget Add-Ons</h1>
+              <div class="w-full h-auto flex bg-green-100 gap-5 px-10 p-5 rounded shadow">
+                {% for Budgetaddons in Budgetaddons %}
+                <a href="{% url 'shopBudget_addtocart' Budgetaddons.id %}">
+                  <div class="w-55 h-55">
+                    <div class="w-full h-35">
+                        <img class="w-full h-full rounded-2xl" src="{{ Budgetaddons.imageshopBudget  }}" alt="">
+                    </div>
+                    <div class="w-full h-15 text-center font-serif py-2 font-bold rounded-b-2xl">
+                        <h1 class="text-xl">{{ Budgetaddons.contentshopBudget }}</h1>
+                        <h1 class=" text-green-700">Under ₹{{ Budgetaddons.priceshopBudget  }}</h1>
+                    </div>
+                  </div>
+                  </a>
+                  {% endfor %}  
+             </div>
+          </div>
+
+
+<div id="ShopBeauty" class="w-full h-auto p-5">
+  <h1 class="font-semibold text-xl">Shop Beauty</h1>
+   <div class="w-full h-auto flex gap-8 px-2">
+    {% for shopbeauty in shopbeauty %}
+    <a href="{% url 'shopbeauty_addtocart' shopbeauty.id %}">
+       <div class="min-w-55 h-130 ">
+         <div class="w-full h-60 ">
+           <img class="w-full h-100 " src="{{ shopbeauty.imageshopBeauty }}" alt="">
+         </div>
+         <div class="w-55 h-40 mx-auto bg-red-300 rounded-full bg-gradient-to-b from-red-100 via-red-200 to-slate-600"></div>
+          <div class="w-full h-30 text-center font-bold ">
+            <h1 class="text-2xl font-semibold">{{ shopbeauty.contentshopBeauty }}</h1>
+            <h1 class="text-2xl text-orange-600">starting ₹{{ shopbeauty.priceshopBeauty }}</h1>
+          </div>
+        </div>
+        </a>
+       {% endfor %} 
+   </div>
+</div>
+
+      <div id="ShopSportsFootwear" class="w-full h-auto p-5 ">
+            <h1 class="font-semibold text-xl ">Shop Sports Footwear</h1>
+              <div class="w-full h-auto flex bg-red-100 gap-5 px-10 p-5 rounded shadow">
+                {% for shopfootwear in shopfootwear %}
+                <a href="{% url 'shopfootwear_addtocart' shopfootwear.id %}">
+                  <div class="w-55 h-55">
+                    <div class="w-full h-35">
+                        <img class="w-full h-full rounded-2xl" src="{{ shopfootwear.imageshopfootwear }}" alt="">
+                    </div>
+                    <div class="w-full h-15 text-center font-serif py-2 font-bold rounded-b-2xl">
+                        <h1 class="text-xl">{{ shopfootwear.contentshopfootwear }}</h1>
+                        <h1 class=" text-orange-500">Under ₹{{ shopfootwear.priceshopfootwear }}</h1>
+                    </div>
+                  </div>
+                  </a>
+                  {% endfor %}  
+             </div>
+          </div>
+
+            <div id="BrandsWeLove" class="w-full h-auto p-5 ">
+            <h1 class="font-semibold text-xl px-5">Brands We love</h1>
+              <div class="w-full h-auto flex  gap-5 px-10 p-5">
+                {% for shopclothing in shopclothing %}
+                <a href="{% url 'shopclothing_addtocart' shopclothing.id %}">
+                  <div class="w-55 h-100 ">
+                    <div class="w-full h-75">
+                        <img class="w-full h-full rounded-t-2xl" src="{{ shopclothing.imageshopclothing }}" alt="">
+                    </div>
+                    <div class="w-full h-25 text-center font-serif bg-red-100 py-2 font-bold rounded-b-2xl">
+                        <h1 class="text-2xl">{{ shopclothing.contentshopclothing }}</h1>
+                        <h1 class="text-xl text-orange-500">Under ₹{{ shopclothing.priceshopclothing }}</h1>
+                    </div>
+                  </div>
+                  </a>
+                  {% endfor %}  
+             </div>
+          </div>
+
+{% include 'footer.html' %}
+</body>
+</html>

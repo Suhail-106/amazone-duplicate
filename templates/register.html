@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amazone/register_page</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body>
+    <div class="w-85 h-140  p-4  mx-auto">
+    <h2 class="w-full h-12 text-4xl font-semibold">Amazone.in</h2>
+    <form class="w-full h-120 p-5 [&>input]:w-full [&>input]:bg-slate-50 font-semibold [&>input]:border-2 [&>input]:border-transparent
+          [&>input:hover]:border-blue-500 [&>input]:rounded [&>input]:p-1 shadow rounded
+         " method="POST" action="{% url 'register' %}">
+         {% if error %}
+         <p class="text-red-500 text-xl font-semibold py-4">⚠️ {{ error }}</p>
+         {% endif %}
+         <h2>Sign in or create account</h2>
+         <br>
+        {% csrf_token %}
+    <label for="username">Username</label>
+    <input id="username" type="text" name="username" placeholder="create Username" required><br><br>
+      
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Email" required><br><br>
+   
+    <label for="password">password</label>
+    <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+    
+    <label for="confirmpassword">Confirmed Password</label>
+    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirmed password"><br><br>
+     
+     <button class="w-full bg-yellow-300 p-1 rounded-2xl" type="submit">Submit</button>
+     <p class="font-normal">if you're account is already exist <a class="text-blue-700 hover:underline" href="{% url 'login' %}">Login</a></p>
+    </form>
+    </div>
+    
+</body>
+</html>

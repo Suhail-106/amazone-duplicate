@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link href="{% static 'output.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+
+  <h2 class="text-3xl font-bold mb-6">🛒 Cart Summary</h2>
+
+  <!-- 📱 Mobile Cart Section -->
+  <h3 class="text-2xl font-semibold mb-4">📱 Mobile Cart ({{ mobile_cart_count }} items)</h3>
+
+  {% if mobile_cart_items %}
+    <ul class="space-y-4 mb-10">
+      {% for item in mobile_cart_items %}
+        {% for main in mainob %}
+          {% if item.content == main.name %}
+            <li class="flex items-center gap-4 p-4 bg-white rounded shadow">
+              <img src="{{ main.image }}" alt="{{ main.name }}"
+                   class="w-20 h-20 object-cover rounded">
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold">{{ item.content }}</h3>
+                <p class="text-gray-600">Price: ₹{{ item.price }} × {{ item.quantity }}</p>
+              </div>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+    <div class="p-4 bg-white rounded shadow text-right mb-8">
+      <p class="text-lg">Total (Mobiles): <span class="font-bold">₹{{ mobile_total_price }}</span></p>
+    </div>
+  {% else %}
+    <p class="text-center text-gray-500 mb-10">No mobile items in cart</p>
+  {% endif %}
+
+
+  <!-- 🔄 General Cart Section -->
+  <h3 class="text-2xl font-semibold mb-4">🧸 Other Products ({{ general_cart_count }} items)</h3>
+
+  {% if general_cart_items %}
+    <ul class="space-y-4">
+      {% for item in general_cart_items %}
+        {% for best in bestseller %}
+          {% if item.content == best.name %}
+            <li class="flex items-center gap-4 p-4 bg-white rounded shadow">
+              <img src="{{ best.image }}" alt="{{ best.name }}"
+                   class="w-20 h-20 object-cover rounded">
+              <div class="flex-1">
+                <h3 class="text-xl font-semibold">{{ item.content }}</h3>
+                <p class="text-gray-600">Price: ₹{{ item.price }} × {{ item.quantity }}</p>
+              </div>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+    <div class="p-4 bg-white rounded shadow text-right mt-6">
+      <p class="text-lg">Total (Other): <span class="font-bold">₹{{ general_total_price }}</span></p>
+    </div>
+  {% else %}
+    <p class="text-center text-gray-500">No other items in cart</p>
+  {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+{% now "d-m-y" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <style> 
+        .main::-webkit-scrollbar{display:none;}
+        .main1::-webkit-scrollbar{display:none;}
+    </style>
+</head>
+<body class="w-screen h-screen overflow-x-hidden bg-slate-100">
+    {% include 'header.html' %}
+    <div class="max-[430px]:hidden w-full h-auto px-1 p-2 shadow text-green-500 bg-white sticky top-0 z-10 flex gap-2">
+        <div class="w-50 h-10  px-2 leading-1 border-green-800 border-4  border-l-0 border-t-0 border-b-0  ">
+           <a href="{% url 'filtered_products' %}">
+              <h2 class="text-2xl font-semibold ">Bestseller</h2>
+              <p class="hover:underline">Amazing offer in watches</p>
+           </a>
+         </div>
+       
+        <div class="w-50 h-10 px-2 leading-1 border-green-800 border-4 border-t-0 border-b-0">
+            <a href="{% url 'fresh' %}">
+                <h2 class="text-2xl font-semibold">Fresh</h2>
+               <p class="hover:underline">100% fresh products</p>
+           </a>
+        </div>
+       <div class="w-50 h-10  border-green-800 border-4 leading-1  px-2 border-t-0 border-b-0">
+          <a href="{% url 'electronics' %}">
+                <h2 class="text-2xl font-semibold">Electronics</h2>
+               <p class="hover:underline">all item are available</p>
+           </a>
+       </div>
+       <div class="w-50 h-10 border-green-800 border-4 border-t-0 border-b-0 leading-1  px-2 ">
+             <a href="{% url 'New_Releases' %}">
+                <h2 class="text-2xl font-semibold">New Releases</h2>
+               <p class="hover:underline">all item are available</p>
+            </a>
+       </div>
+   </div>
+
+
+    <div class="max-[430px]:hidden text-green-500 shadow m-5 bg-white rounded-2xl px-5 p-5 leading-4">
+       <h1 class="text-2xl font-bold">Fresh Vegitables</h1>
+       <p>Fresh vegitable available on this site [[ Ranking:- ⭐⭐⭐⭐]]</p>
+       <br>
+        <hr class="w-1/2 max-[430px]:hidden border-t-4 ">
+    </div>
+   
+
+      <div class="w-[95%] h-110 p-10 rounded-2xl shadow m-10 max-[430px]:hidden bg-white">
+       
+            <div class="max-[430px]:hidden main w-full h-full rounded-2xl  shadow 
+             overflow-x-auto overflow-y-hidden flex whitespace-nowrap">
+              {% for fresh in fresh %}
+             <div class="box1 min-w-full h-full rounded-3xl shadow p-2 flex gap-5 bg-no-repeat
+                bg-[length:100%_100%]" style="background-image:url('{{ fresh.bgimagefresh }}')">
+                <div class="w-180 h-full "></div>
+                <a href="{% url 'fresh_addtocart' fresh.id %}">
+                <div class="w-80 h-full pl-10 py-5 text-white backdrop-blur-[3px] hover:underline [&>p]:text-2xl
+                    [&>p]:font-semibold">
+                    <h2 class="text-4xl font-bold leading-4 py-3">{{ fresh.nameoffresh }} <br>
+                        <span class="font-normal  text-sm">
+                            best quality other market
+                        </span> 
+                         <hr class="w-2/3">
+                    </h2>
+                  
+                    <p class="leading-4 py-1 pt-1">{{ fresh.headingfresh1 }} <br>
+                       <span class="font-normal text-sm">"choice is yours want you need"
+                        <hr class="w-2/3">
+                       </span>
+                    </p> 
+                    
+                    <p class="leading-4 py-1 pt-3">{{ fresh.paragraphfresh }} <br>
+                        <span class="font-normal text-sm">"Gaon ki tazgi, sheher ke darwaze tak."
+                            <hr class="w-2/3">
+                        </span>
+                    </p>
+
+                    <p class="leading-5 py-1 pt-3">{{ fresh.paragraphfresh1 }} 
+                         <hr class="w-2/3">
+                         </p>
+                   
+                    <p class=" pt-3">{{ fresh.offerfresh }}%off || price: ₹{{ fresh.pricefresh }}/-  </p>
+                    
+                    <br>
+                    <h2>&copy {{ fresh.Termfresh }}</h2>
+                  </div>
+                  </a>
+                  <div class="w-80 h-2/3 my-auto ">
+                    <img class="w-full h-full rounded-full" src="{{ fresh.vegitablebimagefresh }}" alt="">
+                  </div>
+                
+
+                </div>
+                {% endfor %}
+         </div>
+    </div>
+
+<div class="max-[430px]:hidden w-full h-140  p-5 px-5">
+    <div class="w-full h-full  flex p-2 gap-5 ">
+        <div class=" main1 w-1/3 h-full overflow-y-auto overflow-x-hidden [&>div]:m-1 [&>div]:my-5">
+            {% for fresh in fresh %}
+             <div class="boxing1 w-full h-105 rounded-2xl  gap-1 flex flex-wrap bg-no-repeat bg-[length:100%_100%]"
+             style="background-image:url('{{ fresh.bgimagefresh }}')">
+
+               <div class="w-[40%] h-full "></div>
+
+               <div class="w-[58%] h-full ">
+                  <div class="w-full pt-10 py-2 pl-10 h-[55%]  ">
+                    <img class="w-full rounded-full h-full" src="{{ fresh.vegitablebimagefresh }}" alt="">
+                  </div>
+                  <a href="{% url 'fresh_addtocart' fresh.id %}">
+                     <div class="w-full h-[45%] [&>p]:font-semibold pl-4  text-white backdrop-blur-[4px]">
+                        <h2 class="text-4xl font-bold leading-4 ">{{ fresh.nameoffresh }} <br>
+                            <span class="font-normal  text-sm">
+                               best quality other market
+                            </span> 
+                          </h2>
+                   
+                      <p class="leading-4 ">{{ fresh.headingfresh1 }} <br>
+                        <span class="font-normal text-sm">
+                           "choice is yours"
+                        </span>
+                     </p> 
+                      <p>{{ fresh.paragraphfresh }} </p>
+
+                     <p>{{ fresh.paragraphfresh1 }}</p>
+                   
+                    <p>{{ fresh.offerfresh }}%off || price: ₹{{ fresh.pricefresh }}/-  </p>
+                 
+                    <h2 class="pt-2">&copy {{ fresh.Termfresh }}</h2>
+
+                  </div>
+                  </a>
+               </div>
+             </div>
+             {% endfor %}
+             
+        </div>
+        <div class="main1 w-1/2 h-full overflow-y-auto overflow-x-hidden [&>div]:m-1 [&>div]:my-5">
+            {% for fresh in fresh %}
+             <div class="boxing2 w-full h-105 rounded-2xl  bg-no-repeat bg-[length:100%_100%]"
+             style="background-image:url('{{ fresh.bgimagefresh }}')">
+                <div class="w-full h-[55%] "></div>
+
+
+                <div class="w-full h-[45%] flex gap-1">
+                    <a href="{% url 'fresh_addtocart' fresh.id %}">
+                    <div class="w-[45%] h-full  ml-10 pl-4 text-white backdrop-blur-[2px]">
+                          <h2 class="text-4xl font-bold leading-4 ">{{ fresh.nameoffresh }} <br>
+                          <span class="font-normal  text-sm">
+                            best quality other market
+                          </span> 
+                           <hr class="w-2/3">
+                       </h2>
+                       <p class="leading-4 ">{{ fresh.headingfresh1 }} <br>
+                         <span class="font-normal text-sm">"choice is yours want you need"
+                          <hr class="w-2/3">
+                         </span>
+                      </p> 
+                    
+                      <p class="leading-4 ">{{ fresh.paragraphfresh }} <br>
+                        <span class="font-normal text-sm">"Gaon ki tazgi, sheher ke darwaze tak."
+                            <hr class="w-2/3">
+                        </span>
+                       </p>
+
+                       <p class="leading-5 ">{{ fresh.paragraphfresh1 }} 
+                           <hr class="w-2/3">
+                            </p>
+                   
+                      <p >{{ fresh.offerfresh }}%off || price: ₹{{ fresh.pricefresh }}/-  </p>
+                        <h2>&copy {{ fresh.Termfresh }}</h2>
+                        </a>
+                      </div>
+                   
+                    <div class="w-[45%] h-full pr-5 py-2 ">
+                        <img class="w-full h-full rounded-4xl" src="{{ fresh.vegitablebimagefresh }}" alt="">
+                    </div>
+                </div>
+
+             </div>
+             {% endfor %}
+             
+        </div>
+
+
+        <div class=" main1 w-1/3 h-full overflow-y-auto overflow-x-hidden [&>div]:m-1 [&>div]:my-5">
+            {% for fresh in fresh %}
+             <div class="boxing1 w-full h-105 rounded-2xl  gap-1 flex flex-wrap bg-no-repeat bg-[length:100%_100%]"
+             style="background-image:url('{{ fresh.bgimagefresh }}')">
+
+               <div class="w-[40%] h-full "></div>
+
+               <div class="w-[58%] h-full ">
+                  <div class="w-full pt-10 py-2 pl-10 h-[55%]  ">
+                    <img class="w-full rounded-full h-full" src="{{ fresh.vegitablebimagefresh }}" alt="">
+                  </div>
+                  <a href="{% url 'fresh_addtocart' fresh.id %}">
+                  <div class="w-full h-[45%] [&>p]:font-semibold pl-4  text-white backdrop-blur-[4px]">
+                    <h2 class="text-4xl font-bold leading-4 ">{{ fresh.nameoffresh }} <br>
+                        <span class="font-normal  text-sm">
+                            best quality other market
+                        </span> 
+                    </h2>
+                   
+                     <p class="leading-4 ">{{ fresh.headingfresh1 }} <br>
+                        <span class="font-normal text-sm">
+                           "choice is yours"
+                        </span>
+                     </p> 
+                      <p>{{ fresh.paragraphfresh }} </p>
+
+                     <p>{{ fresh.paragraphfresh1 }}</p>
+                   
+                    <p>{{ fresh.offerfresh }}%off || price:₹ {{ fresh.pricefresh }}/-  </p>
+                 
+                    <h2 class="pt-2">&copy {{ fresh.Termfresh }}</h2>
+
+                  </div>
+                </a>
+               </div>
+             </div>
+             {% endfor %} 
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    {% include 'footer.html' %}
+
+
+
+    <!---for mobile 430px pr -->
+    {% include 'headermobile.html' %}
+    <div class="min-[430px]:hidden w-full h-100 flex flex-wrap">
+        <div class="w-full h-15">
+            <h1 class="text-2xl font-bold">Fresh</h1>
+            <p>Fresh vegitable available on this site</p>
+        </div>
+         <hr class="w-2/3">
+           <div class="w-full h-80 p-4">
+              <div class="main w-full h-full rounded-2xl shadow whitespace-nowrap
+                  overflow-x-auto overflow-y-hidden flex ">
+                    {% for fresh in fresh %}
+                 <div class="box1 min-w-full h-full p-2 flex flex-wrap 
+                     bg-no-repeat bg-[length:100%_100%]" style="background-image:url('{{ fresh.bgimagefresh }}')">
+                 
+                     <div class="w-[40%] h-[45%]"></div>
+                     <div class="w-[55%] h-[50%]">
+                          <img class="w-full rounded-4xl h-full" src="{{ fresh.vegitablebimagefresh }}" alt="">
+                      </div>
+                        <div class="w-[40%] h-[45%] "></div>
+
+                         <a href="{% url 'fresh_addtocart' fresh.id %}">
+                             <div class="w-1/2 h-[57%] p-1 text-white backdrop-blur-[4px] hover:underline ">
+                                 <h2 class="text-2xl font-bold ">{{ fresh.nameoffresh }} 
+                                  <span class="text-[20px] font-semibold">{{ fresh.offerfresh }}%off</span>
+                                  </h2>
+                                  <span class="font-semibold leading-4">{{ fresh.headingfresh1 }} </span> 
+                           
+                                  <p class="font-semibold"> price: {{ fresh.pricefresh }}/-  </p>
+                                  <br>
+                                  <h2>&copy {{ fresh.Termfresh }}</h2>
+                         </a>
+                             </div>
+                 </div>
+                 {% endfor %}
+                 
+              </div>
+         </div>
+    </div>
+    <script>
+
+        const main1Element = document.querySelectorAll('.main1');
+
+        main1Element.forEach((main1) => {
+           const boxes1 = main1.querySelectorAll('.boxing1');
+            const boxHeight = boxes1[0]?.offsetHeight || 300;
+
+          let direction = 'up';
+
+         function autoupdown() {
+             const maxscrolling = main1.scrollHeight - main1.clientHeight;
+
+              if (direction === "up") {
+             main1.scrollBy({ top: boxHeight, behavior: 'smooth' });
+              if (main1.scrollTop + boxHeight >= maxscrolling) {
+                direction = "down";
+                }
+              } else {
+              main1.scrollBy({ top: -boxHeight, behavior: 'smooth' });
+              if (main1.scrollTop - boxHeight <= 0) {
+                direction = "up";
+              }
+          }
+        }
+
+         setInterval(autoupdown, 2000);
+      });
+
+        
+   
+
+
+        const mainElement = document.querySelectorAll('.main');
+
+        mainElement.forEach((main) => {
+            const boxes = main.querySelectorAll('.box1');
+            const boxwidth = boxes[0]?.offsetWidth || 300;
+            let direction = "right";
+
+            function autoscrolling (){
+                const maxscroll = main.scrollWidth - main.clientWidth;
+
+                if(direction === "right"){
+                    main.scrollBy({left: boxwidth, behavior:'smooth'});
+                    if(main.scrollLeft + boxwidth >= maxscroll){
+                        direction = "left";
+                    } 
+                }
+                else{main.scrollBy({left: - boxwidth, behavior:'smooth'});
+                    if(main.scrollLeft - boxwidth <= 0){
+                        direction = "right";
+                    }        
+               }
+            }
+
+            setInterval(autoscrolling, 2000);
+        });
+    </script>
+    {% include 'footermobile.html' %}
+</body>
+</html>

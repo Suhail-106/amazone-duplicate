@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto-Updating Product</title>
+</head>
+<body style="font-family: sans-serif; background: #f5f5f5; text-align: center;">
+  <h1>Latest Laptop</h1>
+  <div id="product-card" style="max-width: 400px; margin: auto; background: white; padding: 20px; border-radius: 10px;">
+    <img id="product-img" src="" alt="Laptop" style="width: 100%; border-radius: 10px;">
+    <h2 id="product-title"></h2>
+    <p id="product-price" style="color: green; font-weight: bold;"></p>
+    <p id="product-desc"></p>
+    <small id="last-updated"></small>
+  </div>
+
+  <script>
+    async function fetchProduct() {
+      const res = await fetch("http://localhost:5000/product");
+      const product = await res.json();
+
+      document.getElementById("product-img").src = product.image;
+      document.getElementById("product-title").innerText = product.title;
+      document.getElementById("product-price").innerText = "$" + product.price;
+      document.getElementById("product-desc").innerText = product.description;
+      document.getElementById("last-updated").innerText = "Last updated: " + new Date(product.updatedAt).toLocaleString();
+    }
+    fetchProduct();
+  </script>
+
+</body>
+</html>

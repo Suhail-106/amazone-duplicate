@@ -1,0 +1,883 @@
+{% load static %}
+
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+    <script src="{% static 'index.js' %}"></script>
+     <style>
+         .clip-star {
+          clip-path: polygon(50% 0%, 61% 35%,98% 35%,68% 57%,79% 91%,50% 70%, 21% 91%, 32% 57%,2% 35%, 39% 35% ); };
+         .laptopscrollbar::-webkit-scrollbar {
+         display: none;               /* Chrome, Safari, Opera */
+         }
+       #actionToys::-webkit-scrollbar{display:none;}
+       #actionToys1::-webkit-scrollbar{display:none;}
+       #actionToys2::-webkit-scrollbar{display:none;}
+       #actionToys3::-webkit-scrollbar{display:none;}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+.scroll-container::-webkit-scrollbar {
+    height: 8px;
+    background: transparent;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.5);
+    border-radius: 4px;
+}
+.scroll-container:not(.show-scrollbar)::-webkit-scrollbar {
+    display: none;}
+
+
+
+
+       .main1::-webkit-scrollbar{display:none;}
+
+    </style>
+ </head>
+ <body class="w-screen h-screen overflow-x-hidden bg-slate-50">
+     {% include "header.html" %}
+     {% include 'headermobile.html' %}
+   <div class="w-full h-25 sticky top-10 z-5 max-[430px]:hidden bg-red-500 shadow p-5">
+        <marquee class="text-7xl
+        text-shadow-slate-400 text-shadow-lg/30 text-white font-bold font-serif">💵 cash on Delivery | 🛣️ free Delivery | 🏧 UPI Payments</marquee>
+   </div>
+   <div class="w-full h-10 min-[430px]:hidden bg-red-400 p-1">
+        <marquee class="text-2xl text-white font-bold font-serif">💵 cash on Delivery | 🛣️ free Delivery | 🏧 UPI Payments</marquee>
+   </div>
+
+ <div class='w-full h-50 max-[430px]:hidden font-serif p-2'>
+ <div class="w-full h-full text-center px-40 p-5">
+      <h1 class="text-7xl font-bold">Electronics item's bazaar</h1>
+      <p class="text-md font-semibold text-2xl text-slate-950">All Electronics item with full guanranty and full accessorries are available here [⭐⭐⭐⭐⭐]</p>
+      <hr class="w-full ml-[8px]">
+ </div>
+</div>
+
+
+
+ <div class='w-full h-30 max-[430px]:hidden p-2'>
+   <div class="w-full h-full  px-10 p-5">
+      <h1 class="text-4xl font-bold ">Laptop Electronics</h1>
+      <p class="text-md font-semibold ">All laptops and accessories are available here [⭐⭐⭐⭐⭐]</p>
+      <hr class="w-130 ml-[-4px]">
+   </div>
+ </div>
+
+
+
+   <div class="w-full h-220 p-5 max-[430px]:hidden ">
+     <div id="scrollcontainer" class="w-full h-full flex overflow-x-auto overflow-y-hidden">
+        <div class="scroll-box w-full h-full flex flex-wrap px-15 ">
+            <div id="actionToys1" class="min-w-full h-100 px-8 gap-15 flex  overflow-x-auto">
+              {% for electronicslaptop in electronicslaptop %}
+              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+               <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8
+               ">
+                 <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
+             shadow-sm shadow-black group">
+               
+               <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+               
+                  <img class="w-full h-full rounded-[65px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+                 
+                 <div class="w-55 text-white rounded-xl px-4 h-8 bg-blue-600 text-2xl font-bold absolute mt-55 text-center
+                  text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2></div>
+                </div>
+                 <div class="w-70 h-32 p-2 rounded-xl shadowshadow-slate-600 text-md font-serif font-semibold
+                  bg-blue-200 mt-4  absolute hidden group-hover:block ml-[-45px]">
+                    <h2>{{ electronicslaptop.laptopname }}</h2>
+                    <h2>price: ₹{{ electronicslaptop.final_price }}/- || <span>offer: {{ electronicslaptop.laptopoffer }}%off</span></h2>
+                    <h2>M.R.P: ₹{{ electronicslaptop.laptopmrpprice }}/-</h2>
+                   </div>
+                
+                </div>
+               </div> 
+             
+                 </a>
+                {% endfor %}
+             </div>
+                
+                 <div id="actionToys" class=" min-w-full h-100  px-8 gap-15 flex overflow-x-auto">
+              {% for electronicslaptop in electronicslaptop %}
+              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+               <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8">
+                 <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
+             shadow-sm shadow-black group">
+               
+               <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+               
+                  <img class="w-full h-full rounded-[65px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+                 
+                 <div class="w-55 text-white rounded-xl px-4 h-8 bg-blue-600 text-2xl font-bold absolute mt-55 text-center
+                  text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2></div>
+                </div>
+                 <div class="w-70 h-32 p-2 rounded-xl shadowshadow-slate-600 text-md font-serif font-semibold
+                  bg-blue-200 mt-4  absolute hidden group-hover:block ml-[-45px]">
+                    <h2>{{ electronicslaptop.laptopname }}</h2>
+                    <h2>price: ₹{{ electronicslaptop.final_price }}/- || <span>offer: {{ electronicslaptop.laptopoffer }}%off</span></h2>
+                    <h2>M.R.P: ₹{{ electronicslaptop.laptopmrpprice }}/-</h2>
+                   </div>
+                
+                </div>
+               </div> 
+             
+                 </a>
+                {% endfor %}
+             </div>
+         
+          </div>
+
+             <div class="absolute w-full top-145 left-0 px-3 justify-between flex text-white z-2">
+                  <button onclick="scrollL1(),scrollL2()" class="bg-blue-600 hover:bg-blue-500
+                  [clip-path:polygon(30%_0%,100%_0%,70%_50%,100%_100%,30%_100%,0_50%)]
+                 text-black px-4 py-7 rounded">← </button>
+                  <button onclick="scrollR1(),scrollR2()" class="bg-blue-600 hover:bg-blue-500
+                 [clip-path:polygon(0%_0%,70%_0%,100%_50%,70%_100%,0%_100%,25%_50%)]
+               text-black px-4 py-7 rounded"> →</button>
+             </div>
+             
+             <div class="absolute w-full top-255 left-0 px-3  justify-between flex text-white  z-2">
+                  <button onclick="scrollL(),scrollL3()" class="bg-blue-600 hover:bg-blue-500
+                  [clip-path:polygon(30%_0%,100%_0%,70%_50%,100%_100%,30%_100%,0_50%)]
+                 text-black px-4 py-7 rounded">← </button>
+                  <button onclick="scrollR(),scrollR3()" class="bg-blue-600 hover:bg-blue-500
+                 [clip-path:polygon(0%_0%,70%_0%,100%_50%,70%_100%,0%_100%,25%_50%)]
+                 text-black px-4 py-7 rounded"> →</button>
+             </div>
+            
+               <div class="absolute left-0 w-full top-210 px-3  flex justify-between">
+                  <div onclick="scrollLeftCustom()" class="flex">
+                      <button class="bg-blue-600 hover:bg-blue-500
+                      [clip-path:polygon(30%_0%,100%_0%,70%_50%,100%_100%,30%_100%,0_50%)]
+                     text-black px-4 py-1 rounded">← </button>
+                      <button class="bg-blue-600 hover:bg-blue-500
+                       [clip-path:polygon(40%_0%,100%_0%,70%_50%,100%_100%,40%_100%,0_50%)]
+                    text-black px-4 py-1 rounded"></button>
+                  </div>
+                  <div onclick="scrollRightCustom()" class="flex">
+                    <button>
+                       <button class="bg-blue-600 hover:bg-blue-500
+                          [clip-path:polygon(0%_0%,60%_0%,100%_50%,60%_100%,0%_100%,25%_50%)]
+                        text-black px-4 py-1 rounded"></button>
+                        <button class="bg-blue-600 hover:bg-blue-500
+                        [clip-path:polygon(0%_0%,70%_0%,100%_50%,70%_100%,0%_100%,25%_50%)]
+                         text-black px-4 py-1 rounded"> →</button>
+                    </button>  
+                  </div>
+               </div>
+          
+
+        
+            <div class="scroll-box w-full h-full flex flex-wrap px-15">
+            <div id="actionToys2" class="w-full h-100 gap-15  px-8 flex overflow-x-auto">
+             {% for electronicslaptop in electronicslaptop %}
+              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+               <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8">
+                 <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
+             shadow-sm shadow-black group">
+               
+               <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+               
+                  <img class="w-full h-full rounded-[65px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+                 
+                 <div class="w-55 text-white rounded-xl px-4 h-8 bg-blue-600 text-2xl font-bold absolute mt-55 text-center
+                  text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2></div>
+                </div>
+                 <div class="w-70 h-32 p-2 rounded-xl shadowshadow-slate-600 text-md font-serif font-semibold
+                  bg-blue-200 mt-4  absolute hidden group-hover:block ml-[-45px]">
+                    <h2>{{ electronicslaptop.laptopname }}</h2>
+                    <h2>price: ₹{{ electronicslaptop.final_price }}/- || <span>offer: {{ electronicslaptop.laptopoffer }}%off</span></h2>
+                    <h2>M.R.P: ₹{{ electronicslaptop.laptopmrpprice }}/-</h2>
+                   </div>
+                
+                </div>
+               </div> 
+             
+                 </a>
+                {% endfor %}
+             </div>
+              <div id="actionToys3" class=" min-w-full h-100 gap-15  px-8 flex overflow-x-auto">
+              {% for electronicslaptop in electronicslaptop %}
+              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+               <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8">
+                 <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
+             shadow-sm shadow-black group">
+               
+               <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+               
+                  <img class="w-full h-full rounded-[65px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+                 
+                 <div class="w-55 text-white rounded-xl px-4 h-8 bg-blue-600 text-2xl font-bold absolute mt-55 text-center
+                  text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2></div>
+                </div>
+                 <div class="w-70 h-32 p-2 rounded-xl shadowshadow-slate-600 text-md font-serif font-semibold
+                  bg-blue-200 mt-4  absolute hidden group-hover:block ml-[-45px]">
+                    <h2>{{ electronicslaptop.laptopname }}</h2>
+                    <h2>price: ₹{{ electronicslaptop.final_price }}/- || <span>offer: {{ electronicslaptop.laptopoffer }}%off</span></h2>
+                    <h2>M.R.P: ₹{{ electronicslaptop.laptopmrpprice }}/-</h2>
+                   </div>
+                
+                </div>
+               </div> 
+             
+                 </a>
+                {% endfor %}
+             </div>
+          </div>
+         
+    </div> 
+ </div>
+
+
+
+ <!--for mobile 430px ke neeche-->
+   <div class="w-full h-118 min-[430px]:hidden p-2">
+     <div id="scrollcontainer" class="w-full h-full flex overflow-x-auto overflow-y-hidden">
+        <div class="scroll-box w-full h-full flex flex-wrap ">
+            <div id="actionToys1" class="min-w-full h-57 px-2 gap-2 flex  overflow-x-auto">
+              {% for electronicslaptop in electronicslaptop %}
+              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+               <div class="min-w-55 h-55 bg-red-50 rounded-xl shadow p-4">
+                 <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
+             shadow-sm shadow-black group">
+                <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+                  <img class="w-full h-full rounded-[65px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+                 <div class="w-50 text-white rounded-xl px-4 h-8 bg-blue-600 text-xl font-bold absolute mt-50 text-center
+                  text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2></div>
+                </div>
+                </div>
+               </div> 
+                 </a>
+                {% endfor %}
+             </div>
+                 <div id="actionToys" class="min-w-full h-57 px-2 gap-2 flex  overflow-x-auto">
+              {% for electronicslaptop in electronicslaptop %}
+              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+               <div class="min-w-55 h-55 bg-red-50 rounded-xl shadow p-4">
+                 <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
+             shadow-sm shadow-black ">
+               <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+                  <img class="w-full h-full rounded-[65px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+                 <div class="w-50 text-white rounded-xl px-4 h-8 bg-blue-600 text-xl font-bold absolute mt-50 text-center
+                  text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2></div>
+                </div>
+                </div>
+               </div> 
+                 </a>
+                {% endfor %}
+             </div>
+            </div>
+            <div class="scroll-box w-full h-full flex flex-wrap">
+            <div id="actionToys2" class="w-full h-57 px-2 gap-2 flex overflow-x-auto">
+             {% for electronicslaptop in electronicslaptop %}
+              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+               <div class="min-w-55 h-55 bg-red-50 rounded-xl shadow p-4">
+                 <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
+                 shadow-sm shadow-black">
+               <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+                  <img class="w-full h-full rounded-[65px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+                 <div class="w-50 text-white rounded-xl px-4 h-8 bg-blue-600 text-xl font-bold absolute mt-50 text-center
+                  text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2></div>
+                </div>
+                </div>
+               </div> 
+                 </a>
+                {% endfor %}
+             </div>
+              <div id="actionToys3" class="min-w-full h-57 px-2 gap-2 flex  overflow-x-auto">
+              {% for electronicslaptop in electronicslaptop %}
+              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+               <div class="min-w-55 h-55 bg-red-50 rounded-xl shadow p-4">
+                 <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
+             shadow-sm shadow-black">
+               <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+                  <img class="w-full h-full rounded-[65px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+                 <div class="w-50 text-white rounded-xl px-4 h-8 bg-blue-600 text-xl font-bold absolute mt-50 text-center
+                  text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2></div>
+                </div>
+                </div>
+               </div> 
+                 </a>
+                {% endfor %}
+             </div>
+          </div>
+    </div> 
+ </div>
+
+ <script>
+   /* forth laptop scrollbar */
+  const actionToys3 = document.getElementById('actionToys3');
+       
+      function scrollL3(){
+        actionToys3.scrollBy({ left: -1520, behavior: 'smooth'});
+      }
+
+      function scrollR3(){
+        actionToys3.scrollBy({ left: 1520, behavior: 'smooth'});
+      }
+
+   /* third laptop scrollbar */
+   const actionToys2 = document.getElementById('actionToys2');
+       
+      function scrollL2(){
+        actionToys2.scrollBy({ left: -1520, behavior: 'smooth'});
+      }
+
+      function scrollR2(){
+        actionToys2.scrollBy({ left: 1520, behavior: 'smooth'});
+      }
+  /* second laptop scrollbar */
+      const actionToys1 = document.getElementById('actionToys1');
+       
+      function scrollL1(){
+        actionToys1.scrollBy({ left: -1520, behavior: 'smooth'});
+      }
+
+      function scrollR1(){
+        actionToys1.scrollBy({ left: 1520, behavior: 'smooth'});
+      }
+ /* first laptop scrollbar */
+       const actionToys = document.getElementById('actionToys');
+       
+      function scrollL(){
+        actionToys.scrollBy({ left: -1520, behavior: 'smooth'});
+      }
+
+      function scrollR(){
+        actionToys.scrollBy({ left: 1520, behavior: 'smooth'});
+      }
+    </script>
+
+
+ <div class='w-full h-30 max-[430px]:hidden p-2'>
+   <div class="w-full h-full  px-10 p-5">
+      <h1 class="text-4xl font-bold ">Headphones Electronics</h1>
+      <p class="text-md font-semibold ">All headphone and earbuds available [⭐⭐⭐⭐⭐]</p>
+      <hr class="w-130 ml-[-4px]">
+   </div>
+  </div>
+   <div class="w-full h-100 bg-red-50 p-5 max-[430px]:hidden">
+      <div id="actionToys4" class="scroll-container w-full h-full  gap-18 px-10 overflow-x-auto overflow-y-hidden flex">
+           <div class="min-w-95 ml-[-40px] text-center py-30 h-90 font-bold font-serif bg-red-50 shadow
+           shadow-slate-300 absolute">
+            <h1 class="text-3xl text-red-600">Deals on</h1>
+            <h1 class="text-5xl text-green-800">Headphones</h1>
+            <h1 class="text-2xl">starting ₹159</h1>
+           </div>
+           <div class="min-w-85 h-full bg-white">
+              <div class="w-full h-2/3 bg-red-600"></div>
+           </div>
+           {% for electronicsheadphones in electronicsheadphones %}
+           <a href="{% url 'headphonesaddtocart' electronicsheadphones.id %}">
+            <div class="tiltContainer min-w-85 h-full">
+             <div class="tiltBox min-w-85 h-full bg-white shadow rounded">
+              
+              <div class="w-full h-60 p-2 px-15">
+                <img class="w-full h-full rounded-2xl" src="{{ electronicsheadphones.headphonesimage }}" alt="">
+              </div>
+              <div class="w-45 mx-auto h-1/12 text-center font-semibold text-blue-700">
+                up to {{ electronicsheadphones.headphonesoffer }}% off
+              </div>
+
+              <div class="w-full h-1/3 hover:underline px-2">
+                <h1 class="text-md font-semibold">{{ electronicsheadphones.headphonesname }}</h1>
+                <h1 class="text-xl font-semibold">price: ₹{{ electronicsheadphones.final_priceheadphones }}/-
+                    <span class="text-sm font-normal">[M.R.P.: {{ electronicsheadphones.headphonesmrpprice }}]</span>
+                </h1>
+              </div>
+           
+           </div>
+          </div>
+            </a>
+          {% endfor %}    
+              <div class="absolute w-full mt-30 left-0 px-1 justify-between flex text-white z-2">
+                <div id="left-scroll-actionToys4" class="w-15 h-25 p-2  bg-white shadow-sm shadow-slate-700  ml-100">
+                   <button  class="bg-blue-300 hover:bg-blue-400
+                  [clip-path:polygon(30%_0%,100%_0%,70%_50%,100%_100%,30%_100%,0_50%)]
+                 text-black px-4 py-7 rounded">← </button>
+                </div> 
+                <div id="show-scroll-actionToys4" class="w-15 h-25 p-2 shadow-sm shadow-slate-700  bg-white">
+                  <button  class="bg-blue-300 hover:bg-blue-400
+                  [clip-path:polygon(0%_0%,70%_0%,100%_50%,70%_100%,0%_100%,25%_50%)]
+                text-black px-4 py-7 rounded"> →</button>
+               </div>
+             </div> 
+       </div>    
+    </div>
+
+    <!--- headphones for 430px ke neeche-->
+
+     <div class="w-full h-80 bg-red-50 p-1 min-[430px]:hidden">
+       <div id="actionToys4" class="w-full h-full gap-4 overflow-x-auto overflow-y-hidden flex">
+           {% for electronicsheadphones in electronicsheadphones %}
+           <a href="{% url 'headphonesaddtocart' electronicsheadphones.id %}">
+            <div class="min-w-70 h-full bg-white shadow rounded">
+              <div class="w-full h-50 p-2 px-15">
+                <img class="w-full h-full rounded-2xl" src="{{ electronicsheadphones.headphonesimage }}" alt="">
+              </div>
+              <div class="w-45 mx-auto h-1/12 text-center font-semibold text-blue-700">
+                up to {{ electronicsheadphones.headphonesoffer }}% off
+              </div>
+              <div class="w-full h-1/3  px-2">
+                <h1>{{ electronicsheadphones.headphonesname }}</h1>
+                <h1>price: ₹{{ electronicsheadphones.final_priceheadphones }}/-
+                    <span>[M.R.P.: {{ electronicsheadphones.headphonesmrpprice }}]</span>
+                </h1>
+              </div>
+             </div>
+             </a>
+            {% endfor %}       
+         </div>    
+      </div>
+      <br><br>
+ {% include 'footermobile.html' %}
+    
+<!------------------storing devices---------------------->
+
+  <div class='w-full h-30 max-[430px]:hidden p-2'>
+   <div class="w-full h-full px-10 p-5">
+      <h1 class="text-4xl font-bold ">Devices for everything stored</h1>
+      <p class="text-md font-semibold ">All strorings devices are available here for everything stored [⭐⭐⭐⭐⭐]</p>
+      <hr class="w-130 ml-[-4px]">
+   </div>
+  </div>
+   <div class="w-full h-100 bg-red-50 p-5 max-[430px]:hidden">
+      <div id="actionToys5" class="scroll-container w-full h-full  gap-18 px-10 overflow-x-auto overflow-y-hidden flex">
+           <div class="min-w-95 ml-[-40px] text-center py-30 h-90 font-bold font-serif bg-red-50 shadow
+           shadow-slate-300 absolute z-2">
+            <h1 class="text-3xl text-red-600">Deals on</h1>
+            <h1 class="text-5xl text-green-800">Storage</h1> 
+            <h1 class="text-5xl text-green-800">Devices</h1>
+            <h1 class="text-2xl">starting ₹259</h1>
+           </div>
+           <div class="min-w-85 h-full bg-white">
+              <div class="w-full h-2/3 bg-red-600"></div>
+           </div>
+          {% for electronicsstored in electronicsstored %}
+          <a href="{% url 'storedaddtocart' electronicsstored.id %}">
+           <div class="tiltContainer min-w-85 h-full  ">
+           <div class="tiltBox w-full h-full bg-white shadow rounded">
+            <div class="w-full h-55 p-2 px-15">
+          <img class="w-full h-full rounded-2xl hover:scale-105 transition-transform
+          duration-75 ease-in-out" src="{{ electronicsstored.storedimage }}" alt="">
+        </div>
+        <div class="w-45 mx-auto h-1/12 text-center font-semibold text-blue-700">
+          up to {{ electronicsstored.storedoffer }}% off
+        </div>
+        <div class="w-full h-1/3 px-2 hover:underline">
+          <h1 class="text-md font-semibold">{{ electronicsstored.storedname }}</h1>
+          <h1 class="text-xl font-semibold">
+            price: ₹{{ electronicsstored.final_pricestored }}/-
+            <span class="text-sm font-normal">[M.R.P.: {{ electronicsstored.storedmrpprice }}]</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </a>
+{% endfor %}
+
+              <div class="absolute w-full mt-30 left-0 px-1 justify-between flex text-white z-2">
+                <div id="left-scroll-actionToys5" class="w-15 h-25 p-2  bg-white shadow-sm shadow-slate-700  ml-100">
+                   <button  class="bg-blue-300 hover:bg-blue-400
+                  [clip-path:polygon(30%_0%,100%_0%,70%_50%,100%_100%,30%_100%,0_50%)]
+                 text-black px-4 py-7 rounded">← </button>
+                </div> 
+                <div id="show-scroll-actionToys5" class="w-15 h-25 p-2 shadow-sm shadow-slate-700  bg-white">
+                  <button  class="bg-blue-300 hover:bg-blue-400
+                  [clip-path:polygon(0%_0%,70%_0%,100%_50%,70%_100%,0%_100%,25%_50%)]
+                text-black px-4 py-7 rounded"> →</button>
+               </div>
+             </div> 
+       </div>    
+    </div>
+
+     <script>
+        const scrollContainer = document.getElementById("scrollcontainer");
+  const scrollBoxes = document.querySelectorAll(".scroll-box");
+
+  // Har ek box ki actual width le lete hain
+  const boxWidth = scrollBoxes[0]?.offsetWidth || 300; // fallback in case empty  
+
+  function scrollLeftCustom() {
+    scrollContainer.scrollBy({ left: -boxWidth, behavior: 'smooth' });
+  }
+
+  function scrollRightCustom() {
+    scrollContainer.scrollBy({ left: boxWidth, behavior: 'smooth' });
+  }
+      // IDs ka list - yahan pe tum jitne chaho container add kar sakte ho
+const scrollContainers = ['actionToys4', 'actionToys5', 'actionToys6'];
+
+scrollContainers.forEach(id => {
+    const container = document.getElementById(id);
+    const showScrollBtn = document.getElementById(`show-scroll-${id}`);
+
+    if (container && showScrollBtn) {
+        let scrollTimeout;
+
+        function showScrollbar() {
+            container.classList.add('show-scrollbar');
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                container.classList.remove('show-scrollbar');
+            }, 800); // 0.8 sec baad hide
+        }
+
+        // Button click → scroll right
+        showScrollBtn.addEventListener('click', () => {
+            container.scrollBy({ left: 1520, behavior: 'smooth' });
+            showScrollbar();
+        });
+
+        // Agar tum left/right dono ke liye chahte ho:
+        const leftBtn = document.getElementById(`left-scroll-${id}`);
+        if (leftBtn) {
+            leftBtn.addEventListener('click', () => {
+                container.scrollBy({ left: -1520, behavior: 'smooth' });
+                showScrollbar();
+            });
+        }
+    }
+});
+
+     </script>
+
+
+
+
+     <!----style>
+  .nested-box {
+    width: 100%;
+    height: 100%;
+    animation: spin 10s infinite linear;
+    transform-origin: center;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+</!-style>
+
+
+  <div class="w-96 h-96 m-15 bg-slate-800 p-4 flex justify-center items-center">
+    <div class="w-full h-full bg-blue-600 p-4 nested-box">
+      <div class="w-full h-full bg-red-600 p-4 nested-box">
+        <div class="w-full h-full bg-blue-600 p-4 nested-box">
+          <div class="w-full h-full bg-red-600 p-4 nested-box">
+            <div class="w-full h-full bg-blue-600 p-4 nested-box">
+              <div class="w-full h-full bg-red-600 p-4 nested-box">
+                <-- aur nested layers jaise tumne banaye >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+<style>
+  .container-tilt {
+    perspective: 1000px;
+  }
+  .tilt-box {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+  }
+</style>
+
+<div class="tiltContainer w-screen h-screen flex justify-center items-center bg-gray-900 container-tilt" >
+  <div class="tiltBox w-96 h-96 tilt-box">
+    <div class="w-full h-full bg-blue-600 p-4">
+      <div class="w-full h-full bg-red-600 p-4">
+        <div class="w-full h-full bg-blue-600 p-4">
+          <div class="w-full h-full bg-red-600 p-4">
+            <div class="w-full h-full bg-blue-600 p-4">
+              <div class="w-full h-full bg-red-600 p-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<div class="tiltContainer w-screen h-screen flex justify-center items-center bg-gray-900 container-tilt" >
+  <div class="tiltBox w-96 h-96 tilt-box">
+    <div class="w-full h-full bg-blue-600 p-4">
+      <div class="w-full h-full bg-red-600 p-4">
+        <div class="w-full h-full bg-blue-600 p-4">
+          <div class="w-full h-full bg-red-600 p-4">
+            <div class="w-full h-full bg-blue-600 p-4">
+              <div class="w-full h-full bg-red-600 p-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+ document.querySelectorAll('.tiltContainer').forEach(container => {
+  const tiltBox = container.querySelector('.tiltBox');
+  if (!tiltBox) return;
+
+  container.addEventListener('mousemove', e => {
+    const rect = container.getBoundingClientRect();
+    let x = ((e.clientX - rect.left) / rect.width - 0.5) * 30;
+    let y = ((e.clientY - rect.top) / rect.height - 0.5) * -30;
+    tiltBox.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+  });
+
+  container.addEventListener('mouseleave', () => {
+    tiltBox.style.transform = `rotateY(0deg) rotateX(0deg)`;
+  });
+});
+
+</script>
+
+<style>
+  .nested-box1
+  {
+   width: 100%;
+   height:100%;
+   animation:spin3d 12s infinite linear, gradientshift 5s infinite alternate ease-in-out;
+   transform-style: preserve-3d; 
+   transform-origin:center;
+   border-radius:12px;
+   background: linear-gradient(45deg, red, blue, green);
+   box-shadow: 0 0 15px white,
+               0 0 30px blue;
+   transition:animation-duration 0.3s, transform 0.3s;
+  }
+  .nested-box1:hover{
+    animation-duration:6s;
+    transform:scale(1.05);
+    box-shadow: 0 0 30px white,
+                0 0 60px blue;
+
+  }
+
+   @keyframes spin3d {
+    0% {transform: rotateX(0deg) rotateY(0deg) scale(1); }
+    50% {transform: rotateX(180deg) rotateY(180deg) scale(1.05); }
+    100% {transform: rotateX(360deg) rotateY(360deg) scale(1); }
+   }
+
+   @keyframes gradientshift{
+    0%{ background-position: 0% 50%;}
+    100%{ background-position: 100% 50%;}
+
+   }
+</style>
+  <div class="w-96 h-96 bg-white p-4 flex justify-center items-center">
+    <div class="w-full h-full bg-blue-600 p-4 nested-box1">
+      <div class="w-full h-full bg-red-600 p-4 nested-box1">
+        <div class="w-full h-full bg-blue-600 p-4 nested-box1">
+          <div class="w-full h-full bg-red-600 p-4 nested-box1">
+            <div class="w-full h-full bg-blue-600 p-4 nested-box1">
+              <div class="w-full h-full bg-red-600 p-4 nested-box1">
+                <div class="w-full h-full bg-blue-600 p-4 nested-box">
+                  <div class="w-full h-full bg-red-600 p-4 nested-box">
+                    <div class="w-full h-full bg-blue-600 p-4 nested-box1" style="background-image:url(
+                    https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8Fettjl2rGDjHBlCYCXcWMRAoKDr_AQOoXQ&s)">
+                    </div>    
+                  </div>
+                </div>
+                <-- aur nested layers jaise tumne banaye >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<style>
+ 
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .resizable {
+    position: absolute;
+    width: 90%;
+    left:5%;
+    height: 100%;
+    background:gray;
+    border-radius: 8px;
+    
+  }
+  .header {
+    background: rgba(0,0,0,0.4);
+    color: white;
+    padding: 5px;
+    cursor: move;
+    text-align: center;
+    font-size: 14px;
+    user-select: none;
+  }
+  .handle {
+    position: absolute;
+    background: rgba(255,255,255,0.3);
+  }
+
+  /* Side handles */
+  .handle-top    { top: 0; left: 0; height: 8px; width: 100%; cursor: ns-resize; }
+  .handle-bottom { bottom: 0; left: 0; height: 8px; width: 100%; cursor: ns-resize; }
+  .handle-left   { top: 0; left: 0; height: 100%; width: 8px; cursor: ew-resize; }
+  .handle-right  { top: 0; right: 0; height: 100%; width: 8px; cursor: ew-resize; }
+
+  /* Corner handles */
+  .handle-tl { top: 0; left: 0; width: 12px; height: 12px; cursor: nwse-resize; }
+  .handle-tr { top: 0; right: 0; width: 12px; height: 12px; cursor: nesw-resize; }
+  .handle-bl { bottom: 0; left: 0; width: 12px; height: 12px; cursor: nesw-resize; }
+  .handle-br { bottom: 0; right: 0; width: 12px; height: 12px; cursor: nwse-resize; }
+</style>
+<div class="container">
+  <div class="resizable" id="resizableBox">
+    <div class="header" id="dragHeader">Drag Me</div>
+     <div class="w-full h-[95%] bg-red-600 flex gap-5 flex-wrap p-10">
+       <div class="w-[20%] h-[40%] bg-blue-100">
+         <div class="text-[clamp(0.5rem,1vw,2rem)]">helllsfjlkdj;kl</div>
+       </div>
+       <div class="w-[20%] h-[40%] bg-blue-100"></div>
+       <div class="w-[20%] h-[40%] bg-blue-100"></div>
+       <div class="w-[20%] h-[40%] bg-blue-100"></div>
+       <div class="w-[20%] h-[40%] bg-blue-100"></div>
+       <div class="w-[20%] h-[40%] bg-blue-100"></div>
+       <div class="w-[20%] h-[40%] bg-blue-100"></div>
+       <div class="w-[20%] h-[40%] bg-blue-100"></div>
+      
+    
+     </div>
+    <-- Side Handles>
+    <div class="handle handle-top"></div>
+    <div class="handle handle-bottom"></div>
+    <div class="handle handle-left"></div>
+    <div class="handle handle-right"></div>
+
+    <-- Corner Handles >
+    <div class="handle handle-tl"></div>
+    <div class="handle handle-tr"></div>
+    <div class="handle handle-bl"></div>
+    <div class="handle handle-br"></div>
+  </div>
+</div>
+<br><br><br><br>
+<script->
+  const box = document.getElementById('resizableBox');
+  const dragHeader = document.getElementById('dragHeader');
+
+  let isResizing = false;
+  let currentHandle = null;
+  let startX, startY, startWidth, startHeight, startTop, startLeft;
+
+  // Resize logic
+  document.querySelectorAll('.handle').forEach(handle => {
+    handle.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      isResizing = true;
+      currentHandle = handle.classList;
+      startX = e.clientX;
+      startY = e.clientY;
+      startWidth = box.offsetWidth;
+      startHeight = box.offsetHeight;
+      startTop = box.offsetTop;
+      startLeft = box.offsetLeft;
+      document.body.style.userSelect = "none";
+    });
+  });
+
+  // Drag logic
+  let isDragging = false;
+  dragHeader.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    isDragging = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    startTop = box.offsetTop;
+    startLeft = box.offsetLeft;
+    document.body.style.userSelect = "none";
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    let dx = e.clientX - startX;
+    let dy = e.clientY - startY;
+
+    if (isResizing) {
+      if (currentHandle.contains('handle-right')) {
+        box.style.width = startWidth + dx + "px";
+      }
+      if (currentHandle.contains('handle-left')) {
+        box.style.width = startWidth - dx + "px";
+        box.style.left = startLeft + dx + "px";
+      }
+      if (currentHandle.contains('handle-bottom')) {
+        box.style.height = startHeight + dy + "px";
+      }
+      if (currentHandle.contains('handle-top')) {
+        box.style.height = startHeight - dy + "px";
+        box.style.top = startTop + dy + "px";
+      }
+
+      // Corners
+      if (currentHandle.contains('handle-br')) {
+        box.style.width = startWidth + dx + "px";
+        box.style.height = startHeight + dy + "px";
+      }
+      if (currentHandle.contains('handle-bl')) {
+        box.style.width = startWidth - dx + "px";
+        box.style.left = startLeft + dx + "px";
+        box.style.height = startHeight + dy + "px";
+      }
+      if (currentHandle.contains('handle-tr')) {
+        box.style.width = startWidth + dx + "px";
+        box.style.height = startHeight - dy + "px";
+        box.style.top = startTop + dy + "px";
+      }
+      if (currentHandle.contains('handle-tl')) {
+        box.style.width = startWidth - dx + "px";
+        box.style.left = startLeft + dx + "px";
+        box.style.height = startHeight - dy + "px";
+        box.style.top = startTop + dy + "px";
+      }
+    }
+
+    if (isDragging) {
+      box.style.top = startTop + dy + "px";
+      box.style.left = startLeft + dx + "px";
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    isResizing = false;
+    isDragging = false;
+    currentHandle = null;
+    document.body.style.userSelect = "";
+  });
+</script->
+<br-->
+
+ </body>
+</html>

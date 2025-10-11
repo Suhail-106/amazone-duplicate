@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fresh</title>
+  <link rel="stylesheet" href="{% static './output.css' %}">
+  <style>
+    #Watches-scroll::-webkit-scrollbar{display:none;}
+    #Watches-scroll1::-webkit-scrollbar{display:none;}
+    .main::-webkit-scrollbar{display: none;}
+  </style>
+</head>
+<body class="w-full h-screen overflow-x-hidden">
+  {% include 'header.html' %}
+  <div class=" max-[430px]:hidden w-full h-110 ">
+    <div class="w-full h-10 text-2xl font-semibold px-10 m-1">
+      <h2>{{ matched_data.0.headermatch }}</h2>
+    </div>
+    <div id="Watches-scroll" class="overflow-x-auto min-w-full h-100  overflow-y-hidden
+    flex gap-5  p-5 bg-blue-200 ">
+    {% for best in matched_data %}
+        <div class="group min-w-70 h-full rounded shadow bg-slate-100 transition-transform
+        duration-75 ease-in-out hover:scale-105  gap-2 justify-center flex flex-wrap">
+          <div class="w-50 h-48  p-5">
+                  <a href="{% url 'filtered_products1' best.id %}">
+                    <img class="transition-transform duration-300 
+                    ease-in-out hover:scale-110 w-full rounded shadow h-full" src="{{ best.Imagem }}" alt="">
+                   </a>
+          </div>
+                 <div class="w-full group hover:underline text-slate-900 h-25 p-2 font-semibold ">
+                       <a class="" href="{% url 'filtered_products1' best.id %}">
+                         {{ best.contentm }}
+                        </a>
+                       <div class="w-200 p-1 rounded h-10 bg-slate-200 
+                       shadow-lg font-semibold group-hover:flex hidden absolute">
+                            {{ best.contentm }}
+                      </div>
+                 </div>
+          <div class="w-full h-10 p-1 px-5 font-semibold text-xl ">Rs: {{ best.pricewacth }}/-</div>
+        </div>
+        {% endfor %}
+        
+       
+         <div class="w-full h-10 mt-45 flex top-[-50px] justify-between absolute">
+           <button class="bg-blue-600 ml-[-18px] hover:bg-blue-500 rounded px-2" onclick="goleft()">⬅️</button>
+           <button class="bg-blue-600 hover:bg-blue-500 mr-[18px] rounded px-2" onclick="goright()">➡️</button>
+         </div>
+     </div>
+  </div>
+<!---all Watches -->
+ <div class="w-full h-auto p-10 max-[430px]:hidden">
+  <div class="w-full flex flex-wrap h-auto gap-2 p-10 bg-blue-200 rounded shadow ">
+    {% for best in matched_data %}
+      <div class="size-82 bg-slate-100 p-10 rounded shadow ">
+        <div class="w-full h-60">
+          <a href="{% url 'filtered_products1' best.id %}">
+            <img class="w-full transition-transform duration-300 
+                    ease-in-out hover:scale-110 shadow rounded h-full" src="{{ best.Imagem }}" alt="">
+          </a>
+        </div>
+        
+          <div class="w-full text-2xl text-center font-semibold p-2 h-16 ">
+            Rs: {{ best.pricewacth }}/-
+          </div>
+      </div>
+      {% endfor %}
+      
+      
+  </div>
+</div>
+
+  <div class=" max-[430px]:hidden w-full h-110">
+    <div id="Watches-scroll1" class="overflow-x-auto min-w-full h-100  overflow-y-hidden
+    flex gap-5 group font-semibold p-5 bg-blue-200 rounded shadow">
+    {% for best in matched_data %}
+        <div class="min-w-70 h-full bg-slate-100 transition-transform
+        duration-75 hover:scale-105 ease-in-out gap-2 justify-center flex flex-wrap">
+          <div class="w-50 h-48  p-5">
+                  <a href="{% url 'filtered_products1' best.id %}">
+                    <img class="w-full rounded shadow transition-transform duration-300 
+                    ease-in-out hover:scale-110 h-full" src="{{ best.Imagem }}" alt="">
+                   </a>
+          </div>
+           <div class="w-full text-slate-900 hover:underline h-25 p-2 ">
+            <a href="{% url 'filtered_products1' best.id %}">
+              {{ best.contentm }}
+            </a></div>
+          <div class="w-full h-10 p-1 px-5 ">Rs: {{ best.pricewacth }}/-</div>
+          
+        </div>
+        {% endfor %}
+         
+        
+         <div class="w-full px-1 h-10 mt-45 group-hover:flex hidden justify-between absolute">
+           <button class="bg-blue-600 hover:bg-blue-500 rounded px-5" onclick="goleft1()">left</button>
+           <button class="bg-blue-600 hover:bg-blue-500 rounded px-5" onclick="goright1()">right</button>
+         </div>
+     </div>
+         
+  </div>
+<script>
+  const Watchesscroll = document.getElementById('Watches-scroll');
+  const Watchesscroll1 = document.getElementById('Watches-scroll1');
+  
+  function goleft(){
+    Watchesscroll.scrollBy({ left: -1440, behavior: 'smooth'});
+  }
+  function goleft1(){
+    Watchesscroll1.scrollBy({ left: -1440, behavior: 'smooth'});
+  }
+  function goright(){
+    Watchesscroll.scrollBy({ left: 1440, behavior: 'smooth'});
+  }
+  function goright1(){
+    Watchesscroll1.scrollBy({ left: 1440, behavior: 'smooth'});
+  }
+
+</script>
+
+
+<!---------------for mobile view same-->
+{% include 'headermobile.html' %}
+  <div class=" w-full h-110 min-[430px]:hidden">
+    <div class="w-full h-20  px-5 leading-4 m-2">
+      <h2 class="text-2xl font-semibold">{{ matched_data.0.headermatch }}</h2>
+      <p>Bestselling product of Watches</p>
+      <br>
+        <hr class="w-2/3">
+    </div>
+  
+    <div class="main overflow-x-auto overflow-y-hidden  px-5 p-2 gap-10 flex min-w-full h-90">
+      {% for best in matched_data %}
+      <div class="box1 min-w-70 h-85 shadow-sm rounded-2xl 
+      shadow-slate-500 p-2 justify-center flex flex-wrap">
+          <div class="w-60 h-48  p-5 px-10">
+            <a href="{% url 'filtered_products1' best.id %}">
+            <img class="w-full rounded-2xl shadow-md shadow-slate-500 h-full" src="{{ best.Imagem }}" alt="">
+            </a>
+          </div>
+          <div class="w-full h-25 p-2 rounded-2xl shadow text-blue-600 font-medium bg-slate-100">
+            {{ best.contentm }}
+          </div>
+          <div class="w-full h-10 p-3 font-bold ">
+            price:-{{ best.pricewacth }}/-  ⭐⭐⭐⭐
+          </div>
+        </div>
+        {% endfor %}
+      
+    </div>
+  </div>
+
+{% include 'footer.html' %}
+
+{% include 'footermobile.html' %}
+<script>
+  const mainElements = document.querySelectorAll('.main');
+
+  mainElements.forEach((main) => {
+    const boxes = main.querySelectorAll('.box1');  // Get boxes inside this main
+    const boxWidth = boxes[0]?.offsetWidth || 300;
+
+    let direction = 'right';
+
+    function autoScroll() {
+      const maxScroll = main.scrollWidth - main.clientWidth;
+
+      if (direction === 'right') {
+        main.scrollBy({ left: boxWidth, behavior: 'smooth' });
+
+        if (main.scrollLeft + boxWidth >= maxScroll) {
+          direction = 'left';
+        }
+      } else {
+        main.scrollBy({ left: -boxWidth, behavior: 'smooth' });
+
+        if (main.scrollLeft - boxWidth <= 0) {
+          direction = 'right';
+        }
+      }
+    }
+
+    setInterval(autoScroll, 2000);
+  });
+</script>
+
+</body>
+</html>

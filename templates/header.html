@@ -1,0 +1,765 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="{% static './output.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+    <script src="{% static 'index.js' %}"></script>
+    <style>
+      #scrollcontainer::-webkit-scrollbar{
+        display:none;
+      }
+      #actionToys::-webkit-scrollbar{
+       display:none;
+      }
+      #mainob2::-webkit-scrollbar{
+        display:none;
+      }
+      .mobile::-webkit-scrollbar{
+       display:none;
+      }
+      .arrow-up{display:none;}
+      #Echoalexa19.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa18.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa17.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa16.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa15.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa14.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa13.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa12.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa11.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa10.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa9.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa8.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa7.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa6.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa5.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa4.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa3.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa2.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa1.active{display:block;  max-height: 1000px;  opacity: 1; visibility: visible;}
+      #Echoalexa.active{display:block; max-height: 1000px; opacity: 1; visibility: visible;}
+
+      #All.active{display:block; visibility:visible; max-height:728px; max-width:340px;}
+         #updateyourlocation.active{display:flex; visibility:visible;}
+
+           #allshows.active{display:block;}
+    </style>
+</head>
+<body>
+   <div class="w-full sticky top-0 text-white max-[430px]:hidden z-10">
+    <div class="w-full bg-slate-900 [&>div]:border [&>div:hover]:border-white [&>div]:border-transparent flex 
+        [&>div:hover]:rounded gap-5 p-1 h-13">
+        <div class="p-1">
+          <a href="{% url 'home' %}">
+             <h2 class="text-2xl pl-3 pr-3" ><b>amazone</b>.in</h2>
+          </a>
+        </div>
+
+        <div onclick="updateyourlocat()" class="leading-4 p-1"><p>Delievering to<span><b>
+         <br>
+               <span>
+                   {% if result %}
+                      {{ result }}</p>
+                   {% endif %}
+             </span>
+             </b></span></p>
+       </div>
+
+         <div class="flex rounded h-11 bg-white w-135">
+           <div onclick="allshows()" class="rounded  bg-slate-300 hover:bg-slate-400 w-15 group">
+            <h3 class="text-black flex w-full mt-3 ml-2 ">All ⬇️</h3>
+           </div>
+           <div>
+            <form method="get">
+              <input type="text" name="searchbar" placeholder=" Search anything you want........" class="w-107 text-black 
+            h-10 p-1">
+           </div>
+           <div class="w-13 bg-yellow-300 p-1 py-2 text-black rounded">
+            <input type="submit" value="search"> 
+           </div>
+           </form>
+       </div>
+
+
+       <div class="flex p-1 w-22 h-10 gap-1 leading-3">
+         <svg class="w-30 mb-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+          </svg>
+          
+         <h2 class="text-xl">EN</h2> 
+         <svg class="w-30" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+           </svg>
+          
+       </div>
+
+       <div class="flex w-40 p-1 h-10 leading-4">
+        <a href="{% url 'register' %}">
+        <p >Hello, sign in <br>
+            <span><b>Accound & Lists ⬇️</b></span>
+        </p>
+        </a>
+      </div>
+
+      <div class="flex w-20 p-1 leading-4">
+        <p>Returns<br>
+            <span><b>&Orders</b></span>
+        </p>
+      </div>
+      <div class="flex w-35 text-[20px] p-2">
+        <p>🛒
+            <span><a href="{% url 'cart' %}"><b>Cart ({{ cart_count }})</b></a></span>
+        </p>
+      </div>
+    </div>
+ </div>
+
+<div id="updateyourlocation" class="w-full h-full invisible z-2 hidden bg-[rgba(0,0,0,0.6)] absolute top-0 items-center justify-center">
+  <div class="w-full h-auto top-60 ">
+    <div class="w-100 h-60 bg-white mx-auto shadow rounded">
+      <div class="w-full h-12 px-5 bg-slate-200 font-semibold p-2 shadow">
+        <h1>
+          Choose your location 
+          <span onclick="updateyourlocat()" class="float-right text-xl hover:border-2 px-3 mt-[-8px] p-1">&times</span>
+        </h1>
+      </div>
+
+      <div class="w-full h-48 px-4 py-2">
+        <h1>Select a delivery location to see product availability and delivery option</h1>
+        <h1 class="bg-amber-500 p-1 hover:bg-amber-400 rounded-4xl text-center my-2">Sign in to see your addresses</h1>
+        <h1 class="text-center my-2">or enter an Indian pincode</h1>
+
+        <div>
+           <form method="get">
+            <input type="text" name="pincode" placeholder="Enter Pincode" value="{{ request.GET.pincode }}">
+           <button type="submit">Check</button>
+         </form>
+        </div>
+         <div class="w-full h-10 ">
+           {% if error %}
+            <p class="w-full h-10 text-red-500">{{ error }}</p>
+        {% endif %}
+         </div>
+        <!-- Error message niche show hoga -->
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ <div onclick="allshowsR()" id="allshows" class="w-full h-full bg-[rgba(0,0,0,0.5)] top-12 absolute z-2 hidden">
+   <div class="w-50 h-120 ml-78 mx-auto rounded shadow overflow-auto [&>p]:p-1 [&>p]:rounded px-4 [&>p:hover]:bg-slate-200 bg-white text-black mt-2 [&>p]:cursor-pointer">
+              <p onclick="window.location.href='{% url 'electronics' %}'">All Electronics</p>
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Clothing</p>
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Western Wear</p>
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Ethnic Wear</p>
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}#BrandsWeLove'">Lingerie & Nightwear</p>
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}#BrandsWeLove'">Top Brands</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopBeauty'">The Designer Boutique</p>
+              
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopSportsFootwear'">Sportswear</p>
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Women's Fashions</p>
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}'">Amazone Fashions</p>
+               <p onclick="window.location.href='{% url 'vocalforlocal' %}'">Fashion Sales & Deals</p>
+
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Clothing</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#BrandsWeLove'">T-shirts & Potos</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Shirts</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#BrandsWeLove'">Jeans</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Innerwear</p>
+                <p onclick="window.location.href='{% url 'filtered_products' %}'">Watches</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#BudgetAdd-Ons'">Bags & Luggage</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#BudgetAdd-Ons'">Sunglasses</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#BudgetAdd-Ons'">Jewellery</p>
+                <p onclick="window.location.href='{% url 'vocalforlocal' %}#BudgetAdd-Ons'">Wallets</p> 
+            </div>
+         </div>
+
+
+
+ <div class="w-full bg-slate-800 h-7 max-[430px]:hidden">
+    <div class="flex gap-4 [&>h3]:border [&>h3:hover]:border-white [&>h3]:border-transparent 
+        [&>h3]:rounded [&>h3]:p-[2px] text-white px-2">
+        <h3 onclick="All()">All</h3>
+        <h3 onclick="window.location.href='{% url 'fresh' %}'">Fresh</h3>
+        <h3 onclick="window.location.href='//www.mxplayer.in/?utm_source=perf_g&utm_medium=web&utm_campaign=Sem_brand_21732594131|165059303182|mx%20player&gad_source=1&gad_campaignid=21732594131&gbraid=0AAAAACj0yj8bhedNE3ObcD_n4y7HnEack&gclid=Cj0KCQjwzaXFBhDlARIsAFPv-u_9HRpE6--4y4Oes4VULr4UAVf1B7kDxqKi-DQ-tGXi_VmstsYN9-IaArlDEALw_wcB'">MX Player</h3>
+        <h3>Sell</h3>
+        <h3 onclick="window.location.href='{% url 'filtered_products' %}'">Bestseller</h3>
+        <h3 onclick="window.location.href='{% url 'mobile' %}'">Mobiles</h3>
+        <h3 onclick="window.location.href='{% url 'New_Releases' %}'">Today's Deals</h3>
+        <h3 onclick="window.location.href='{% url 'New_Releases' %}'">New Releases</h3>
+        <h3 onclick="window.location.href='{% url 'vocalforlocal' %}'">Fashion</h3>
+        <h3>Amozone pay</h3>
+        <h3 onclick="window.location.href='{% url 'electronics' %}'">Electronics</h3>
+        <h3 onclick="window.location.href='{% url 'home&kitchen' %}'">Home & Kitchen</h3>
+        <h3>Computers</h3>
+        <h3>Car & Mobiles</h3>
+        <h3>Books</h3>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div id="All" class="w-85 max-h-0 absolute top-0 z-11 p-2 bg-white hidden
+ invisible transition-transform duration-2000 ease-in-out overflow-hidden">
+ <h1 class="bg-slate-800 p-2 text-white font-bold"><a href="{% url 'register' %}"> Hello, sign in </a>
+  <span onclick="All()" class="float-right cursor-pointer">&times</span></h1>
+  <div class="w-full [&>p]:p-2 [&>p:hover]:bg-slate-200 [&>p]:rounded 
+    [&>p]:cursor-pointer h-170 p-1 px-5 overflow-y-auto overflow-x-hidden
+    [&>p]:font-semibold [&>p]:text-slate-800 [&>p:hover]:text-black">
+    <h2 class="font-bold p-1">Trending</h2>
+     
+      <p onclick="window.location.href='{% url 'filtered_products' %}'" class="cursor-pointer">Bestseller</p>
+    
+
+    <p onclick="window.location.href='{% url 'New_Releases' %}'">New Releases</p>
+    <p>Movers and Shakers</p>
+    <hr>
+    <h2 class="font-semibold p-1">Digital Conent and Devices</h2>
+      <p onclick="echo(this), showarrow(this)" class="cursor-pointer">Echo & Alexa 
+       <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+      
+       <div id="Echoalexa" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Echo & Alexa</h2>
+          <p>See all devices with Alexa</p>
+          <hr>
+          <h2>Content & Resources</h2>
+          <p>Meet Alexa</p>
+          <p>Alexa Skills</p>
+          <p>Alexa App</p>
+          <p>Alexa Smart Home</p>
+          <p>Amazone Prime Music</p>
+       </div>
+    <p onclick="echo1(this), showarrow(this)" data-echo="1" class="cursor-pointer">Fire Tv 
+        <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+     <div id="Echoalexa1" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Fire tv</h2>
+          <p>Amazone Prime Video</p>
+          <p>Fire TV Apps & Games</p>
+          <p>See all Fire TV devices</p>
+       </div>
+    <p onclick="echo2(this), showarrow(this)" class="cursor-pointer">Kindly E-reader & Books 
+        <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+    <div id="Echoalexa2" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Kindle E-readers</h2>
+          <p>All-new Kindle</p>
+          <p>All-new Kindle Paperwhite</p>
+          <p>Kindle Paperwhite Starter Pack</p>
+          <p>All-new Kindle Oasis</p>
+          <p>Refurbished & Open Box</p>
+          <p>Kindle E-Reader Accessories</p>
+          <p>See all Kindle E-readers</p>
+          <hr>
+          <h2>Kindle eBooks</h2>
+           <p>All Kindle eBooks</p>
+           <p>Prime Reading</p>
+           <p>Kindle Unlimited</p>
+           <p>Deals on Kindle eBooks</p>
+           <p>Kindle Exam Central</p>
+           <p>Kindle eTextbooks</p>
+           <p>eBook Bestsellers</p>
+           <p>eBook in Indian Languages</p>
+           <p>Hindi</p>
+           <p>Tamil</p>
+       </div>
+    <p onclick="echo3(this), showarrow(this)">Audioble Audiobooks
+       <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+      <div id="Echoalexa3" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Audible AudioBooks</h2>
+          <p>Audible Membership</p>
+          <p>Best Sellers</p>
+          <p>New Realeases</p>
+          <p>Hindi AudioBooks</p>
+      </div>
+    <p onclick="echo4(this), showarrow(this)">Amazone Prime Video
+        <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+    <div id="Echoalexa4" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Amazone Prime Video</h2>
+          <p>All Video</p>
+          <p>Categories</p>
+          <p>My Stuff</p>
+      </div>
+    <p onclick="echo5(this), showarrow(this)"> Amazone Prime Music
+       <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+       <div id="Echoalexa5" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Amazone Prime Music</h2>
+          <p>Open Web Player</p>
+          <p>Voice controlled with Alexa</p>
+          <p>Amazone Prime Music Apps</p>
+          <p>CDs and Vinyls</p>
+      </div>
+    <hr>
+    <h2 class="font-semibold p-1">Shop by Category</h2>
+    <p onclick="echo6(this), showarrow(this)">Mobiles, Computers
+        <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+       <div id="Echoalexa6" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Mobiles, Tablets & More</h2>
+          <p>All Mobile Phones</p>
+          <p>All Mobile Accessories</p>
+          <p>Cases & Covers</p>
+          <p>Screen Protectors<p>
+          <p>Power Banks</p>
+          <p>Refurbished & Open Box</p>
+          <p>Tablets</p>
+          <p>Wearable Devices</p>
+          <p>Smart Home</p>
+          <p>Office Supplies & Stationery</p>
+          <p>Software</p>
+          <hr>
+          <h2>Computers & Accessories</h2>
+          <p>All Computers & Accessories</p>
+          <p>Laptops</p>
+          <p>Drives & Storage</p>
+          <p>Printers & Ink</p>
+          <p>Networking Devices</p>
+          <p>Computers Accessories</p>
+          <p>Game Zone</p>
+          <p>Monitors</p>
+          <p>Desktops</p>
+          <p>Components</p>
+          <p>All Electronics</p>
+      </div>
+    <p onclick="echo7(this), showarrow(this)">TV, Appliances Electronics
+       <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+      <div id="Echoalexa7" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+         <h2>TV, Audio & Cameras</h2>
+         <p>Televisions</p>
+         <p>Home Entertainment Systems</p>
+         <p>Headphones</p>
+         <p>Speakers</p>
+         <p>Home Audio & Theater</p>
+         <p>Cameras</p>
+         <p>DSLR Cameras</p>
+         <p>Security Cameras</p>
+         <p>Camera Accessories</p>
+         <p>Musical instruments & Professional Audio</p>
+         <p>Gaming Console</p>
+         <p>All Electronics</p>
+         <hr>
+         <h2>Appliances</h2>
+         <p>Air Conditioners</p>
+         <p>Refrigerators</p>
+         <p>Washing Machines</p>
+         <p>Kitchen & Home Appliances</p>
+         <p>Heating & Cooling Appliances</p>
+         <p>All Appliances</p>
+      </div>
+     <p onclick="echo8(this), showarrow(this)">Men's Fashion
+        <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+        <div id="Echoalexa8" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Men's Clothing</h2>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Clothing</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#BrandsWeLove'">T-shirts & Potos</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Shirts</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#BrandsWeLove'">Jeans</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Innerwear</p>
+          <hr>
+          <h2>Accessories</h2>
+          <p onclick="window.location.href='{% url 'filtered_products' %}'">Watches</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#BudgetAdd-Ons'">Bags & Luggage</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#BudgetAdd-Ons'">Sunglasses</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#BudgetAdd-Ons'">Jewellery</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#BudgetAdd-Ons'">Wallets</p>
+          <hr>
+          <h2>Mens's Shoes</h2>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopFootwear'">Shoes</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopSportsFootwear'">Sports Shoes</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopFootwear'">Formal Shoes</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopFootwear'">Casual Shoes</p>
+          <hr>
+          <h2>Stores</h2>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopSportsFootwear'">Sportswear</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopBeauty'">The Designer Boutique</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Men's Fashion</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}'">Amazone Fashion</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Men's Handlooms</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}'">Fashion Sales & Deals</p>
+          <p>All Categories</p>
+       </div>
+    <p onclick="echo9(this), showarrow(this)">Womens's Fashion
+       <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+        <div id="Echoalexa9" class="[&>h2]:font-bold [&>p]:font-semibold 
+        p-1 overflow-hidden [&>p]:text-slate-800
+         px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+          transition-tranform duration-1000 bg-slate-100 
+          ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Women's Clothing</h2>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Clothing</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Western Wear</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Ethnic Wear</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#BrandsWeLove'">Lingerie & Nightwear</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#BrandsWeLove'">Top Brands</p>
+          <hr>
+          <h2>Accessories</h2>
+          <p>Watches</p>
+          <p>Handbags & Clutches</p>
+          <p>Gold & Diamond Jewellery</p>
+          <p>Fashion & Silver Jewellery</p>
+          <p>Sunglasses</p>
+          <hr>
+          <h2>Women's shoes</h2>
+          <p>Shoes</p>
+          <p>Fashion Sandals</p>
+          <p>Ballerianas</p>
+          <hr>
+          <h2>Stores</h2>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopBeauty'">The Designer Boutique</p>
+          <p>Handloom & Handcrafts Store</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopSportsFootwear'">Sportswear</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}#ShopClothing'">Women's Fashions</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}'">Amazone Fashions</p>
+          <p onclick="window.location.href='{% url 'vocalforlocal' %}'">Fashion Sales & Deals</p>
+        </div>
+    <p onclick="echo10(this), showarrow(this)">see all
+        <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+        <div id="Echoalexa10" class="[&>h2]:font-bold [&>p]:font-semibold 
+          overflow-hidden [&>p]:text-slate-800 max-h-0 open:max-h-[1000px] invisible
+          transition-tranform duration-1000
+          ease-in-out [&>p]:p-2 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+
+          <p onclick="echo11()">Home, Kitchen, Pets
+             <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+             <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+            </p>
+            <div id="Echoalexa11" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+             <h2>Home & Kitchen</h2>
+             <p>Explore Showroom</p>
+             <p>Kitchen & Dining</p>
+             <p>Kitchen Storage & Containers</p>
+             <p>Furnitures</p>
+             <p>Fine Art</p>
+             <p>Home Furnishing</p>
+             <p>Bedrooom Linen</p>
+             <p>Home Decor</p>
+             <p>Garden & Outdoors</p>
+             <p>Home Storage</p>
+             <p>Indoor Lighting</p>
+             <p>Home Improvement</p>
+             <p>Sewing and Crafts Supplies</p>
+             <p>All Home & Kitchen</p>
+             <p>Shop by Room</p>
+             <p>Home & Kitchen Deals</p>
+             <hr>
+             <h2>Pet Supplies</h2>
+             <p>All Pet Supplies</p>
+             <p>Dog Supplies</p>
+             <hr>
+             <h2>Home, Kitchen, Pets</h2>
+             <p>Refurbished & Open Box</p>
+          </div>
+
+             <p onclick="echo12(this), showarrow(this)">Beauti, Health, Grocery
+              <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+              <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+             </p>
+            <div id="Echoalexa12" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+            <h2>Beauty & Health</h2>
+            <p>Beauty & Grooming</p>
+            <p>Luxury Beauty</p>
+            <p>Make-up</p>
+            <p>Health & Personal Care</p>
+            <p>Amazone Pharmacy</p>
+            <p>Household Supplies</p>
+            <p>Personal Care Appliances</p>
+            <p>Diet & Nutrition</p>
+            <p>Subscribe & Save</p>
+            <p>Value Bazar</p>
+            <hr>
+            <h2>Grocery & Gourmet Foods</h2>
+            <p>All Grocery & Gourmet Foods</p>
+            <p>Coffe, Tea & Beverages</p>
+            <p>Snack Foods</p>
+            </div>
+
+           <p onclick="echo13(this), showarrow(this)">Sports, Fitness, Bags, Luggage
+             <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+             <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+           </p>
+            <div id="Echoalexa13" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+            <h2>Sports & Fitness</h2>
+            <p>Cricket</p>
+            <p>Badminton</p>
+            <p>Cycling</p>
+            <p>Football</p>
+            <p>Running</p>
+            <p>Camping & Hiking</p>
+            <p>Fitness Accessories</p>
+            <p>Yoga</p>
+            <p>Strenth Training</p> 
+            <p>Cardio Equipment</p>
+            <p>Sports Collectibles</p>
+            <p>Refurbished & Open Box</p>
+            <p>All Exercise & Fitness</p>
+            <p>All Sports, Fitness & Outdoors</p>
+            <hr>
+            <h2>Bags & Luggage</h2>
+            <p>Backpacks</p>
+            <p>Rucksacks</p>
+            <p>Suitcases & Trolly Bags</p>
+            <p>Travel Accessories</p>
+            <p>Wallets</p>  
+          </div>
+          <p onclick="echo14(this), showarrow(this)">Toys, Baby, Products, Kids Fashion 
+             <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+             <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+           </p>
+            <div id="Echoalexa14" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+            <h2>Toys & Baby Products</h2>
+            <p>Toys & Games</p>
+            <p>Baby Products</p>
+            <p>Diapers</p>
+            <p>Toys Gifting Store</p>
+            <p>STEM Toys Store</p>
+            <p>International Toy Store</p>
+            <p>Baby Bath, Skin & Grooming</p>
+            <p>Strollers & Prams</p>
+            <p>Nursing & Feeding</p>
+            <p>Subscribe & Save</p>
+            <p>Pantry</p>
+            <hr>
+            <h2>Kid's Fashion</h2>
+            <p>Kid's Clothing</p>
+            <p>Kid's Shoes</p>
+            <p>School Bags</p>
+            <p>Kid's Watches</p>
+            <p>Kid's Fashion</p>
+            <p>Baby Fashion</p>
+          </div>
+          <p onclick="echo15(this), showarrow(this)">Books
+             <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+              <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+           </p>
+            <div id="Echoalexa15" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+          <h2>Books</h2>
+          <p>All Books</p>
+          <p>Fiction Books</p>
+          <p>Editor's Corner</p>
+          <p>School TextBooks</p>
+          <p>Children's Books</p>
+          <p>Exam Central</p>
+          <p>TextBooks</p>
+          <p>Indian Language Books</p>
+          <p>Kindle eBooks</p>
+          <hr>
+          <h2>Audible Audiobooks</h2>
+          <p>Audible Audiobooks & More</p>
+          <p>Audible Membership</p>
+          </div>
+          <p  onclick="echo17(this), showarrow(this)">Car, Motorbike, Industrial 
+            <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+            <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+           </p>
+            <div id="Echoalexa17" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+              <h2>Car & Motorbike</h2>
+              <p>Motorbike Accessories & Parts</p>
+              <p>Car Accessories</p>
+              <p>Car Electronics</p>
+              <p>Car Parts</p>
+              <p>Car & Bike Care</p>
+              <p>All Car & Motorbike Products</p>
+              <hr>
+              <h2>Industrial Supplies</h2>
+              <p>Industrial & Scientific Supplies</p>
+              <p>Test, Measure & Insect</p>
+              <p>Lab & Scientific</p>
+              <p>Janitorial & Sanitation Supplies</p>
+            </div>
+           <p onclick="echo16(this), showarrow(this)">Moveis & TV Shows
+             <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+             <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+           </p>
+            <div id="Echoalexa16" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+             <h2>Movies & TV Shows</h2>
+             <p>All Movies & TV Shows</p>
+             <p>Blu-Ray</p>
+             <p>All English</p>
+             <p>All Hindi</p>
+             <p>Entertianment Collectibles</p>
+             <hr>
+             <h2>Video Games</h2>
+             <p>Gaming Consoles</p>
+             <p>Latest Video Games</p>
+             <p>Gaming Accessories</p>
+             <p>PC Games</p>
+             <p>Video Games Deals</p>
+             <p>All Video Games</p>
+             <hr>
+             <h2>Music</h2>
+             <p>All Music</p>
+             <p>Internaional Music</p>
+             <p>Film Songs</p>
+             <p>Indian Classical</p>
+             <p>Musical Instruments & Professional Audio</p>
+             <hr>
+             <h2>Stream Music</h2>
+             <p>Open web player</p>
+             <p>Amazone Prime Music</p>
+            </div>
+
+          <p onclick="echo10()">see less
+             <span class="arrow-down" class="float-right p-1"><i class="fa-solid fa-angle-down"></i></span> 
+             <span class="arrow-up" class="float-right p-1"><i class="fa-solid fa-angle-up"></i></span>
+            </p>
+        </div>
+       <hr>
+        <h2 class="font-semibold p-1">Programs & Features</h2>
+       <p>Amazone Pay</p>
+       <p onclick="echo18(this), showarrow(this)">Gift Card & Mobile Recharge
+        <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+        <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+       </p>
+            <div id="Echoalexa18" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+            <h2>Gift Cards</h2>
+            <p>All Gift Cards</p>
+            <p>Popular Gift Cards</p>
+            <p>Gift Boxes, Gift Tags, Greeting Cards</p>
+            <p>Populor Brand Gift Voucher</p>
+            <p>Birthday Gift Cards</p>
+            <p>Wedding & Anniversary</p>
+            <p>Best Wishes & Thank You</p>
+            <p>Corporate Gift Cards</p>
+            <hr>
+            <h2>Recharge</h2>
+            <p>Mobile Recharge</p>
+            </div>
+    <p>Amazone Launchpad</p>
+    <p>Amazone Bussiness</p>
+    
+     <p id="see-all" onclick="echo19(this), showarrow(this)">see all
+        <span class="float-right p-1 arrow-down"><i class="fa-solid fa-angle-down"></i></span> 
+       <span class="float-right p-1 arrow-up"><i class="fa-solid fa-angle-up"></i></span>
+      </p>
+            <div id="Echoalexa19" class="[&>h2]:font-bold [&>p]:font-semibold 
+            p-1 overflow-hidden [&>p]:text-slate-800
+            px-5 max-h-0 open:max-h-[1000px] invisible rounded shadow-xs shadow-slate-400
+            transition-tranform duration-1000 bg-slate-100 
+            ease-in-out [&>p]:p-1 [&>p:hover]:bg-slate-200 [&>p]:rounded [&>p]:cursor-pointer">
+             <p>Handloom and Handcrafts</p>
+             <p>Amazone Saheli </p>
+             <p>Amazone Custom</p>
+             <p>Flight Ticket</p>
+             <p>Buy more, Save more</p>
+             <p>Clearance Store</p>
+             <p>International Brands</p>
+             <p onclick="echo19(this), showarrow(this)">see less 
+               <span class="arrow-down" class="float-right p-1"><i class="fa-solid fa-angle-down"></i></span> 
+              <span class="arrow-up" class="float-right p-1"><i class="fa-solid fa-angle-up"></i></span>
+             </p>
+            </div>
+    <hr>
+    <h2 class="font-semibold p-1">Help & Settings</h2>
+    <p>Your Account</p>
+    <p>Customer Service</p>
+    <p onclick="window.location.href='{% url 'register' %}'">Log in</p>
+
+  </div>
+</div>
+</body>
+</html>

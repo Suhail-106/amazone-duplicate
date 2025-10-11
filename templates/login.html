@@ -1,0 +1,38 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amazone/Login_page</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body>
+    
+   <div class="w-80 mx-auto h-100">
+    <h2 class="w-full h-20 text-2xl p-5">Amzone/Login</h2>
+    
+    {% if error_massage %}
+    <p class="text-red-700 text-xl py-4">{{ error_massage }}</p>
+    {% endif %}
+
+    <form method = "POST" class="[&>input]:w-full shadow rounded p-5
+        [&>input]:border-2 [&>input]:border-transparent [&>input]:bg-slate-50
+          [&>input:hover]:border-blue-500 [&>input]:rounded [&>input]:p-1">
+        {% csrf_token %}
+        Enter you email id or username
+        <input type="text" name = "email">
+        <br><br>
+        password
+        <input type="password" name = "password" >
+        <br><br>
+        <button class="w-full bg-yellow-400 p-1 rounded-2xl" type="submit">Login</button>
+        <br><br>
+         <p class="font-normal">New here? <a class="text-blue-700 hover:underline" href="{% url 'register' %}">Register</a>
+             to get started
+            
+        </p>
+        
+    </form>
+ </div> 
+</body>
+</html>

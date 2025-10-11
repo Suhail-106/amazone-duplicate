@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components{
+    .borderhover{
+        @apply hover:border rounded hover:border-white
+    }
+}

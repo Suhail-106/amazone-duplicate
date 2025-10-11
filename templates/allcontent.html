@@ -1,0 +1,457 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Releases</title>
+    <link rel="stylesheet" href="{% static './output.css' %}">
+   <style>
+html{scroll:smooth;}
+.main::-webkit-scrollbar{display:none;}
+</style>
+</head>
+<body class="w-screen h-screen overflow-x-hidden bg-slate-50">
+{% include 'header.html' %}
+
+   <div class="w-full h-auto px-1 p-2 shadow bg-white sticky top-0 z-10 flex gap-2">
+        <div class="w-50 h-10  px-2 leading-1 border border-l-0 border-t-0 border-b-0  ">
+           <a href="{% url 'filtered_products' %}">
+              <h2 class="text-2xl font-semibold">Bestseller</h2>
+              <p class="hover:underline">Amazing offer in watches</p>
+           </a>
+         </div>
+       
+        <div class="w-50 h-10 px-2 leading-1  border border-t-0 border-b-0">
+            <a href="{% url 'fresh' %}">
+                <h2 class="text-2xl font-semibold">Fresh</h2>
+               <p class="hover:underline">100% fresh products</p>
+           </a>
+       </div>
+       <div class="w-50 h-10  border border-t-0 border-b-0 px-2 leading-1">
+          <a href="{% url 'electronics' %}">
+                <h2 class="text-2xl font-semibold">Electronics</h2>
+               <p class="hover:underline">all item are available</p>
+           </a>
+       </div>
+       <div class="w-50 h-10 border border-t-0 border-b-0  px-2 leading-1">
+        <a href="{% url 'New_Releases' %}">
+                <h2 class="text-2xl font-semibold">New Releases</h2>
+               <p class="hover:underline">all item are available</p>
+            </a>
+       </div>
+   </div>
+
+    <div class="w-full flex flex-wrap gap-2 h-[150%] p-10 ">
+        <div class="w-full h-1/15  leading-4 ">
+            <h2 class="text-2xl font-bold">Amazone Hot New Realeases</h2>
+            <p class="hover:underline">Our bestselling new and future releases. Updated frequently.</p>
+            <br>
+            <hr class="w-1/2">
+        </div>
+        
+        <div class="w-full p-10 bg-white rounded-2xl shadow h-1/3">
+            <div id="" class="main w-full h-full flex overflow-x-auto whitespace-nowrap
+               leading-4">
+               {% for main in main %}
+                   <div class="min-w-full rounded-3xl 
+                    h-full box1 flex bg-no-repeat bg-[length:100%_100%]
+                    " style="background-image: url('{{ main.bgimage }}')">
+
+                    <div class="w-2/3 h-full flex gap-1 ml-110">
+                      <div class="w-1/2 h-full  p-5 pl-40">
+                        <h1 class="text-4xl">{{ main.heading }}</h1>
+                        <h2 class="text-3xl">{{ main.heading2 }}</h2>
+                        <p class="text-2xl">{{ main.paragraph }} <br> 
+                            {{ main.paragraph2 }} </p>
+                            <br><br>
+                         <p>&copy {{ main.Term }}</p>
+                      </div>
+                      <div class="w-1/2 h-full pr-30 ">
+                        <img class="w-full h-full" src="{{ main.bgimage2 }}" alt="">
+                      </div>
+                    </div>
+                     
+                   </div>
+               {% endfor %}
+           </div>
+        </div>
+        
+        <div class="w-40 h-1/2 border border-black border-l-0 
+        border-t-0 border-b-0 [&>a>p]:text-[17px]  
+             [&>a>p]:hover:underline">
+            <h2 class="font-semibold text-xl leading-10">All Department</h2>
+              <a href="#bestseller ">
+                <p>Bestseller</p>
+              </a>
+             <a href="#actionToys"> 
+               <p>action toys</p>
+              </a>
+              <a href="#All-products"> 
+               <p>All products</p>
+              </a>
+              <a href="#Mobile-Deals"> 
+               <p>Mobile Deals</p>
+              </a>
+              <a href="#Laptop-Deals"> 
+               <p>Laptop Deals</p>
+              </a>
+              <a href="#Headphones-Deals"> 
+               <p>Headphones-Deals</p>
+              </a>
+               <a href="#Storing-Deals"> 
+               <p>stored-Deals</p>
+              </a>
+        </div>
+
+        <div class="w-320 scroll-smooth overflow-y-auto h-1/2 p-2 ">
+            <div class="w-full h-2/3 flex flex-wrap">
+                <div id="bestseller" class="w-full h-9 [&>p]:leading-5 text-2xl font-semibold">
+                    <p>{{ bestseller.0.headermatch }}</p> 
+                    <p class="text-sm font-normal">Bestselling product of watches &nbsp [Ranking:- ⭐⭐⭐⭐⭐]</p>
+                </div>
+                
+                
+                 <div class=" main w-full h-full  p-2 flex gap-8 overflow-x-auto">
+                    {% for best in bestseller %}
+                   <div class="min-w-70 box2 h-74 flex flex-wrap rounded-2xl transition-transform 
+                        duration-150 ease-in-out hover:scale-102 shadow-sm shadow-gray-700 bg-white p-2">
+                      <div class="w-full h-40 px-15">
+                        <a href="{% url 'New_Releases-filtered_products1' best.id %}">
+                        <img class="w-full rounded shadow transition-transform 
+                        duration-150 ease-in-out hover:scale-105 h-full" src="{{ best.Imagem }}" alt="">
+                        </a>
+                      </div>
+                      <div class="w-full h-17 hover:underline text-blue-600 font-semibold ">
+                        <a href="{% url 'filtered_products1' best.id %}">
+                        {{ best.contentm }}
+                        </a>
+                        
+                      </div>
+                      <br>
+                      <div class="w-full h-10 p-4 px-2 font-semibold ">
+                       price: {{ best.pricewacth }}/-  &nbsp ⭐⭐⭐⭐
+                      </div>
+                   </div>
+                   {% endfor %}
+                  
+               </div>
+            </div>
+           
+             <div class="w-full h-auto  p-5">
+               <div class="w-full h-auto gap-8 flex flex-wrap bg-white rounded-xl shadow-sm
+               shadow-slate-500 p-5">
+                 {% for best in bestseller %}
+                    <div class="size-65 bg-slate-50 p-10 rounded-2xl shadow-sm 
+                    shadow-slate-700 transition-transform duration-300 
+                           ease-in-out hover:scale-105 ">
+                     <div class="w-full h-40">
+                      <a href="{% url 'New_Releases-filtered_products1' best.id %}">
+                         <img class="w-full  shadow rounded h-full" src="{{ best.Imagem }}" alt="">
+                       </a> 
+                    </div>
+        
+                        <div class="w-full  font-semibold  h-20">
+                             Rs: {{ best.pricewacth }}/- &nbsp ⭐⭐⭐⭐
+                       </div>
+                 </div>
+                 {% endfor %}
+             </div>
+           </div> 
+
+           <div id="actionToys" class="w-full h-1/2 bg-green-50 rounded p-2">
+               <div class="w-full h-1/4 text-3xl font-semibold ">
+                   {{ actionToys.0.header1 }}
+                   <br>
+                   <hr class="w-2/3">
+                </div>
+                
+             <div class="main w-full h-3/4  gap-2 overflow-x-auto flex">
+                 {% for actionToys in actionToys %}
+                    <div class="box3 min-w-50 h-full shadow rounded ">
+                        <img class="w-full rounded h-full" src="{{ actionToys.actionimage }}" alt="">
+                    </div>
+                {% endfor %}
+             </div>
+           </div>
+
+           <div id="All-products" class=" w-full h-[120%] bg-white mt-5 rounded-2xl  shadow">
+                <div class="w-full h-1/8  text-4xl font-bold p-2">
+                <h2>All Products</h2>
+                <p class="text-sm font-semibold hover:underline">Amazone all Products for selling 
+                  <span>&nbsp [Ranking:-  ⭐⭐⭐⭐⭐]</span></p>
+              </div>
+              <hr class="w-1/2">
+             <div class="main w-full h-8/9  overflow-y-hidden  gap-10 overflow-x-auto flex">
+               {% for product in products %}
+
+                <div class="box1 min-w-90 flex gap-4 flex-wrap h-[94%] bg-white rounded-2xl shadow-sm
+                shadow-black m-5 p-4">
+                  <div class="w-full h-12  p-2 text-md font-semibold bg-blue-50 rounded shadow">
+                    {{ product.header }}
+                  </div>
+                    <div class="w-39 h-47 bg-blue-50 rounded shadow 
+                       transition-transform duration-200 ease-in-out hover:scale-102 flex flex-wrap p-1">
+                          <div class="w-full h-22 ">
+                           <a href="{% url 'add_to_cart' product.id product.content1 %}">
+                            <img class="w-full h-full rounded-xl shadow" src="{{ product.image1 }}" alt="">
+                           </a>
+                         </div>
+                          <div class="w-full h-16  leading-4 font-semibold hover:underline ">
+                            <a href="{% url 'add_to_cart' product.id product.content1 %}">
+                              {{ product.content1 }} <br>
+                              <span class="text-slate-500">price: {{ product.price1 }}</span> <br> offer: {{ product.off171 }}%
+                            </a>
+                           </div>
+                          <div class="w-full h-5 font-semibold">
+                             <p>Total: ₹{{ product.final_price1 }}/-</p> 
+                         </div>
+                     
+                      </div>
+                  
+                  <div class=" box2 w-39 h-47 bg-blue-50 rounded shadow 
+                       transition-transform duration-200 ease-in-out hover:scale-102 flex flex-wrap p-1">
+                        <div class="w-full h-22 ">
+                          <a href="{% url 'add_to_cart' product.id product.content2 %}">
+                          <img class="w-full h-full rounded-xl shadow" src="{{ product.image2 }}" alt="">
+                          </a>
+                         </div>
+                          <div class="w-full h-16  leading-4 font-semibold hover:underline">
+                            <a href="{% url 'add_to_cart' product.id product.content2 %}">
+                              {{ product.content2 }} <br>
+                              <span class="text-slate-700">price: {{ product.price2 }}</span> <br> offer: {{ product.off172 }}%
+                            </a>
+                           </div>
+                          <div class="w-full h-5 font-semibold">
+                         <p>Total: ₹{{ product.final_price2 }}/-</p> 
+                     </div>
+                  </div>
+                  <div class="box3 w-39 h-47 bg-blue-50 rounded shadow 
+                       transition-transform duration-200 ease-in-out hover:scale-102 flex flex-wrap p-1">
+                        <div class="w-full h-22 ">
+                          <a href="{% url 'add_to_cart' product.id product.content3 %}">
+                          <img class="w-full h-full rounded-xl shadow" src="{{ product.image3 }}" alt="">
+                          </a>
+                         </div>
+                          <div class="w-full h-16  leading-4 font-semibold hover:underline">
+                            <a href="{% url 'add_to_cart' product.id product.content3 %}">
+                              {{ product.content3 }} <br>
+                              <span class="text-slate-700">price: {{ product.price3 }}</span> <br> offer: {{ product.off173 }}%
+                            </a>
+                           </div>
+                          <div class="w-full h-5 font-semibold">
+                         <p>Total: ₹{{ product.final_price3 }}/-</p> 
+                     </div>
+                  </div>
+                 <div class="box4 w-39 h-47 bg-blue-50 rounded shadow 
+                       transition-transform duration-200 ease-in-out hover:scale-102 flex flex-wrap p-1">
+                        <div class="w-full h-22 ">
+                          <a href="{% url 'add_to_cart' product.id product.content4 %}">
+                            <img class="w-full h-full rounded-xl shadow" src="{{ product.image4 }}" alt="">
+                          </a>
+                         </div>
+                          <div class="w-full h-16  leading-4 hover:underline font-semibold">
+                            <a href="{% url 'add_to_cart' product.id product.content1 %}">
+                              {{ product.content4 }} <br>
+                              <span class="text-slate-700">price: {{ product.price4 }}</span> <br> offer: {{ product.off174 }}%
+                            </a>
+                           </div>
+                          <div class="w-full h-5 font-semibold">
+                         <p>Total: ₹{{ product.final_price4 }}/-</p> 
+                     </div>
+                  </div>
+                </div>
+                {% endfor %} 
+              </div>
+           </div>
+                  
+    
+              <div class="w-full h-full  py-10 p-1">
+                  <div class="w-full h-full bg-white rounded-2xl shadow p-2 flex flex-wrap">
+                     <div id="Mobile-Deals" class="w-full h-15">
+                        <h2 class="text-2xl font-bold">Mobile Deals</h2>
+                        {{ mobile.0.header2 }}  [[ Ranking:- ⭐⭐⭐⭐⭐ ]]
+                       </div>
+                     <hr class="w-1/2 ">
+                      <div class="main w-full h-full  p-2 gap-8 flex overflow-x-auto">
+                        {% for mobile in mobile %}
+                        <div class="box1 min-w-50 h-80 py-5 px-2 bg-slate-50 shadow-sm
+                        shadow-slate-600 rounded-xl  flex-wrap flex">
+                          <div class="w-full h-50 px-5 ">
+                            <a href="{% url 'add_to_cartmobile' mobile.id %}">
+                              <img class="w-full rounded-2xl h-full" src="{{ mobile.imagemobile }}" alt="">
+                            </a>
+                          </div>
+                          <div class="w-full h-30 flex flex-wrap">
+                               <p class="bg-red-700 p-1 h-8 rounded text-white font-semibold">
+                              {{ mobile.offermobile }}% off limited time </p>
+                                  <a href="{% url 'add_to_cartmobile' mobile.id %}">
+                                    <p class="hover:underline leading-4.5 p-1 h-22 text-xl font-semibold ">
+                                      price:-  ₹{{ mobile.final_price }} 
+                                        <span class="text-slate-500 text-[12px]">
+                                       MRP - ₹{{ mobile.mrpmobile }}
+                                        </span>
+                                       <br>
+                                       <span class="font-normal text-md">{{ mobile.nameofmobile }}</span>
+                                     </p>
+                                  </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                  </div>
+              </div>
+
+             <div class="w-full h-full p-5 bg-white shadow rounded">
+                <div class='w-full h-20 max-[430px]:hidden '>
+                   <div class="w-full h-full px-5">
+                      <h1 id="Laptop-Deals" class="text-4xl font-bold ">Laptop Electronics</h1>
+                      <p class="text-md font-semibold ">All laptops and accessories are available here [⭐⭐⭐⭐⭐]</p>
+                    <hr class="w-130 ml-[-4px]">
+                   </div>
+                </div>
+               <div class="main w-full h-90 flex overflow-x-auto gap-15 overflow-y-hidden ">
+                    {% for electronicslaptop in electronicslaptop %}
+                    <a class="cursor-pointer" href="{% url 'New_Releases-laptopaddtocart' electronicslaptop.id %}">
+                    <div class="box1 min-w-65 h-88 bg-slate-50 p-4 rounded-xl shadow-sm shadow-slate-600 m-1">
+                       <div class="w-70 h-55  rounded-xl shadow p-4 px-10">
+                     <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-2
+                         shadow-sm shadow-black rounded-2xl">
+                      <div class="w-full h-full flex-wrap flex pb-5 px-5 justify-center items-center ">
+                    <img class="w-full h-full rounded-[50px]" src="{{ electronicslaptop.laptopimage }}" alt="">
+
+                    <div class="w-60 text-white rounded-xl px-4 h-8 bg-blue-600 text-2xl font-bold absolute mt-53 text-center
+                    text-shadow-lg/30 font-serif text-shadow-slate-500">
+                    <h2>up to {{ electronicslaptop.laptopoffer }}%off</h2>
+                      </div>
+                     </div> 
+                    </div>
+                   </div> 
+                    <div class="w-70 h-31 px-2 font-medium text-blue-700 hover:underline">
+                      <h2>{{ electronicslaptop.laptopname }}</h2>
+                      <h2>price: ₹{{ electronicslaptop.final_price }}/- || <span>offer: {{ electronicslaptop.laptopoffer }}%off</span></h2>
+                    <h2>M.R.P: ₹{{ electronicslaptop.laptopmrpprice }}/-</h2>
+                   </div>
+                   </div>
+                  </a>
+                {% endfor %}
+               </div>
+             </div>
+              
+             <div class="w-full h-full bg-white p-5 rounded shadow">
+                <div id="Headphones-Deals" class="w-full h-full ">
+                     <div class='w-full h-20 max-[430px]:hidden '>
+                 <div class="w-full h-full  px-10 ">
+                    <h1 class="text-4xl font-bold ">Headphones Electronics</h1>
+                    <p class="text-md font-semibold ">All headphone and earbuds available [⭐⭐⭐⭐⭐]</p>
+                  <hr class="w-130 ml-[-4px]">
+                  </div>
+                   </div>
+                 <div class="w-full h-100 max-[430px]:hidden">
+                <div class="main scroll-container w-full h-full bg-slate-50 p-5 gap-18 px-10 overflow-x-auto overflow-y-hidden flex">
+                
+           {% for electronicsheadphones in electronicsheadphones %}
+           <a href="{% url 'headphonesaddtocart' electronicsheadphones.id %}">
+            <div class="box1 tiltContainer min-w-85 h-full ">
+             <div class="tiltBox min-w-85 h-full bg-white shadow rounded">
+              
+              <div class="w-full h-60 p-2 px-15">
+                <img class="w-full h-full rounded-2xl" src="{{ electronicsheadphones.headphonesimage }}" alt="">
+              </div>
+              <div class="w-45 mx-auto h-1/12 text-center font-semibold text-blue-700">
+                up to {{ electronicsheadphones.headphonesoffer }}% off
+              </div>
+
+              <div class="w-full h-1/3 hover:underline px-2">
+                <h1 class="text-md font-semibold">{{ electronicsheadphones.headphonesname }}</h1>
+                <h1 class="text-xl font-semibold">price: ₹{{ electronicsheadphones.final_priceheadphones }}/-
+                    <span class="text-sm font-normal">[M.R.P.:  {{ electronicsheadphones.headphonesmrpprice }}]</span>
+                </h1>
+              </div>
+           
+           </div>
+          </div>
+            </a>
+          {% endfor %}    
+              
+       </div>    
+    </div>
+                </div>
+             </div>
+
+
+            <div class="w-full h-full bg-white p-5 rounded shadow">
+                <div id="Storing-Deals" class="w-full h-full ">
+                     <div class='w-full h-20 max-[430px]:hidden '>
+                   <div class="w-full h-full px-10 ">
+                 <h1 class="text-4xl font-bold ">Devices for everything stored</h1>
+              <p class="text-md font-semibold ">All strorings devices are available here for everything stored [⭐⭐⭐⭐⭐]</p>
+             <hr class="w-130 ml-[-4px]">
+            </div>
+                   </div>
+                 <div class="w-full h-100 max-[430px]:hidden">
+                <div class="main scroll-container w-full h-full bg-slate-50 p-5 gap-18 px-10 overflow-x-auto overflow-y-hidden flex">
+                
+           {% for electronicsstored in electronicsstored %}
+           <a href="{% url 'storedaddtocart' electronicsstored.id %}">
+            <div class="box1 tiltContainer min-w-85 h-full ">
+             <div class="tiltBox min-w-85 h-full bg-white shadow rounded">
+              <div class="w-full h-55 p-2 px-15">
+                <img class="w-full h-full rounded-2xl" src="{{ electronicsstored.storedimage }}" alt="">
+              </div>
+              <div class="w-45 mx-auto h-1/12 text-center font-semibold text-blue-700">
+                up to {{ electronicsstored.storedoffer }}% off
+              </div>
+
+              <div class="w-full h-[35%] hover:underline px-2">
+                <h1 class="text-md font-semibold">{{ electronicsstored.storedname }}</h1>
+                <h1 class="text-xl font-semibold">price: ₹{{ electronicsstored.final_pricestored }}/-
+                    <span class="text-sm font-normal">[M.R.P.: ₹{{ electronicsstored.storedmrpprice }}]</span>
+                   </h1>
+                </div>
+           
+                </div>
+             </div>
+            </a>
+             {% endfor %}    
+              
+             </div>    
+            </div>
+                </div>
+             </div>
+
+
+
+        </div>
+    </div>
+  <script>
+   const mainElements = document.querySelectorAll('.main');
+
+    mainElements.forEach((main) => {
+    const boxes = main.querySelectorAll('.box1');
+    const boxWidth = boxes[0]?.offsetWidth || 300;
+    let direction = 'right';
+
+    function autoScroll() {
+      const maxScroll = main.scrollWidth - main.clientWidth;
+
+      if (direction === 'right') {
+        main.scrollBy({ left: boxWidth, behavior: 'smooth' });
+        if (main.scrollLeft + boxWidth >= maxScroll) {
+          direction = 'left';
+        }
+      } else {
+        main.scrollBy({ left: -boxWidth, behavior: 'smooth' });
+        if (main.scrollLeft - boxWidth <= 0) {
+          direction = 'right';
+        }
+      }
+    }
+
+    setInterval(autoScroll, 2000);
+  });
+</script>
+
+
+</body>
+</html>

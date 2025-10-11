@@ -1,0 +1,25 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amazone/Sign_up</title>
+    <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body>
+    <div class="w-full h-full ">
+        <h2>Sign in form</h2>
+        <form action="" class="bg-[rgba(0,0,0,0.8)] text-white font-semibold shadow rounded
+        [&>input]:border-2 [&>input:hover]:border-black p-5 w-80 m-4 [&>input]:w-full [&>input]:border-transparent [&>input]:bg-slate-50">
+            {% csrf_token %}
+            name: <input type="text"><br><br>
+            user_id: <input type="text"><br><br>
+            password: <input type="password"><br><br>
+            email: <input type="email"><br><br>
+            gender:<br><br> male: <input type="radio" name="male">
+            female: <input type="radio" name="male"><br><br>
+            <input type="submit" value="submit"><br>  <br>          
+        </form>
+    </div>
+</body>
+</html>
