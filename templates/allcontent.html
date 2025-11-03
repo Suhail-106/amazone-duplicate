@@ -114,46 +114,58 @@ html{scroll:smooth;}
                 
                  <div class=" main w-full h-full  p-2 flex gap-8 overflow-x-auto">
                     {% for best in bestseller %}
-                   <div class="min-w-70 box2 h-74 flex flex-wrap rounded-2xl transition-transform 
+                   <div class="min-w-70 box2 h-80 flex flex-wrap rounded-2xl transition-transform 
                         duration-150 ease-in-out hover:scale-102 shadow-sm shadow-gray-700 bg-white p-2">
                       <div class="w-full h-40 px-15">
-                        <a href="{% url 'New_Releases-filtered_products1' best.id %}">
+                        <a href="{% url 'Product_detailsbestseller' best.id %}">
                         <img class="w-full rounded shadow transition-transform 
                         duration-150 ease-in-out hover:scale-105 h-full" src="{{ best.Imagem }}" alt="">
                         </a>
                       </div>
                       <div class="w-full h-17 hover:underline text-blue-600 font-semibold ">
-                        <a href="{% url 'filtered_products1' best.id %}">
+                        <a href="{% url 'Product_detailsbestseller' best.id %}">
                         {{ best.contentm }}
                         </a>
-                        
                       </div>
                       <br>
                       <div class="w-full h-10 p-4 px-2 font-semibold ">
                        price: {{ best.pricewacth }}/-  &nbsp ⭐⭐⭐⭐
                       </div>
+                       <form action="{% url 'filtered_products1' best.id %}" class="w-full px-4" method="POST">
+                          <h2>{{ mobilepage_product.nameofmmobile }}</h2>
+                        {% csrf_token %}
+                      <h2><button class="bg-orange-600 hover:bg-orange-500 
+                        rounded  text-white w-full">add to cart</button></h2>
+                         </form>
                    </div>
                    {% endfor %}
                   
                </div>
             </div>
            
-             <div class="w-full h-auto  p-5">
+             <div class="w-full h-auto  p-3">
                <div class="w-full h-auto gap-8 flex flex-wrap bg-white rounded-xl shadow-sm
                shadow-slate-500 p-5">
                  {% for best in bestseller %}
-                    <div class="size-65 bg-slate-50 p-10 rounded-2xl shadow-sm 
+                    <div class="w-65 h-70 bg-slate-50 p-10 rounded-2xl shadow-sm 
                     shadow-slate-700 transition-transform duration-300 
                            ease-in-out hover:scale-105 ">
                      <div class="w-full h-40">
-                      <a href="{% url 'New_Releases-filtered_products1' best.id %}">
+                      <a href="{% url 'Product_detailsbestseller' best.id %}">
                          <img class="w-full  shadow rounded h-full" src="{{ best.Imagem }}" alt="">
                        </a> 
                     </div>
         
                         <div class="w-full  font-semibold  h-20">
                              Rs: {{ best.pricewacth }}/- &nbsp ⭐⭐⭐⭐
+                             <form action="{% url 'filtered_products1' best.id %}" class="w-full px-4" method="POST">
+                          <h2>{{ mobilepage_product.nameofmmobile }}</h2>
+                        {% csrf_token %}
+                      <h2><button class="bg-orange-600 hover:bg-orange-500 
+                        rounded  text-white w-full">add to cart</button></h2>
+                         </form>
                        </div>
+                       
                  </div>
                  {% endfor %}
              </div>
@@ -193,12 +205,12 @@ html{scroll:smooth;}
                     <div class="w-39 h-47 bg-blue-50 rounded shadow 
                        transition-transform duration-200 ease-in-out hover:scale-102 flex flex-wrap p-1">
                           <div class="w-full h-22 ">
-                           <a href="{% url 'add_to_cart' product.id product.content1 %}">
+                           <a href="{% url 'product_detail' product.id product.content1 %}">
                             <img class="w-full h-full rounded-xl shadow" src="{{ product.image1 }}" alt="">
                            </a>
                          </div>
                           <div class="w-full h-16  leading-4 font-semibold hover:underline ">
-                            <a href="{% url 'add_to_cart' product.id product.content1 %}">
+                            <a href="{% url 'product_detail' product.id product.content1 %}">
                               {{ product.content1 }} <br>
                               <span class="text-slate-500">price: {{ product.price1 }}</span> <br> offer: {{ product.off171 }}%
                             </a>
@@ -212,12 +224,12 @@ html{scroll:smooth;}
                   <div class=" box2 w-39 h-47 bg-blue-50 rounded shadow 
                        transition-transform duration-200 ease-in-out hover:scale-102 flex flex-wrap p-1">
                         <div class="w-full h-22 ">
-                          <a href="{% url 'add_to_cart' product.id product.content2 %}">
+                          <a href="{% url 'product_detail' product.id product.content2 %}">
                           <img class="w-full h-full rounded-xl shadow" src="{{ product.image2 }}" alt="">
                           </a>
                          </div>
                           <div class="w-full h-16  leading-4 font-semibold hover:underline">
-                            <a href="{% url 'add_to_cart' product.id product.content2 %}">
+                            <a href="{% url 'product_detail' product.id product.content2 %}">
                               {{ product.content2 }} <br>
                               <span class="text-slate-700">price: {{ product.price2 }}</span> <br> offer: {{ product.off172 }}%
                             </a>
@@ -229,12 +241,12 @@ html{scroll:smooth;}
                   <div class="box3 w-39 h-47 bg-blue-50 rounded shadow 
                        transition-transform duration-200 ease-in-out hover:scale-102 flex flex-wrap p-1">
                         <div class="w-full h-22 ">
-                          <a href="{% url 'add_to_cart' product.id product.content3 %}">
+                          <a href="{% url 'product_detail' product.id product.content3 %}">
                           <img class="w-full h-full rounded-xl shadow" src="{{ product.image3 }}" alt="">
                           </a>
                          </div>
                           <div class="w-full h-16  leading-4 font-semibold hover:underline">
-                            <a href="{% url 'add_to_cart' product.id product.content3 %}">
+                            <a href="{% url 'product_detail' product.id product.content3 %}">
                               {{ product.content3 }} <br>
                               <span class="text-slate-700">price: {{ product.price3 }}</span> <br> offer: {{ product.off173 }}%
                             </a>
@@ -246,12 +258,12 @@ html{scroll:smooth;}
                  <div class="box4 w-39 h-47 bg-blue-50 rounded shadow 
                        transition-transform duration-200 ease-in-out hover:scale-102 flex flex-wrap p-1">
                         <div class="w-full h-22 ">
-                          <a href="{% url 'add_to_cart' product.id product.content4 %}">
+                          <a href="{% url 'product_detail' product.id product.content4 %}">
                             <img class="w-full h-full rounded-xl shadow" src="{{ product.image4 }}" alt="">
                           </a>
                          </div>
                           <div class="w-full h-16  leading-4 hover:underline font-semibold">
-                            <a href="{% url 'add_to_cart' product.id product.content1 %}">
+                            <a href="{% url 'product_detail' product.id product.content1 %}">
                               {{ product.content4 }} <br>
                               <span class="text-slate-700">price: {{ product.price4 }}</span> <br> offer: {{ product.off174 }}%
                             </a>
@@ -278,14 +290,14 @@ html{scroll:smooth;}
                         <div class="box1 min-w-50 h-80 py-5 px-2 bg-slate-50 shadow-sm
                         shadow-slate-600 rounded-xl  flex-wrap flex">
                           <div class="w-full h-50 px-5 ">
-                            <a href="{% url 'add_to_cartmobile' mobile.id %}">
+                            <a href="{% url 'Product_detailsmobile' mobile.id %}">
                               <img class="w-full rounded-2xl h-full" src="{{ mobile.imagemobile }}" alt="">
                             </a>
                           </div>
                           <div class="w-full h-30 flex flex-wrap">
                                <p class="bg-red-700 p-1 h-8 rounded text-white font-semibold">
                               {{ mobile.offermobile }}% off limited time </p>
-                                  <a href="{% url 'add_to_cartmobile' mobile.id %}">
+                                  <a href="{% url 'Product_detailsmobile' mobile.id %}">
                                     <p class="hover:underline leading-4.5 p-1 h-22 text-xl font-semibold ">
                                       price:-  ₹{{ mobile.final_price }} 
                                         <span class="text-slate-500 text-[12px]">
@@ -312,7 +324,7 @@ html{scroll:smooth;}
                 </div>
                <div class="main w-full h-90 flex overflow-x-auto gap-15 overflow-y-hidden ">
                     {% for electronicslaptop in electronicslaptop %}
-                    <a class="cursor-pointer" href="{% url 'New_Releases-laptopaddtocart' electronicslaptop.id %}">
+                    <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
                     <div class="box1 min-w-65 h-88 bg-slate-50 p-4 rounded-xl shadow-sm shadow-slate-600 m-1">
                        <div class="w-70 h-55  rounded-xl shadow p-4 px-10">
                      <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-2
@@ -351,7 +363,7 @@ html{scroll:smooth;}
                 <div class="main scroll-container w-full h-full bg-slate-50 p-5 gap-18 px-10 overflow-x-auto overflow-y-hidden flex">
                 
            {% for electronicsheadphones in electronicsheadphones %}
-           <a href="{% url 'headphonesaddtocart' electronicsheadphones.id %}">
+           <a href="{% url 'Product_detailsheadphones' electronicsheadphones.id %}">
             <div class="box1 tiltContainer min-w-85 h-full ">
              <div class="tiltBox min-w-85 h-full bg-white shadow rounded">
               
@@ -393,7 +405,7 @@ html{scroll:smooth;}
                 <div class="main scroll-container w-full h-full bg-slate-50 p-5 gap-18 px-10 overflow-x-auto overflow-y-hidden flex">
                 
            {% for electronicsstored in electronicsstored %}
-           <a href="{% url 'storedaddtocart' electronicsstored.id %}">
+           <a href="{% url 'Product_detailsstored' electronicsstored.id %}">
             <div class="box1 tiltContainer min-w-85 h-full ">
              <div class="tiltBox min-w-85 h-full bg-white shadow rounded">
               <div class="w-full h-55 p-2 px-15">

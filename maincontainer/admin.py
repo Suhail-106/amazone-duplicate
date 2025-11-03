@@ -1,5 +1,5 @@
 from django.contrib import admin
-from maincontainer.models import main, Profile,datasave, product, actiontoys, CartItem, electronicsstored, mobile, Fresh, mainmobile, electronicslaptop, electronicsheadphones
+from maincontainer.models import main, Profile,datasave, product, actiontoys, CartItem, electronicsstored, mobile, Fresh, mainmobile, electronicslaptop, electronicsheadphones,UserAddress
 
 admin.site.register(main)
 admin.site.register(product)
@@ -13,6 +13,7 @@ admin.site.register(electronicsheadphones)
 admin.site.register(electronicsstored)
 admin.site.register(Profile)
 admin.site.register(datasave)
+admin.site.register(UserAddress)
 
 
 # Register your models here.

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from maincontainer.models import CartItem
 from mobileviews.models import cartItemMobile
 from maincontainer.models import main,Profile,datasave, actiontoys, electronicsstored, electronicsheadphones, CartItem, mobile, electronicslaptop, Fresh, mainmobile, product as ProductModel
-from mobileviews.models import mainob, cartItemMobile, mainob2, mainob3, mainob4, bestseller
+from mobileviews.models import mainob, cartItemMobile, mainob2, mainob3, bestseller
 from Fashion.models import vocalforlocal, vocalforlocal1, vocalforlocal2, shopclothing, shopfootwear,Budget_Add_Ons,shopBeauty
 from HomeandKitchen.models import bedroom
 from django.db.models import Q

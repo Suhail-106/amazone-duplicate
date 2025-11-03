@@ -14,23 +14,23 @@
 </head>
 <body class="w-full h-screen overflow-x-hidden">
   {% include 'header.html' %}
-  <div class=" max-[430px]:hidden w-full h-110 ">
+  <div class=" max-[430px]:hidden w-full h-140 ">
     <div class="w-full h-10 text-2xl font-semibold px-10 m-1">
       <h2>{{ matched_data.0.headermatch }}</h2>
     </div>
-    <div id="Watches-scroll" class="overflow-x-auto min-w-full h-100  overflow-y-hidden
+    <div id="Watches-scroll" class="overflow-x-auto min-w-full h-120  overflow-y-hidden
     flex gap-5  p-5 bg-blue-200 ">
     {% for best in matched_data %}
         <div class="group min-w-70 h-full rounded shadow bg-slate-100 transition-transform
         duration-75 ease-in-out hover:scale-105  gap-2 justify-center flex flex-wrap">
           <div class="w-50 h-48  p-5">
-                  <a href="{% url 'filtered_products1' best.id %}">
+                  <a href="{% url 'Product_detailsbestseller' best.id  %}">
                     <img class="transition-transform duration-300 
                     ease-in-out hover:scale-110 w-full rounded shadow h-full" src="{{ best.Imagem }}" alt="">
                    </a>
           </div>
                  <div class="w-full group hover:underline text-slate-900 h-25 p-2 font-semibold ">
-                       <a class="" href="{% url 'filtered_products1' best.id %}">
+                       <a href="{% url 'Product_detailsbestseller' best.id  %}">
                          {{ best.contentm }}
                         </a>
                        <div class="w-200 p-1 rounded h-10 bg-slate-200 
@@ -39,10 +39,17 @@
                       </div>
                  </div>
           <div class="w-full h-10 p-1 px-5 font-semibold text-xl ">Rs: {{ best.pricewacth }}/-</div>
+          <form action="{% url 'filtered_products1' best.id %}" method="POST" class="w-full px-2">
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-300 px-6 py-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
         </div>
+         
         {% endfor %}
-        
-       
+           
+         
          <div class="w-full h-10 mt-45 flex top-[-50px] justify-between absolute">
            <button class="bg-blue-600 ml-[-18px] hover:bg-blue-500 rounded px-2" onclick="goleft()">⬅️</button>
            <button class="bg-blue-600 hover:bg-blue-500 mr-[18px] rounded px-2" onclick="goright()">➡️</button>
@@ -53,16 +60,23 @@
  <div class="w-full h-auto p-10 max-[430px]:hidden">
   <div class="w-full flex flex-wrap h-auto gap-2 p-10 bg-blue-200 rounded shadow ">
     {% for best in matched_data %}
-      <div class="size-82 bg-slate-100 p-10 rounded shadow ">
+      <div class="w-82 h-95 bg-slate-100 p-10 rounded shadow ">
         <div class="w-full h-60">
-          <a href="{% url 'filtered_products1' best.id %}">
+          <a href="{% url 'Product_detailsbestseller' best.id %}">
             <img class="w-full transition-transform duration-300 
                     ease-in-out hover:scale-110 shadow rounded h-full" src="{{ best.Imagem }}" alt="">
           </a>
         </div>
         
-          <div class="w-full text-2xl text-center font-semibold p-2 h-16 ">
+          <div class="w-full text-2xl text-center font-semibold p-2 h-36 ">
             Rs: {{ best.pricewacth }}/-
+
+             <form action="{% url 'filtered_products1' best.id %}" method="POST" class="w-full px-2">
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-300 px-6 py-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
           </div>
       </div>
       {% endfor %}
@@ -71,23 +85,29 @@
   </div>
 </div>
 
-  <div class=" max-[430px]:hidden w-full h-110">
-    <div id="Watches-scroll1" class="overflow-x-auto min-w-full h-100  overflow-y-hidden
+  <div class=" max-[430px]:hidden w-full h-140">
+    <div id="Watches-scroll1" class="overflow-x-auto min-w-full h-120  overflow-y-hidden
     flex gap-5 group font-semibold p-5 bg-blue-200 rounded shadow">
     {% for best in matched_data %}
         <div class="min-w-70 h-full bg-slate-100 transition-transform
         duration-75 hover:scale-105 ease-in-out gap-2 justify-center flex flex-wrap">
           <div class="w-50 h-48  p-5">
-                  <a href="{% url 'filtered_products1' best.id %}">
+                    <a href="{% url 'Product_detailsbestseller' best.id %}">
                     <img class="w-full rounded shadow transition-transform duration-300 
                     ease-in-out hover:scale-110 h-full" src="{{ best.Imagem }}" alt="">
                    </a>
           </div>
            <div class="w-full text-slate-900 hover:underline h-25 p-2 ">
-            <a href="{% url 'filtered_products1' best.id %}">
+           <a href="{% url 'Product_detailsbestseller' best.id %}">
               {{ best.contentm }}
             </a></div>
           <div class="w-full h-10 p-1 px-5 ">Rs: {{ best.pricewacth }}/-</div>
+           <form action="{% url 'filtered_products1' best.id %}" method="POST" class="w-full px-2">
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-300 px-6 py-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
           
         </div>
         {% endfor %}

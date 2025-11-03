@@ -48,7 +48,7 @@ class CartItem(models.Model):
     content = models.CharField(max_length=100, default="store etc")  # like "Microwave"
     price = models.DecimalField(max_digits=10, decimal_places=2, default="250")
     quantity = models.IntegerField(default=1)
-    off174 = models.DecimalField(max_digits=10, decimal_places=2, default="10")
+    off174 = models.DecimalField(max_digits=10, decimal_places=2, default="0")
 
     def __str__(self):
         return f"{self.content} x{self.quantity}"
@@ -159,5 +159,26 @@ class datasave(models.Model):
 
     def __str__(self):
         return self.username
+    
+
+
+
+
+
+from django.db import models
+
+class UserAddress(models.Model):
+    name = models.CharField(max_length=100)
+    street = models.CharField(max_length=200)
+    area = models.CharField(max_length=200)
+    landmark = models.CharField(max_length=200, blank=True, null=True)
+    full_address = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    address = models.TextField(default="12")
+
+
+    def __str__(self):
+        return f"{self.name} - {self.area}"
+
 
 #for mobile view ----------------------------------------------------------------------

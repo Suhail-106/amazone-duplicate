@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Payment</title>
+  <link rel="stylesheet" href="{% static './output.css' %}">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <div class="bg-white rounded-2xl shadow-xl w-full  p-8">
+    <h2 class="text-2xl font-bold mb-6 text-center">Complete Your Payment</h2>
+
+    <div class="mb-4">
+      <img src="{{ image }}" class=" mx-auto w-32 h-32 rounded-xl">
+      <h3 class="text-center mt-3 font-semibold">{{ name }}</h3>
+      <p class="text-center text-gray-600">₹{{ price }}</p>
+    </div>
+
+<div class="bg-white w-full  ">
+    
+
+    <form method="POST" action="{% url 'add_address' %}">
+      {% csrf_token %}
+      
+      <div class=" flex-wrap flex [&>div]:w-1/2 [&>div]:px-8">
+      <div class="mb-4  ">
+        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" name="name" required class="w-full border rounded-lg p-2 mt-1" placeholder="e.g. Suhail Hasan">
+      </div>
+
+      <div class="mb-4 ">
+        <label class="block text-sm font-medium text-gray-700">Street / House No.</label>
+        <input type="text" name="street" required class="w-full border rounded-lg p-2 mt-1" placeholder="e.g. 123 Main Street">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Area / Locality</label>
+        <input type="text" name="area" required class="w-full border rounded-lg p-2 mt-1" placeholder="e.g. Azad Nagar, Lucknow">
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700">Landmark (Optional)</label>
+        <input type="text" name="landmark" class="w-full border rounded-lg p-2 mt-1" placeholder="e.g. Near City Mall">
+      </div>
+
+      <div class="mb-4 w-full">
+        <label class="block text-sm font-medium text-gray-700">Full Address</label>
+        <textarea name="full_address" rows="3" required class="w-full border rounded-lg p-2 mt-1" placeholder="Enter your complete address with pincode"></textarea>
+      </div>
+
+    <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700" for="Address1">Address :-</label>
+       <input class="w-full border rounded-lg p-2 mt-1" type="text" name="Address1" id="Address1" placeholder="Enter Current Address">
+     
+       <button class="bg-white hover:bg-blue-500 hover:text-white
+       p-1 my-2 rounded" type="button" onclick="getLocation()">Use Your Current Location</button>
+       
+    </div>
+    
+  </div>
+</div>
+   
+
+
+      <label class="font-semibold">Payment Method</label>
+      <div class="grid grid-cols-2 gap-2 my-3">
+        <button type="button" class="border py-2 rounded-lg hover:bg-yellow-100">💳 Credit Card</button>
+        <button type="button" class="border py-2 rounded-lg hover:bg-yellow-100">🏦 Debit Card</button>
+        <button type="button" class="border py-2 rounded-lg hover:bg-yellow-100">📱 UPI</button>
+        <button type="button" class="border py-2 rounded-lg hover:bg-yellow-100">💵 Cash on Delivery</button>
+      </div>
+
+      <div class="mt-4">
+        <label class="block text-sm font-medium text-gray-700">Card Number</label>
+        <input type="text" maxlength="16" class="w-full border rounded-lg p-2 mt-1" placeholder="1234 5678 9012 3456">
+      </div>
+
+      <div class="flex gap-2 mt-3">
+        <div class="flex-1">
+          <label class="block text-sm font-medium text-gray-700">Expiry</label>
+          <input type="text" class="w-full border rounded-lg p-2 mt-1" placeholder="MM/YY">
+        </div>
+        <div class="flex-1">
+          <label class="block text-sm font-medium text-gray-700">CVV</label>
+          <input type="password" maxlength="3" class="w-full border rounded-lg p-2 mt-1" placeholder="***">
+        </div>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-yellow-500 hover:bg-yellow-400 text-white py-3 mt-6 rounded-lg font-bold">
+        Pay ₹{{ price }} Securely
+      </button>
+    </form>
+  </div>
+
+  <script>
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}function showPosition(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+
+    // Google Maps link
+    const mapsLink = `https://maps.google.com/?q=${lat},${lon}`;
+
+    // Address input me Google Maps link store kar do
+    const addressInput = document.getElementById("Address1");
+    addressInput.value = mapsLink;
+}
+
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+    }
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,1220 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product_detailsbedroom</title>
+    <link href="{% static './output.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'index.css/' %}">
+   
+
+</head>
+<body>
+    {% include "header.html" %}
+    {% if type == 'bedroom' %}
+   <h2 class="bg-yellow-500 font-bold text-center text-2xl p-2 rounded "> {{ bedroom_product.content }}</h2>
+  <div class="w-full p-2">
+   <div class="flex overflow-x-auto overflow-y-hidden w-64 m-auto">
+      {% for i in "123456" %}
+    <img src="{{ bedroom_product.image}}" class="min-w-64 h-64 m-auto " alt="">
+  {% endfor %}
+   </div>
+   
+    <h2 class="text-2xl font-bold mt-4">
+        {{ bedroom_product.content }} 
+         
+        <span class="font-semibold text-md">
+            price: ₹{{ bedroom_product.price }}
+        </span>
+        <span class="font-normal text-xl">[ ⭐⭐⭐⭐⭐ ]</span> 
+    </h2>
+
+    <p class="text-sm mt-2 font-semibold">
+         <button 
+            class="bg-blue-600 hover:bg-blue-500 rounded p-2 px-3 h-10 text-white float-right"
+             onclick="shareProduct(this)"
+            data-name="{{ bedroom_product.content }}"
+            data-price="{{ bedroom_product.price }}"
+            data-link="http://127.0.0.1:8000/Home&Kitchen/product_bedroom/{{ bedroom_product.id }}">
+           <i class="fa-solid fa-share-nodes"></i>
+         </button> 
+    </p>
+        <p class="text-blue-500">✔️Prime</p>
+    <div class="mt-6">
+        <form action="{% url 'bedroomaddtocart' bedroom_product.id %}" method="POST">
+
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
+
+        <!-- Buy Now -->
+         <form action="{% url 'buy_now_bedroom' bedroom_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-yellow-600 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                Buy Now
+            </button>
+        </form>
+        
+    </div>
+</div>
+<div class="w-full flex my-5 p-10 h-115  shadow rounded max-[430px]:h-90 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}  
+    <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded">
+        <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden ">
+        {% for i in "123456" %}  
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsbedroom' bedroom_product.id %}">
+          <img class="w-full rounded-2xl h-full transition-transform duration-300 hover:scale-106 
+          ease-in-out" src="{{ bedroom_product.image }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-40  leading-5 w-full ">
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600 ">Price - ₹{{ bedroom_product.price }}</span></p>
+            <form action="{% url 'bedroomaddtocart' bedroom_product.id %}" class="w-full" method="POST">
+               <h2 class="text-xl font-semibold">{{ bedroom_product.content }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+             <form action="{% url 'buy_now_bedroom' bedroom_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-1 my-2 font-semibold rounded">
+                Buy Now
+            </button>
+        </form>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+<!--------------------------------------------fashion.html shopbeauty---------------------->
+{% elif type == 'shopbeauty' %}
+   <h2 class="bg-yellow-500 font-bold text-center text-2xl p-2 rounded "> {{ shopbeauty_product.contentshopBeauty }}</h2>
+  <div class="w-full p-2">
+   <div class="flex overflow-x-auto overflow-y-hidden w-64 m-auto">
+      {% for i in "123456" %}
+    <img src="{{ shopbeauty_product.imageshopBeauty}}" class="w-64 h-64 m-auto" alt="">
+   {% endfor %}
+   </div>
+
+    <h2 class="text-2xl font-bold mt-4">
+        {{ shopbeauty_product.contentshopBeauty }} 
+         
+        <span class="font-semibold text-md">
+            price: ₹{{ shopbeauty_product.priceshopBeauty }}
+        </span>
+        <span class="font-normal text-xl">[ ⭐⭐⭐⭐⭐ ]</span> 
+    </h2>
+
+    <button 
+            class="bg-blue-600 hover:bg-blue-500 rounded p-2 px-3 h-10 text-white float-right"
+             onclick="shareProduct(this)"
+            data-name="{{ shopbeauty_product.contentshopBeauty }}"
+            data-price="{{ shopbeauty_product.priceshopBeauty }}"
+            data-link="http://127.0.0.1:8000/Fashion/product_shopbeauty/{{ shopbeauty_product.id }}">
+           <i class="fa-solid fa-share-nodes"></i>
+         </button>
+        <p class="text-blue-500">✔️Prime</p>
+    <div class="mt-6">
+        <form action="{% url 'shopbeauty_addtocart' shopbeauty_product.id %}" method="POST">
+
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
+
+        <!-- Buy Now -->
+         <form action="{% url 'buy_now_shopbeauty' shopbeauty_product.id %}" method="POST">
+
+            {% csrf_token %}
+            <button class="w-full bg-yellow-600 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                Buy Now
+            </button>
+        </form>
+        
+    </div>
+</div>
+<div class="w-full flex my-5 p-10 h-115  shadow rounded max-[430px]:h-95 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded">
+        <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden">
+          {% for i in "123456" %}  
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsshopbeauty' shopbeauty_product.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 
+          ease-in-out" src="{{ shopbeauty_product.imageshopBeauty }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-40  leading-5 w-full ">
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price- ₹{{ shopbeauty_product.priceshopBeauty }}</span></p>
+            <form action="{% url 'shopbeauty_addtocart' shopbeauty_product.id %}" class="w-full" method="POST">
+               <h2 class='text-xl font-semibold'>{{ shopbeauty_product.contentshopBeauty }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 
+                rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+             <form action="{% url 'buy_now_shopbeauty' shopbeauty_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-1 my-2 font-semibold rounded">
+                Buy Now
+            </button>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!------------------------------------------------------fashion.html shopbudget ads ons-------------------------------->
+{% elif type == 'shopBudget' %}
+   <h2 class="bg-yellow-500 font-bold text-center text-2xl p-2 rounded"> {{ shopBudget_product.contentshopBudget }}</h2>
+  <div class="w-full p-2">
+   <div class="w-64 m-auto flex overflow-x-auto overflow-y-hidden ">
+      {% for i in "123456" %}
+    <img src="{{ shopBudget_product.imageshopBudget }}" class="w-64 h-64 rounded-xl" alt="">
+   {% endfor %}
+   </div>
+    <h2 class="text-2xl font-bold mt-4">
+        {{ shopBudget_product.contentshopBudget }} 
+        <span class="font-semibold text-md">
+            price: ₹{{ shopBudget_product.priceshopBudget }}
+        </span>
+        <span class="font-normal text-xl">[ ⭐⭐⭐⭐⭐ ]</span> 
+    </h2>
+       <button 
+            class="bg-blue-600 hover:bg-blue-500 rounded p-2 px-3 h-10 text-white float-right"
+             onclick="shareProduct(this)"
+            data-name="{{ shopBudget_product.contentshopBudget }}"
+            data-price="{{ shopBudget_product.priceshopBudget }}"
+            data-link="http://127.0.0.1:8000/Fashion/product_shopBudget/{{ shopBudget_product.id }}">
+           <i class="fa-solid fa-share-nodes"></i>
+         </button> 
+
+        <p class="text-blue-500">✔️Prime</p>
+    <div class="mt-6">
+        <form action="{% url 'shopBudget_addtocart' shopBudget_product.id %}" method="POST">
+
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
+
+        <!-- Buy Now -->
+         <form action="{% url 'buy_now_shopBudget' shopBudget_product.id %}" method="POST">
+
+            {% csrf_token %}
+            <button class="w-full bg-yellow-600 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                Buy Now
+            </button>
+       
+        </div>
+    </div>
+</div>
+<div class="w-full flex my-5 p-10 h-125  shadow rounded max-[430px]:h-95 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded">
+        <div class="w-50 h-55 m-auto overflow-x-auto overflow-y-hidden flex">
+        {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsshopBudget' shopBudget_product.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 
+          ease-in-out" src="{{ shopBudget_product.imageshopBudget }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+
+        <div class="h-40  leading-5 w-full ">
+           
+          <p class="hover:underline text-xl font-semibold "> <span class="text-slate-500 text-[12px]">MRP - ₹{{ shopBudget_product.priceshopBudget }}</span></p>
+          
+            <form action="{% url 'shopBudget_addtocart' shopBudget_product.id %}" class="w-full" method="POST">
+               <h2>{{ shopBudget_product.contentshopBudget }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 
+                rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+             </form>
+              <form action="{% url 'buy_now_shopBudget' shopBudget_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-1 my-2 font-semibold rounded">
+                Buy Now
+            </button>
+         </form>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-------------------------------------fashion.html shopclothings------------------------------------------------------>
+{% elif type == 'shopclothing' %}
+   <h2 class="bg-yellow-500 font-bold text-center text-2xl p-2 rounded"> {{ shopclothing_product.contentshopclothing }}</h2>
+  <div class="w-full p-2">
+   <div class="w-64 m-auto flex overflow-x-auto overflow-y-hidden ">
+      {% for i in "123456" %}
+    <img src="{{ shopclothing_product.imageshopclothing }}" class="w-64 h-64 rounded-xl" alt="">
+   {% endfor %}
+   </div>
+    <h2 class="text-2xl font-bold mt-4">
+        {{ shopclothing_product.contentshopclothing }} 
+         
+        <span class="font-semibold text-md">
+            price: ₹{{ shopclothing_product.priceshopclothing }}
+        </span>
+        <span class="font-normal text-xl">[ ⭐⭐⭐⭐⭐ ]</span> 
+    </h2>
+
+    <p class="text-sm mt-2 font-semibold">
+         <button 
+            class="bg-blue-600 hover:bg-blue-500 rounded p-2 px-3 h-10 text-white float-right"
+             onclick="shareProduct(this)"
+            data-name="{{ shopclothing_product.contentshopclothing }}"
+            data-price="{{ shopclothing_product.priceshopclothing }}"
+            data-link="http://127.0.0.1:8000/Fashion/product_shopclothing/{{ shopclothing_product.id }}">
+           <i class="fa-solid fa-share-nodes"></i>
+         </button> 
+    </p>
+        <p class="text-blue-500">✔️Prime</p>
+    <div class="mt-6">
+        <form action="{% url 'shopclothing_addtocart' shopclothing_product.id %}" method="POST">
+
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
+
+        <!-- Buy Now -->
+         <form action="{% url 'buy_now_shopclothing' shopclothing_product.id %}" method="POST">
+
+            {% csrf_token %}
+            <button class="w-full bg-yellow-600 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                Buy Now
+            </button>
+        </form>
+        
+    </div>
+</div>
+<div class="w-full flex  my-5 p-10 h-125  shadow rounded max-[430px]:h-95 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}  
+    <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded">
+        <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden">
+          {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsshopclothing' shopclothing_product.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 ease-in-out" src="{{ shopclothing_product.imageshopclothing }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-40  leading-5 w-full ">
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price - ₹{{ shopclothing_product.priceshopclothing }}</span></p>
+            <form action="{% url 'shopclothing_addtocart' shopclothing_product.id %}" class="w-full" method="POST">
+               <h2 class="text-xl font-semibold">{{ shopclothing_product.contentshopclothing }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+            <form action="{% url 'buy_now_shopclothing' shopclothing_product.id %}" class="w-full" method="POST">
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 rounded p-1 text-white w-full font-semibold my-2">Buy now</button></h2>
+            </form>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!---------------------------------------------fashion.html shopfootwear----------------------------------------->
+{% elif type == 'shopfootwear' %}
+   <h2 class="bg-yellow-500 font-bold text-center text-2xl p-2 rounded "> {{ shopfootwear_product.contentshopfootwear }}</h2>
+  <div class="w-full p-5">
+   <div class="w-64 m-auto flex overflow-x-auto overflow-y-hidden ">
+      {% for i in "123456" %}
+    <img src="{{ shopfootwear_product.imageshopfootwear }}" class="w-64 h-64 rounded-xl" alt="">
+   {% endfor %}
+   </div>
+    <h2 class="text-2xl font-bold mt-4">
+        {{ shopfootwear_product.contentshopfootwear }} 
+        <span class="font-semibold text-md">
+            price: ₹{{ shopfootwear_product.priceshopfootwear }}
+        </span>
+        <span class="font-normal text-xl">[ ⭐⭐⭐⭐⭐ ]</span> 
+    </h2>
+
+    <p class="text-sm mt-2 font-semibold">
+         <button 
+            class="bg-blue-600 hover:bg-blue-500 rounded p-2 px-3 h-10 text-white float-right"
+             onclick="shareProduct(this)"
+            data-name="{{ shopfootwear_product.contentshopfootwear }}"
+            data-price="{{ shopfootwear_product.priceshopfootwear }}"
+            data-link="http://127.0.0.1:8000/Fashion/product_shopfootwear/{{ shopfootwear_product.id }}">
+           <i class="fa-solid fa-share-nodes"></i>
+         </button> 
+    </p>
+        <p class="text-blue-500">✔️Prime</p>
+    <div class="mt-6">
+        <form action="{% url 'shopfootwear_addtocart' shopfootwear_product.id %}" method="POST">
+
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
+
+        <!-- Buy Now -->
+         <form action="{% url 'buy_now_shopfootwear' shopfootwear_product.id %}" method="POST">
+
+            {% csrf_token %}
+            <button class="w-full bg-yellow-600 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                Buy Now
+            </button>
+        </form>
+        
+    </div>
+</div>
+<div class="w-full flex my-5 p-10 h-125  shadow rounded max-[430px]:h-95 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded">
+        <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden">
+         {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsshopfootwear' shopfootwear_product.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 
+          ease-in-out" src="{{ shopfootwear_product.imageshopfootwear }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+
+        <div class="h-40  leading-5 w-full ">
+           
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price - ₹{{ shopfootwear_product.priceshopfootwear }}</span></p>
+          
+            <form action="{% url 'shopfootwear_addtocart' shopfootwear_product.id %}" class="w-full" method="POST">
+               <h2 class=" text-xl font-semibold">{{ shopfootwear_product.contentshopfootwear }}</h2>
+              {% csrf_token %}
+               <h2><button class="add_tocartbtn">add to cart</button></h2>
+            </form>
+             <form action="{% url 'buy_now_shopfootwear' shopfootwear_product.id %}" class="w-full" method="POST">
+              {% csrf_token %}
+               <h2><button class="buy_nowcardbtn">Buy now</button></h2>
+            </form>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+<!--------------------------------------------------mainob product detials------------------------------->
+{% elif type == 'mainob' %}
+   <h2 class="bg-yellow-500 font-bold text-center text-2xl p-2 rounded "> {{ mainob_product.name }}</h2>
+  <div class="w-full p-5" >
+    <div class="w-full bg-no-repeat bg-[length:100%_100%] p-5 py-10" style="background-image:url('{{ mainob_product.imagemain }}')" >
+   <div class="w-64 m-auto flex overflow-x-auto overflow-y-hidden ">
+      {% for i in "123456" %}
+    <img src="{{ mainob_product.image }}" class="w-64 h-64 rounded-xl" alt="">
+   {% endfor %}
+   </div>
+    </div>
+        <p class="text-blue-500">{{ mainob_product.term }}</p>
+
+    <h2 class="text-2xl font-bold mt-4">
+        {{ mainob_product.content }}
+     </h2>    
+        <h2 class="font-semibold ">
+            {{ mainob_product.crazylower }}
+        </h2>
+         <span class="font-bold text-xl">
+            price: ₹{{mainob_product.startingprice}}
+        </span>
+        <span class="font-normal text-xl"> [ ⭐⭐⭐⭐⭐ ]</span> 
+    
+
+    <p class="text-sm mt-2 font-semibold">
+         <button 
+            class="bg-blue-600 hover:bg-blue-500 rounded p-2 px-3 h-10 text-white float-right"
+             onclick="shareProduct(this)"
+            data-name="{{ mainob_product.name }}"
+            data-price="{{ mainob_product.startingprice }}"
+            data-link="http://127.0.0.1:8000/mobile/product/{{ mainob_product.id }}">
+           <i class="fa-solid fa-share-nodes"></i>
+         </button> 
+    </p>
+        <p class="text-blue-500">✔️Prime</p>
+    <div class="mt-6">
+        <form action="{% url 'add_to_cart_mobile' mainob_product.id %}" method="POST">
+               {% csrf_token %}
+               <button class="w-full bg-yellow-400 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                  add to cart
+               </button>
+         </form>
+        <!-- Buy Now -->
+         <form action="{% url 'buy_now_mainob' mainob_product.id %}" method="POST">
+
+            {% csrf_token %}
+            <button class="w-full bg-yellow-600 hover:bg-yellow-400 px-6 py-2 my-2 font-semibold rounded-2xl">
+                Buy Now
+            </button>
+        </form>
+    </div>
+</div>
+<div class="w-full flex my-5 p-10 h-auto  shadow rounded  max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded">
+        <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden">
+         {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'product_details_mainob' mainob_product.id %}">
+          <img class="mainimage" src="{{ mainob_product.image }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-auto  leading-5 w-full ">
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price - ₹{{ mainob_product.startingprice }}</span></p>
+           <h2 class=" text-xl font-semibold">{{ mainob_product.name }}</h2>
+            <h2 class=" text-xl font-semibold">{{ mainob_product.crazylower }}</h2>
+            <form action="{% url 'add_to_cart_mobile' mainob_product.id %}" class="w-full" method="POST">
+              
+              {% csrf_token %}
+               <h2><button class="add_tocartbtn">add to cart</button></h2>
+            </form>
+             <form action="{% url 'buy_now_mainob' mainob_product.id %}" class="w-full" method="POST">
+              {% csrf_token %}
+               <h2><button class="buy_nowcardbtn my-2">Buy now</button></h2>
+            </form>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+{% endif %}
+
+<!----------------------------------------product details parts--------------------------------------------------------->
+<div class="w-full h-auto ">
+    <div class="w-full m-1 shadow p-4 font-bold text-2xl bg-white">Product_details</div>
+    <div class="w-full m-1 shadow p-4 max-[430px]:hidden">
+        <h2 class="font-bold text-2xl">Top Highlights</h2>
+
+       <div class="flex flex-wrap"> 
+        <div class="w-1/2 h-55  p-5 [&>h2]:font-semibold text-[20px] max-[430px]:[&>h2]:font-normal max-[430px]:text-[16px]">
+            <h2>Product Dimension </h2>
+            <h2>Brand</h2>
+            <h2>Capacity</h2>
+            <h2>Configurations</h2>
+            <h2>BEE Star Rating</h2>
+            <h2>Color</h2>
+        </div>
+         <div class="w-1/2 h-55 p-5 [&>h2]:font-semibold text-[20px] max-[430px]:text-[16px] max-[430px]:[&>h2]:font-normal">
+             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, </h2>
+             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, </h2>
+             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, </h2>
+             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, </h2>
+             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, </h2>
+             <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, </h2>
+        </div>
+        <div class="w-full h-100 p-2">
+            <h2>👉 Lorem, ipsum dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, veniam at incidunt sapiente maxime dignissimos perspiciatis ipsam accusamus nesciunt laborum eius aspernatur velit saepe nemo fuga, aut officia consectetur cum? dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, veniam at incidunt sapiente maxime dignissimos perspiciatis ipsam accusamus nesciunt laborum eius aspernatur velit saepe nemo fuga, aut officia consectetur cum? dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, veniam at incidunt sapiente maxime dignissimos perspiciatis ipsam accusamus nesciunt laborum eius aspernatur velit saepe nemo fuga, aut officia consectetur cum? dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, veniam at incidunt sapiente maxime dignissimos perspiciatis ipsam accusamus nesciunt laborum eius aspernatur velit saepe nemo fuga, aut officia consectetur cum? dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            <h2>👉 Lorem, ipsum Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, veniam at incidunt sapiente maxime dignissimos perspiciatis ipsam accusamus nesciunt laborum eius aspernatur velit saepe nemo fuga, aut officia consectetur cum? dolor sit aui veniam rerum molestias, corporis iure ratione consequatur non vero reiciendis ipsa cum culpa quaerat?</h2>
+            
+        </div>
+      </div>
+       
+    </div>
+    <div class="w-full m-1 shadow p-4 ">
+        <h2 class="font-bold text-2xl">Product_Specification</h2>
+        <div  class="w-full h-auto  p-2 [&>h2]:font-semibold  ">
+            
+            <div class="[&>span]:px-2 [&>span:hover]:border-double  [&>span:hover]:border-blue-700 max-[430px]:flex max-[430px]:overflow-x-auto max-[430px]:overflow-y-hidden
+            [&>span]:mx-2 [&>span]:border-4 [&>span:hover]:bg-blue-100 [&>span]:rounded [&>span]:border-transparent max-[430px]:[&>span]:w-40">
+             <span onclick="showDiv(1, this)"> item_details </span><span onclick="showDiv(2, this)"> Measurments </span><span onclick="showDiv(3, this)"> Features_&_Specs </span><span onclick="showDiv(4, this)"> User_guide </span><span onclick="showDiv(5, this)"> Style </span><span onclick="showDiv(6, this)"> Materials_&_Care </span>
+         </div>
+             <div id="div1" class="min-w-full h-auto content-box" style=";">
+             <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Brand Name
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    Whirphool
+                 </div>                   
+            </div>
+
+            <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Model Name
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    RD
+                 </div>                   
+            </div>
+
+            <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Model Number
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    s12dfdfd12
+                 </div>                   
+            </div>
+
+            <div class="w-full h-10 max-[430px]:h-20 flex gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Customer Reviews
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    121212112121
+                 </div>                   
+            </div>
+
+            <div class="w-full h-20 max-[430px]:h-65 flex gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Best Seller Rank
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem, consequatur perspiciatis nihil porro et laboriosam voluptate. Odit officiis, commodi perspiciatis inventore quia maiores itaque quam voluptatum deleniti tempore neque harum.
+                 </div>                   
+            </div>
+
+            <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Item Type name
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                 shirt
+                 </div>                   
+            </div>
+
+            <div class="w-full h-10 flex max-[430px]:h-20 gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Included Components
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    Egg tray Ice tray and many more things
+                 </div>                   
+            </div>
+
+            <div class="w-full h-10 flex gap-2 m-1 max-[430px]:h-20 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                   Country of publications
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    INDIA 
+                 </div>                   
+            </div>
+
+             <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    item Height
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    400 cm
+                 </div>                   
+            </div>
+
+             <div class="w-full h-20 flex gap-2 max-[430px]:h-60 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Manufacturerer
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, aspernatur odit. Quo optio magni sapiente sunt totam repellendus quos, nisi esse quia beatae nesciunt provident ipsam itaque dignissimos. Laudantium, vitae?
+                 </div>                   
+            </div>
+
+             <div class="w-full h-20 flex gap-2 m-1 shadow bg-white">
+                 <div class="w-60 h-full font-semibold p-2">
+                    Packer Contact Information
+                 </div>
+                 <div class="w-full h-full font-semibold p-2">
+                    Whirphool of india pvt.ltd 
+                 </div>                   
+            </div>
+          </div>
+          
+<div id="div2" class="content-box" style="display:none;">
+
+             <div class="w-full h-10 flex max-[430px]:h-20 gap-2 m-1 shadow bg-white">
+                     <div class="w-100 h-full font-semibold p-2">
+                             Item Dimension D * W * H
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         63.7D * 55.5W * 154.5H Centimeters
+                    </div>          
+             </div>
+
+               <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-100 h-full font-semibold p-2">
+                             Capeacity
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                        236 Litres
+                    </div>          
+             </div>
+
+               <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-100 h-full font-semibold p-2">
+                             Freezer Capacity
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         53 Litres
+                    </div>          
+             </div>
+
+
+               <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-100 h-full font-semibold p-2">
+                             Item weight
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         49360 Grams
+                    </div>          
+             </div>
+
+               <div class="w-full h-10 flex gap-2 m-1 max-[430px]:h-20 shadow bg-white">
+                     <div class="w-100 h-full font-semibold p-2">
+                             Annual Energy Consumption
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         229 kilowatt Hours Per Year
+                    </div>          
+             </div>
+
+               <div class="w-full h-10 flex gap-2 m-1 shadow max-[430px]:h-20 bg-white">
+                     <div class="w-100 h-full font-semibold p-2">
+                            Refrigerator Net Capacity
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         236 Litres
+                    </div>          
+             </div>
+
+               <div class="w-full h-10 flex gap-2 m-1  max-[430px]:h-20 shadow bg-white">
+                     <div class="w-100 h-full font-semibold p-2">
+                             Item Dimension D * W * H
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         63.7D * 55.5W * 154.5H Centimeters
+                    </div>          
+             </div>
+</div>
+<div id="div3" class="content-box"style="display:none;">
+
+               <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Configurations
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Freezer on Top
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 max-[430px]:h-20 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Additional Features
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Energy Efficient-Inverter Compress_Forst Free_Automatic
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                          Number of doors   
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         2
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Defrost System Type
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Frost Free
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Voltage
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         230 Volts
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                            Shelf Type 
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Toughened Glass
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow max-[430px]:h-20 bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                           Form Factor  
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                        Standard Double Door, Freezer Top, Convertible 
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Cooling Method
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                        Compressor 
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Inverter Type
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Has Inverter
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                            Lock Type 
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         No
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow max-[430px]:h-20 bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                            Number of Shelves 
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         3
+                  </div>          
+             </div>
+
+                <div class="w-full h-20 flex gap-2 m-1 shadow max-[430px]:h-20 bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Adjustable Temprature Control
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Yes
+                  </div>          
+             </div>
+
+                <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Power Plug Type
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Type D
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                           Door Orientation  
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Left
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                           Compressor Type  
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Reciprocating
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow max-[430px]:h-20 bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Has Convertible Freezer
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Yes
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                          Is Costomisable  
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         No
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                             Is Electric
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Yes
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow max-[430px]:h-20 bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                            Number of sections 
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         2
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-60 h-full font-semibold p-2">
+                           Door Shelf Count  
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                        3 
+                  </div>          
+             </div>
+
+</div>
+<div id="div4" class="content-box" style="display:none;">
+    
+          <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-150 h-full font-semibold p-2">
+                           BEE Star Rating  
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         3 Star
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-150 h-full font-semibold p-2">
+                           Installation Type  
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Freestanding
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-150 h-full font-semibold p-2">
+                            Specification Met 
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Energy Star
+                  </div>          
+             </div>
+
+</div>
+<div id="div5" class="content-box"style="display:none;">
+    
+           <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-150 h-full font-semibold p-2">
+                            Colour
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Black Matt
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-150 h-full font-semibold p-2">
+                            Pattern 
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Solid
+                  </div>          
+             </div>
+
+</div>
+<div id="div6" class="content-box"style="display:none;">
+    
+
+           <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-150 h-full font-semibold p-2">
+                            Refrigerant
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                        r-600A
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-150 h-full font-semibold p-2">
+                          Product Finish Type
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Matte
+                  </div>          
+             </div>
+
+              <div class="w-full h-10 flex gap-2 m-1 shadow bg-white">
+                     <div class="w-150 h-full font-semibold p-2">
+                            Door Materials Type
+                        </div>
+                     <div class="w-full h-full font-semibold p-2">
+                         Stainless Steel
+                  </div>          
+             </div>
+
+</div>  
+            
+        </div>
+    </div>
+
+</div>
+
+<!-----------------------------------home & kitchen bedromm-------------------------------------->
+{% if type == 'bedroom' %}
+<div class="w-full flex my-5 p-10 h-115  shadow rounded max-[430px]:h-100 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %} 
+    <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded max-[430px]:mx-auto">
+        <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden ">
+           {% for i in "123456" %}
+              <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsbedroom' bedroom_product.id %}">
+                  <img class="min-w-full rounded-2xl h-full transition-transform duration-300 hover:scale-106 ease-in-out" src="{{ bedroom_product.image }}" alt="">
+              </a>
+           {% endfor %}
+        </div>
+        <div class="h-40  leading-5 w-full ">  
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price- ₹{{ bedroom_product.price }}</span></p>
+          
+            <form action="{% url 'bedroomaddtocart' bedroom_product.id %}" class="w-full" method="POST">
+               <h2 class="text-xl font-semibold">{{ bedroom_product.content }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+               <form action="{% url 'buy_now_bedroom' bedroom_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-1 my-2 font-semibold rounded">
+                Buy Now
+            </button>
+        </form>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+<!--------------------------------------fashion.html shopclothings------------------------------------------------------>
+{% elif type == 'shopclothing' %}
+<div class="w-full flex  my-5 p-10 h-105 shadow rounded max-[430px]:h-105 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded max-[430px]:mx-auto">
+            <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden ">
+            {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsshopclothing' shopclothing_product.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 
+          ease-in-out" src="{{ shopclothing_product.imageshopclothing }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-50  leading-5 w-full ">  
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price - ₹{{ shopclothing_product.priceshopclothing }}</span></p>
+            <form action="{% url 'shopclothing_addtocart' shopclothing_product.id %}" class="w-full" method="POST">
+               <h2 class="text-xl font-semibold">{{ shopclothing_product.contentshopclothing }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 
+                rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+             <form action="{% url 'buy_now_shopclothing' shopclothing_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-1 my-2 font-semibold rounded">
+                Buy Now
+            </button>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+<!---------------------------------------fashion.html shopfootwear--------------------------------------------->
+{% elif type == 'shopfootwear' %}
+<div class="w-full flex  my-5 p-10 h-125  shadow rounded max-[430px]:h-100 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded max-[430px]:mx-auto">
+             <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden ">
+        {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsshopfootwear' shopfootwear_product.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 ease-in-out" src="{{ shopfootwear_product.imageshopfootwear }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-40  leading-5 w-full ">  
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price - ₹{{ shopfootwear_product.priceshopfootwear }}</span></p>
+            <form action="{% url 'shopfootwear_addtocart' shopfootwear_product.id %}" class="w-full" method="POST">
+               <h2 class="text-xl font-semibold">{{ shopfootwear_product.contentshopfootwear }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 
+                rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+             <form action="{% url 'buy_now_shopfootwear' shopfootwear_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-1 my-2 font-semibold rounded">
+                Buy Now
+            </button>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!------------------------------------------fashion.html shopbudget---------------------------------------->
+{% elif type == 'shopBudget' %}
+<div class="w-full flex my-5 p-10 h-125  shadow rounded max-[430px]:h-100 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded max-[430px]:mx-auto">
+         <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden ">
+        {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsshopBudget' shopBudget_product.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 ease-in-out" src="{{ shopBudget_product.imageshopBudget }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-40  leading-5 w-full ">  
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price - ₹{{ shopBudget_product.priceshopBudget }}</span></p>
+            <form action="{% url 'shopBudget_addtocart' shopBudget_product.id %}" class="w-full" method="POST">
+               <h2 class="text-xl font-semibold">{{ shopBudget_product.contentshopBudget }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 
+                rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+             <form action="{% url 'buy_now_shopBudget' shopBudget_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-1 my-2 font-semibold rounded">
+                Buy Now
+            </button>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-----------------------------------------fashion.html shopbeauty------------------------------------------------>
+{% elif type == 'shopbeauty' %}
+<div class="w-full flex  my-5 p-10 h-125  shadow rounded max-[430px]:h-100 max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5 ">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded max-[430px]:mx-auto">
+        <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden ">
+        {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'Product_detailsshopbeauty' shopbeauty_product.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 
+          ease-in-out" src="{{ shopbeauty_product.imageshopBeauty }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-40  leading-5 w-full ">  
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price - ₹{{ shopbeauty_product.priceshopBeauty }}</span></p>
+          
+            <form action="{% url 'shopbeauty_addtocart' shopbeauty_product.id %}" class="w-full" method="POST">
+               <h2>{{ shopbeauty_product.contentshopBeauty }}</h2>
+              {% csrf_token %}
+               <h2><button class="bg-blue-600 hover:bg-blue-500 
+                rounded p-1 text-white w-full">add to cart</button></h2>
+            </form>
+            <form action="{% url 'buy_now_shopbeauty' shopbeauty_product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-1 my-2 font-semibold rounded">
+                Buy Now
+            </button>
+        </div>
+  </div>
+  {% endfor %}
+   
+</div>
+
+<!--------------------------------------------mainob product-details------------------------------------>
+{% elif type == 'mainob' %}
+<div class="w-full flex my-5 p-10 h-auto  shadow rounded  max-[430px]:p-1 overflow-x-auto overflow-y-hidden gap-5">
+    {% for i in "123456" %}
+      <div class="min-w-66 h-full bg-slate-100 p-2  flex-wrap  shadow rounded">
+        <div class="w-50 h-55 m-auto flex overflow-x-auto overflow-y-hidden">
+         {% for i in "123456" %}
+         <a class="min-w-full cursor-pointer" href="{% url 'product_details_mainob' mainob_product.id %}">
+          <img class="mainimage" src="{{ mainob_product.image }}" alt="">
+          </a>
+          {% endfor %}
+        </div>
+        <div class="h-auto my-3 leading-5 w-full ">
+          <p class="hover:underline text-xl font-semibold "> <span class="text-green-600">Price - ₹{{ mainob_product.startingprice }}</span></p>
+           <h2 class=" text-xl font-semibold">{{ mainob_product.name }}</h2>
+            <h2 class=" text-xl font-semibold">{{ mainob_product.crazylower }}</h2>
+            <form action="{% url 'add_to_cart_mobile' mainob_product.id %}" class="w-full" method="POST">
+              
+              {% csrf_token %}
+               <h2><button class="add_tocartbtn">add to cart</button></h2>
+            </form>
+             <form action="{% url 'buy_now_mainob' mainob_product.id %}" class="w-full" method="POST">
+              {% csrf_token %}
+               <h2><button class="buy_nowcardbtn my-2">Buy now</button></h2>
+            </form>
+        </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
+{% endif %}
+
+{% include 'footermobile.html' %}
+
+<script>
+function showDiv(number) {
+  // Sab div hide karo
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById(`div${i}`).style.display = "none";
+  }
+  // Jo button click hua, uska div show karo
+  document.getElementById(`div${number}`).style.display = "block";
+}
+</script>
+      <script>
+        function shareProduct() {
+            const shareData = {
+                title: "{{ bedroom_product.content }}",
+                text: `Product: {{ bedroom_product.content }}
+        Price: ₹{{ bedroom_product.price }}
+        Buy Now: http://127.0.0.1:8000/Home&Kitchen/product_bedroom/{{ bedroom_product.id }}`
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData) 
+                    .then(() => console.log('Product shared successfully'))
+                    .catch((err) => console.log('Error sharing:', err));
+            } else {
+                alert("Your browser doesn't support share feature");
+            }
+        }
+</script>
+<script>
+function shareProduct(button) {
+    const name = button.getAttribute('data-name');
+    const price = button.getAttribute('data-price');
+    const link = button.getAttribute('data-link');
+
+    const shareData = {
+        title: name,
+        text: `Product: ${name}\nPrice: ₹${price}\nBuy Now: ${link}`,
+        url: link
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData)
+            .then(() => console.log('✅ Product shared successfully'))
+            .catch(err => console.log('❌ Error sharing:', err));
+    } else {
+        alert("Your browser doesn't support the share feature 😔");
+    }
+}
+</script>
+
+
+</body>
+</html>

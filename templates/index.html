@@ -7,6 +7,7 @@
     <link href="{% static './output.css' %}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ede47d886a.js" crossorigin="anonymous"></script>
     <script src="{% static 'index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
     <style>
       #scrollcontainer::-webkit-scrollbar{
         display:none;
@@ -23,7 +24,11 @@
       .main::-webkit-scrollbar{
        display:none;
       }
-      
+       .smartphone::-webkit-scrollbar{display:none;}
+      @keyframes leftSlide {
+         0% {transform: translateX(100%);}
+         100% { transform: translateX(-100%);}
+       }
     </style>
   </head>
 <body   class="bg-slate-100">
@@ -66,51 +71,7 @@
 
 <!--mobile bottom-->
 
- <div class="w-full h-14 fixed bottom-0 bg-white p-2 min-[430px]:hidden 
- border-4 border-t border-l-0 border-r-0 border-b-0 border-t-slate-300 z-10">
-   <div class="w-full flex gap-4 h-full">
-    <a href="{% url 'home' %}"></a>
-       <div class="w-15 p-2 justify-center">
-        <svg class="w-5 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-          </svg>
-          <h3 class="text-[12px]">Home</h3>     
-       </div>
-      </a>
-       <div class="w-15 p-2 justify-center ">
-        <a href="{% url 'register' %}">
-        <svg class="w-5 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-          </svg>
-          
-          <h3 class="text-[12px]">You</h3> 
-          </a>    
-       </div>
-       <div class="w-15 p-2 justify-center ">
-        <a href="{% url 'cart' %}">
-        <svg class="w-5 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-          </svg>
-          
-          
-         <h3 class="text-[12px]">Cart   </h3> </a>    
-       </div>
-       <div class="w-15 p-2 justify-center ">
-        <svg class="w-5 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-          <h3 class="text-[12px]">Menu</h3>
-
-       </div>
-       <div class="w-15 p-2 justify-center ">
-        <svg class="w-5 ml-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
-          </svg>
-          
-          <h3 class="text-[12px]">Rufus</h3>     
-       </div>
-   </div>
- </div>
+ 
        
  
  <!--scrollcontainer-->
@@ -177,7 +138,8 @@
        <div class=" w-[165px] h-[160px]">
          <div class=" w-full h-[85px]">
           
-          <a href="{% url 'add_to_cart' products.id products.content1 %}">
+             {% if products.content1 %}
+             <a href="{% url 'product_detail' products.id products.content1 %}">
             <img class="w-full h-full transition-transform duration-500 ease-in-out
             hover:scale-110 " src="{{ products.image1 }}" alt="Product" class="cursor-pointer">
         </div>
@@ -189,6 +151,7 @@
            
          </div>
          </a>
+          {% endif %}
          <div class="w-full h-[10px] m-1">
            <form action="{% url 'add_to_cart' products.id products.content1 %}" method="post">
              {% csrf_token %}
@@ -200,7 +163,9 @@
 
       <div class=" w-[165px] h-[160px]">
         <div class=" w-full h-[85px]">
-          <a href="{% url 'add_to_cart' products.id products.content2 %}">
+         
+             {% if products.content2 %}
+             <a href="{% url 'product_detail' products.id products.content2 %}">
               <img class="w-full h-full transition-transform duration-500 ease-in-out
             hover:scale-110" src="{{ products.image2 }}" alt="Product">
          
@@ -212,6 +177,7 @@
            total pay : ₹{{ products.final_price2 }} only 
         </div>
          </a>
+         {% endif %}
         <div class="w-full h-[10px] m-1">
           <form action="{% url 'add_to_cart' products.id products.content2 %}" method="post">
             {% csrf_token %}
@@ -223,7 +189,9 @@
       </div>
       <div class=" w-[165px] h-[160px]">
         <div class=" w-full h-[85px]">
-          <a href="{% url 'add_to_cart' products.id products.content3  %}">
+          
+             {% if products.content3 %}
+             <a href="{% url 'product_detail' products.id products.content3 %}">
             <img class="w-full h-full transition-transform duration-500 ease-in-out
             hover:scale-110" src="{{ products.image3 }}" alt="Product" class="cursor-pointer">
           
@@ -235,6 +203,7 @@
            total pay : ₹{{ products.final_price3 }} only 
         </div>
         </a>
+        {% endif %}
         <div class="w-full h-[10px] m-1">
           <form action="{% url 'add_to_cart' products.id products.content3  %}" method="post">
             {% csrf_token %}
@@ -247,7 +216,9 @@
 
       <div class=" w-[165px] h-[160px]">
         <div class=" w-full h-[85px] ">
-          <a href="{% url 'add_to_cart' products.id products.content4 %}">
+          
+             {% if products.content4 %}
+             <a href="{% url 'product_detail' products.id products.content4 %}">
             <img class="w-full h-full transition-transform duration-500 ease-in-out
             hover:scale-110" src="{{ products.image4 }}" alt="Product" class="cursor-pointer">
           
@@ -259,6 +230,7 @@
            total pay : ₹{{ products.final_price4 }} only 
         </div>
         </a>
+        {% endif%}
         <div class="w-full h-[10px] m-1">
           <form action="{% url 'add_to_cart' products.id products.content4 %}" method="post">
             {% csrf_token %}
@@ -326,7 +298,8 @@
        {% for mobile in mobile %}
       <div class="min-w-66 h-full bg-slate-100 p-2 flex flex-wrap  shadow rounded">
         <div class="w-44 h-55 m-auto ">
-          <a href="{% url 'add_to_cartmobile' mobile.id %}">
+
+         <a class="cursor-pointer" href="{% url 'Product_detailsmobile' mobile.id %}">
           <img class="w-full h-full transition-transform duration-300 hover:scale-106 
           ease-in-out" src="{{ mobile.imagemobile }}" alt="">
           </a>
@@ -420,7 +393,7 @@ w-screen h-100  overflow-x-auto ">
             <p>{{ main.crazylower }}</p>
             <p>&copy {{ main.term }}</p>
             <p> 
-                <a href="{% url 'add_to_cart_mobile' main.id %}">Add to cart</a>
+                <a href="{% url 'product_details_mainob' main.id %}">Add to cart</a>
             </p>
             <p>{{ main.name }}</p>
         </div>
@@ -430,7 +403,10 @@ w-screen h-100  overflow-x-auto ">
             <div class="w-20  font-semibold bg-yellow-300 shadow-2xl shadow-black p-2  rounded-2xl ">
               <p class="leading-1">starting  ₹<span class="text-4xl">{{ main.startingprice }}</span></p>
             </div>
-            <img class="w-full h-[80%] rounded-2xl shadow" src="{{ main.image }}" alt=""></div>
+            <a href="{% url 'product_details_mainob' main.id %}">
+            <img class="w-full h-[80%] rounded-2xl shadow" src="{{ main.image }}" alt="">
+            </a>
+          </div>
         </div>
       </div>
       {% endfor %}
@@ -453,6 +429,40 @@ w-screen h-100  overflow-x-auto ">
 </div>
 
 <div class="w-full min-[430px]:hidden h-37"></div>
+<!-----------------------------------------homepage mobile ---------------------------->
+<div class="w-full min-[430px]:hidden flex flex-wrap my-5 h-auto  bg-white shadow rounded">
+  <div class="w-full h-15 p-2 ">
+    <h1 class="text-3xl font-bold">{{ mobile.0.header2 }}</h1>
+  </div>
+  <div class=" w-full flex h-auto">
+    <div id="mobile-section" class="w-full py-6 h-100 flex gap-2 overflow-x-auto overflow-y-hidden ">
+       {% for mobile in mobile %}
+      <div class="min-w-66 h-full bg-slate-100 p-2 flex flex-wrap  shadow rounded">
+        <div class="w-44 h-55 m-auto ">
+
+         <a class="cursor-pointer" href="{% url 'Product_detailsmobile' mobile.id %}">
+          <img class="w-full h-full transition-transform duration-300 hover:scale-106 
+          ease-in-out" src="{{ mobile.imagemobile }}" alt="">
+          </a>
+        </div>
+        <div class="w-55 h-20 m-auto  leading-5">
+           
+          <p class="bg-red-600 p-1 rounded text-white font-semibold">{{ mobile.offermobile }}% off limited time deal </p>
+          <p class="hover:underline text-xl font-semibold ">₹{{ mobile.final_price }} <span class="text-slate-500 text-[12px]">MRP - ₹{{ mobile.mrpmobile }}</span></p>
+
+            <form action="{% url 'add_to_cartmobile' mobile.id %}" method="POST">
+              <p class="flex justify-between"> <span>{{ mobile.nameofmobile }}</span>
+              {% csrf_token %}
+               <span><button class="bg-blue-600 hover:bg-blue-500 
+                rounded p-1 text-white px-4">add to cart</button></span>
+            </form>
+          </p>
+        </div>
+      </div>
+       {% endfor %}
+    </div>
+  </div>
+</div>
 
 <div class="w-screen min-[430px]:hidden h-22 overflow-hidden shadow">
   <div id="mainob2" class="w-full h-full flex overflow-x-auto overflow-y-hidden">
@@ -470,74 +480,8 @@ w-screen h-100  overflow-x-auto ">
 </div>
 
 
-<div class="w-screen min-[430px]:hidden overflow-hidden h-120  ">
-  <div id="mainob2" class="w-full h-full  overflow-x-auto
-  overflow-y-hidden flex">
-  {% for main4 in mainob4 %}
-      <div class="min-w-full h-full flex flex-wrap gap-2 p-2 ">
-         <div class="w-45 h-56 flex flex-wrap ">
-            <div class="px-2 w-40 mx-auto  h-40 bg-slate-200 rounded shadow-sm shadow-slate-400">
-              <img class="w-full h-full" src="{{ main4.image4m1 }}" alt="">
-            </div>
-            <div class="w-full h-10 flex">
-              
-              <div class="w-33 text-red-600 p-1 rounded font-semibold h-10">
-                <span class="w-15 p-1 rounded font-semibold text-white bg-red-600 h-10">
-                {{ main4.offer1}}%
-              </span>
-                {{ main4.footer1 }}
-              </div>
-            </div>
-         </div>
-        <div class="w-45 h-56 flex flex-wrap ">
-           <div class="px-2 w-40 mx-auto  h-40 bg-slate-200 rounded shadow-sm shadow-slate-400">
-              <img class="w-full h-full" src="{{ main4.image4m2 }}" alt="{{ main4.footer2 }}">
-            </div>
-            <div class="w-full h-10 flex ">
-               
-                <div class="w-33 text-red-600 p-1 rounded font-semibold h-10">
-                 <span class="w-15 p-1 rounded font-semibold text-white bg-red-600 h-10">
-                   {{ main4.offer2}}%
-                </span>
-                {{ main4.footer2 }}
-  
-               </div>
-            </div>
-         </div>
-         <div class="w-45 h-56 flex flex-wrap ">
-             <div class="px-2 w-40 mx-auto  h-45 bg-slate-200 rounded shadow-sm shadow-slate-400">
-              <img class="w-full h-full" src="{{ main4.image4m3 }}" alt="">
-            </div>
-            <div class="w-full h-10 flex  ">
-              <div class="w-15 p-1 rounded font-semibold text-white bg-red-600 h-10">
-                {{ main4.offer3}}%
-              </div>
-              <div class="w-33 text-red-600 p-1 rounded font-semibold h-10">
-                {{ main4.footer3 }}
-              </div>
-            </div>
-         </div>
-         <div class="w-45 h-56 flex flex-wrap ">
-            <div class="px-2 w-40 mx-auto  h-45 bg-slate-200 rounded shadow-sm shadow-slate-400">
-              <img class="w-full h-full" src="{{ main4.image4m4 }}" alt="">
-            </div>
-            <div class="w-full h-10 flex">
-              <div class="w-15 p-1 rounded font-semibold text-white bg-red-600 h-10">
-                {{ main4.offer4}}%
-              </div>
-              <div class="w-33 text-red-600 p-1 rounded font-semibold h-10">
-                {{ main4.footer4 }}
-              </div>
-            </div>
-         </div>
-      </div>
-       {% endfor %}
-      
-  </div>
-</div>
-
-<div class=" w-full h-110 min-[430px]:hidden">
-    <div class="w-full h-20  px-5 leading-4 m-2">
+<div class=" w-full h-110 min-[430px]:hidden my-10">
+    <div class="w-full h-20  px-5 leading-4 my-2">
       <h2 class="text-2xl font-semibold">{{ matched_data.0.headermatch }}</h2>
       <p>Bestselling product of Watches</p>
       <br>
@@ -549,7 +493,7 @@ w-screen h-100  overflow-x-auto ">
       <div class="box1 min-w-70 h-85 shadow-sm rounded-2xl 
       shadow-slate-500 p-2 justify-center flex flex-wrap">
           <div class="w-60 h-48  p-5 px-10">
-            <a href="{% url 'filtered_products1' best.id %}">
+            <a href="{% url 'Product_detailsbestseller' best.id %}">
             <img class="w-full rounded-2xl shadow-md shadow-slate-500 h-full" src="{{ best.Imagem }}" alt="">
             </a>
           </div>
@@ -586,7 +530,7 @@ w-screen h-100  overflow-x-auto ">
                       </div>
                         <div class="w-[40%] h-[45%] "></div>
 
-                         <a href="{% url 'fresh_addtocart' fresh.id %}">
+                         <a href="{% url 'Product_detailsfresh' fresh.id %}">
                              <div class="w-1/2 h-[53%] p-1 text-white backdrop-blur-[4px] hover:underline ">
                                  <h2 class="text-2xl font-bold ">{{ fresh.nameoffresh }} 
                                   <span class="text-[20px] font-semibold">{{ fresh.offerfresh }}%off</span>
@@ -718,19 +662,19 @@ w-screen h-100  overflow-x-auto ">
                     <h1>on first order</h1>
                   </div>
                   <div class="w-70 h-full  text-center py-10 ">
-                     <h1 class="py-2  bg-black text-white">sign up now</h1>
-                  </div>
+                    <a href="{% url 'register' %}">
+                     <h1 class="py-2  bg-black text-white" >sign up now</h1>
+                  </a>
+                    </div>
              </div>
         </div>
-
-
-
 
  <div class="w-full h-auto py-4 p-1 min-[430px]:hidden">
             <h1 class="font-semibold text-xl">Vocal for local</h1>
             <div class="w-full h-auto   ">
                  <div class="w-full h-92 gap-5 px-3 bg-orange-400 flex p-4 overflow-x-auto overflow-y-hidden ">
                     {% for vocalforlocal in vocalforlocal %}
+                    <a href="{% url 'Product_detailsvocalforlocal1' vocalforlocal.id %}">
                    <div class="min-w-55 h-full ">
                       <div class="w-full h-50  ">
                          <img class="w-full h-full rounded-t-2xl" src="{{ vocalforlocal.image }}" alt="">
@@ -743,11 +687,13 @@ w-screen h-100  overflow-x-auto ">
                         <h1 class="text-2xl font-bold">Min. {{ vocalforlocal.offer }}% off</h1>
                       </div>
                    </div>
+                   </a>
                    {% endfor %}
                  </div>
 
                   <div class="w-full h-92 gap-5 px-3 bg-white flex p-4 overflow-x-auto overflow-y-hidden ">
                     {% for vocalforlocal1 in vocalforlocal1 %}
+                    <a href="{% url 'Product_detailsvocalforlocal2' vocalforlocal1.id %}">
                    <div class="min-w-55 h-full ">
                       <div class="w-full h-50  ">
                          <img class="w-full h-full rounded-t-2xl" src="{{ vocalforlocal1.image1 }}" alt="">
@@ -760,11 +706,13 @@ w-screen h-100  overflow-x-auto ">
                         <h1 class="text-2xl font-bold">Min. {{ vocalforlocal1.offer1 }}% off</h1>
                       </div>
                    </div>
+                  </a>
                    {% endfor %}
                  </div>
                  
                   <div class="w-full h-92 gap-5 px-3 bg-green-400 flex p-4 overflow-x-auto overflow-y-hidden ">
                     {% for vocalforlocal in vocalforlocal %}
+                    <a href="{% url 'Product_detailsvocalforlocal1' vocalforlocal.id %}">
                    <div class="min-w-55 h-full ">
                       <div class="w-full h-50  ">
                          <img class="w-full h-full rounded-t-2xl" src="{{ vocalforlocal.image }}" alt="">
@@ -777,6 +725,7 @@ w-screen h-100  overflow-x-auto ">
                         <h1 class="text-2xl font-bold">Min. {{ vocalforlocal.offer }}% off</h1>
                       </div>
                    </div>
+                  </a>
                    {% endfor %}
                  </div>
             </div>
@@ -788,6 +737,7 @@ w-screen h-100  overflow-x-auto ">
             <h1 class="font-semibold text-xl ">Shop clothing</h1>
               <div class="w-full h-auto flex overflow-x-auto overflow-y-hidden  gap-2 ">
                 {% for shopclothing in shopclothing %}
+                <a href="{% url 'Product_detailsshopclothing' shopclothing.id %}">
                   <div class="min-w-55 h-100 ">
                     <div class="w-full h-75">
                         <img class="w-full h-full rounded-t-2xl" src="{{ shopclothing.imageshopclothing }}" alt="">
@@ -797,6 +747,7 @@ w-screen h-100  overflow-x-auto ">
                         <h1 class="text-xl text-orange-500">Under ₹{{ shopclothing.priceshopclothing }}</h1>
                     </div>
                   </div>
+                  </a>
                   {% endfor %}  
              </div>
           </div>
@@ -807,6 +758,7 @@ w-screen h-100  overflow-x-auto ">
             <h1 class="font-semibold text-xl ">Shop footwear</h1>
               <div class="w-full h-auto flex bg-red-100 gap-2 overflow-x-auto overflow-y-hidden">
                 {% for shopfootwear in shopfootwear %}
+                <a href="{% url 'Product_detailsshopfootwear' shopfootwear.id %}">
                   <div class="min-w-55 h-55">
                     <div class="w-full h-35">
                         <img class="w-full h-full rounded-2xl" src="{{ shopfootwear.imageshopfootwear }}" alt="">
@@ -816,6 +768,7 @@ w-screen h-100  overflow-x-auto ">
                         <h1 class=" text-orange-500">Under ₹{{ shopfootwear.priceshopfootwear }}</h1>
                     </div>
                   </div>
+                </a>
                   {% endfor %}  
              </div>
           </div>
@@ -828,7 +781,7 @@ w-screen h-100  overflow-x-auto ">
    <div class="w-full h-auto min-[430px]:hidden bg-red-300 p-2">
             <div  class="min-w-full h-72 gap-1 flex  overflow-x-auto">
               {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+              <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
                <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
              shadow-sm shadow-black group">
@@ -853,7 +806,7 @@ w-screen h-100  overflow-x-auto ">
    <div class="w-full h-70 bg-red-50 p-2 min-[430px]:hidden">
       <div class=" w-full h-full gap-1 overflow-x-auto overflow-y-hidden flex">
            {% for electronicsheadphones in electronicsheadphones %}
-           <a href="{% url 'headphonesaddtocart' electronicsheadphones.id %}">
+           <a href="{% url 'Product_detailsheadphones' electronicsheadphones.id %}">
              <div class="min-w-55 h-65 bg-white shadow rounded">
               <div class="w-full h-30 p-2 px-15">
                 <img class="w-full h-full rounded-2xl" src="{{ electronicsheadphones.headphonesimage }}" alt="">
@@ -882,7 +835,7 @@ w-screen h-100  overflow-x-auto ">
    <div class="w-full h-85 bg-red-50  min-[430px]:hidden p-2">
       <div  class="w-full h-full gap-1 overflow-x-auto overflow-y-hidden flex"> 
           {% for electronicsstored in electronicsstored %}
-          <a href="{% url 'storedaddtocart' electronicsstored.id %}">
+          <a href="{% url 'Product_detailsstored' electronicsstored.id %}">
            <div class="min-w-55 h-80 bg-white shadow rounded">
             <div class="min-w-55 h-35  px-10">
              <img class="w-full h-full rounded-2xl" src="{{ electronicsstored.storedimage }}" alt="">
@@ -908,7 +861,7 @@ w-screen h-100  overflow-x-auto ">
             <h1 class="font-semibold text-xl ">Budget Add-Ons</h1>
               <div class="w-full h-auto flex bg-green-100 gap-2 p-2 rounded shadow overflow-x-auto overflow-y-hidden">
                 {% for Budgetaddons in Budgetaddons %}
-                <a href="{% url 'shopBudget_addtocart' Budgetaddons.id %}">
+                <a href="{% url 'Product_detailsshopBudget' Budgetaddons.id %}">
                   <div class="w-45 h-50">
                     <div class="w-full h-35">
                         <img class="w-full h-full rounded-2xl" src="{{ Budgetaddons.imageshopBudget  }}" alt="">
@@ -928,7 +881,7 @@ w-screen h-100  overflow-x-auto ">
   <h1 class="font-semibold text-xl">Shop Beauty</h1>
    <div class="w-full h-auto flex gap-8 px-2 overflow-x-auto overflow-y-hidden">
     {% for shopbeauty in shopbeauty %}
-    <a href="{% url 'shopbeauty_addtocart' shopbeauty.id %}">
+    <a href="{% url 'Product_detailsshopbeauty' shopbeauty.id %}">
        <div class="min-w-45 h-100 ">
          <div class="w-full h-30 ">
            <img class="w-full h-70 " src="{{ shopbeauty.imageshopBeauty }}" alt="">
@@ -949,6 +902,7 @@ w-screen h-100  overflow-x-auto ">
             <h1 class="font-semibold text-xl ">Shop footwear</h1>
               <div class="w-full h-auto flex bg-red-100 gap-2 overflow-x-auto overflow-y-hidden">
                 {% for shopfootwear in shopfootwear %}
+                <a href="{% url 'Product_detailsshopfootwear' shopfootwear.id %}">
                   <div class="min-w-55 h-55">
                     <div class="w-full h-35">
                         <img class="w-full h-full rounded-2xl" src="{{ shopfootwear.imageshopfootwear }}" alt="">
@@ -958,6 +912,7 @@ w-screen h-100  overflow-x-auto ">
                         <h1 class=" text-orange-500">Under ₹{{ shopfootwear.priceshopfootwear }}</h1>
                     </div>
                   </div>
+                  </a>
                   {% endfor %}  
              </div>
           </div>
@@ -967,6 +922,7 @@ w-screen h-100  overflow-x-auto ">
             <h1 class="font-semibold text-xl ">Brands We Love</h1>
               <div class="w-full h-auto flex overflow-x-auto overflow-y-hidden  gap-2 ">
                 {% for shopclothing in shopclothing %}
+                <a href="{% url 'Product_detailsshopclothing' shopclothing.id %}">
                   <div class="min-w-55 h-100 ">
                     <div class="w-full h-75">
                         <img class="w-full h-full rounded-t-2xl" src="{{ shopclothing.imageshopclothing }}" alt="">
@@ -976,22 +932,23 @@ w-screen h-100  overflow-x-auto ">
                         <h1 class="text-xl text-orange-500">Under ₹{{ shopclothing.priceshopclothing }}</h1>
                     </div>
                   </div>
+                </a>
                   {% endfor %}  
              </div>
           </div>
 
 <!--product 430px ke neeche-->
 <h2 class="py-1 pt-2 font-semibold text-xl min-[430px]:hidden">Product</h2>
-  <div class="p-1 overflow-x-auto overflow-y-hidden min-[430px]:hidden flex h-140 w-full gap-1">
+  <div class=" overflow-x-auto overflow-y-hidden min-[430px]:hidden flex h-170 w-full  gap-1">
     
     {% for products in product %}
-    <div class="rounded shadow flex flex-wrap min-w-full p-2 h-full bg-white gap-2">
+    <div class="rounded shadow flex flex-wrap min-w-full p-1 h-full bg-white  gap-2">
       <div class=" w-full h-7 leading-6.5 text-2xl font-bold decoration-2">
         {{ products.header }}
        </div>
-       <div class=" w-[49%] h-45 px-4">
+       <div class=" w-[45%] h-45 px-4 mx-auto">
          <div class=" w-full h-25  ">
-           <a href="{% url 'add_to_cart' products.id products.content1 %}">
+         <a href="{% url 'product_detail' products.id products.content1 %}">
             <img class="w-full h-full " src="{{ products.image1 }}" alt="Product" class="cursor-pointer">
         </div>
          <div class="w-full h-22 text-[14px] font-medium decoration-2">
@@ -1002,7 +959,7 @@ w-screen h-100  overflow-x-auto ">
            
          </div>
          </a>
-         <div class="w-full h-[10px]">
+         <div class="w-full h-2.5">
            <form action="{% url 'add_to_cart' products.id products.content1 %}" method="post">
              {% csrf_token %}
              <button class="bg-blue-700 w-full rounded-sm text-white" type="submit">Add to Cart</button>
@@ -1010,9 +967,9 @@ w-screen h-100  overflow-x-auto ">
          </div>  
      </div>
 
-      <div class="w-[49%] h-45  px-4">
+      <div class="w-[45%] h-45  px-4 mx-auto">
         <div class=" w-full h-25 ">
-          <a href="{% url 'add_to_cart' products.id products.content2 %}">
+                     <a href="{% url 'product_detail' products.id products.content2 %}">
               <img class="w-full h-full" src="{{ products.image2 }}" alt="Product">
         </div>
          <div class="w-full h-22  text-[14px] font-medium decoration-2">
@@ -1022,7 +979,7 @@ w-screen h-100  overflow-x-auto ">
            total pay : ₹{{ products.final_price2 }} only 
         </div>
          </a>
-        <div class="w-full h-[10px]">
+        <div class="w-full h-2.5">
           <form action="{% url 'add_to_cart' products.id products.content2 %}" method="post">
             {% csrf_token %}
             <button class="bg-blue-700 w-full rounded-sm text-white" type="submit">Add to Cart</button>
@@ -1030,9 +987,9 @@ w-screen h-100  overflow-x-auto ">
         </div>  
 
       </div>
-      <div class=" w-[49%] h-45 px-4">
+      <div class=" w-[45%] h-45 px-4 mx-auto">
         <div class=" w-full h-25  ">
-          <a href="{% url 'add_to_cart' products.id products.content3  %}">
+                       <a href="{% url 'product_detail' products.id products.content3 %}">
             <img class="w-full h-full" src="{{ products.image3 }}" alt="Product" class="cursor-pointer">
           
         </div>
@@ -1043,7 +1000,7 @@ w-screen h-100  overflow-x-auto ">
            total pay : ₹{{ products.final_price3 }} only 
         </div>
         </a>
-        <div class="w-full h-[10px]">
+        <div class="w-full h-2.5 mx-auto">
           <form action="{% url 'add_to_cart' products.id products.content3  %}" method="post">
             {% csrf_token %}
             <button class="bg-blue-700 w-full rounded-sm text-white" type="submit">Add to Cart</button>
@@ -1052,9 +1009,10 @@ w-screen h-100  overflow-x-auto ">
 
       </div>
 
-      <div class=" w-[49%] h-45 px-4">
+      <div class=" w-[45%] h-45 px-4 mx-auto">
         <div class=" w-full h-25 ">
-          <a href="{% url 'add_to_cart' products.id products.content4 %}">
+
+         <a href="{% url 'product_detail' products.id products.content4 %}">
             <img class="w-full h-full" src="{{ products.image4 }}" alt="Product" class="cursor-pointer">
           
         </div>
@@ -1065,7 +1023,7 @@ w-screen h-100  overflow-x-auto ">
            total pay : ₹{{ products.final_price4 }} only 
         </div>
         </a>
-        <div class="w-full h-[10px]">
+        <div class="w-full h-2.5">
           <form action="{% url 'add_to_cart' products.id products.content4 %}" method="post">
             {% csrf_token %}
             <button class="bg-blue-700 w-full rounded-sm text-white" type="submit">Add to Cart</button>
@@ -1077,9 +1035,170 @@ w-screen h-100  overflow-x-auto ">
  
   </div>
 
+<!----------------------------home kitchen bedroom ------------------430px ke neeche----------------->
+    <div class="w-full h-auto min-[430px]:hidden ">
+          <div id="styleYourBedroom" class="w-full h-auto border-10 border-amber-500 shadow-md shadow-black"> 
+              <div class="w-full h-20 text-2xl font-bold font-serif rounded-t-2xl wave1 my-1 text-center flex justify-center items-center">
+                  <h1>Style your bedroom</h1>
+              </div>
+              <div class="w-full h-60 flex gap-2 px-2 overflow-x-auto overflow-y-hidden">
+                {% for bedroom in bedroom %}
+                <a class="min-w-47" href="{% url 'Product_detailsbedroom' bedroom.id %}">
+                <div class="w-full h-58 ">
+                    <div class="w-full h-40 rounded-t-2xl wave1">
+                      <img class="w-full h-full" src="{{ bedroom.image }}" alt="">
+                    </div>
+                  <div class="w-full h-18 rounded-b-2xl wave text-center flex justify-center items-center">
+                      <h1 class="font-bold text-2xl">{{ bedroom.content }}</h1>
+                  </div>
+              </div>
+              </a>
+              {% endfor %}
+          </div>
+          </div>
+      </div>
+
+      <!---------------------------------------------------mobilepage------------------------------------------------>
+          <div class="min-[430px]:hidden w-full h-1/8 [filter:drop-shadow(3px_3px_5px_rgba(0,0,0,0.9))] my-5">
+            <div class="w-[90%] mx-auto h-full bg-blue-600 px-10 p-1
+                  [clip-path:polygon(30px_0,100%_0,100%_calc(100%-30px),calc(100%-30px)_100%,0_100%,0_30px)]">
+                <h2 class="text-3xl font-bold text-shadow-lg/20 text-white">Mobiles Deals</h2>
+                <p class="text-xl font-semibold text-shadow-lg/15 text-shadow-black">India's Favourite Smart Phone Store ⭐⭐⭐⭐⭐</p>
+              </div>
+           </div>
+
+           <div class="min-[430px]:hidden main w-full mx-auto h-50 bg-cyan-200 p-10 overflow-x-auto overflow-y-hidden flex">
+  
+  <div class="box1 [filter:drop-shadow(5px_5px_10px_rgba(0,0,0,0.9))] min-w-full h-full"> 
+    <div class="w-full h-full p-2 py-2 text-2xl text-center font-bold font-serif text-yellow-300 bg-cyan-400 
+      [clip-path:polygon(20px_0,100%_0,100%_calc(100%-20px),calc(100%-20px)_100%,0_100%,0_20px)]
+      text-shadow-lg/50 text-shadow-slate-950">
+      EVENT DEALS FROM YOUR FAVOURITE BRANDS
+    </div>
+  </div>
+
+  <div class="box1 [filter:drop-shadow(5px_5px_10px_rgba(0,0,0,0.9))] min-w-full h-full">
+    <div class="w-full h-full p-2 justify-around flex text-center font-bold font-serif 
+     bg-violet-500 text-yellow-300
+      [clip-path:polygon(20px_0,100%_0,100%_calc(100%-20px),calc(100%-20px)_100%,0_100%,0_20px)]">
+      <div class="w-1/2 h-full text-xl text-shadow-lg/50 text-shadow-slate-950 leading-5">Instant Phone Set-up Service during Delivery 
+        <span class="text-black text-shadow-none mt-10">Starting ₹349</span>
+      </div>
+      <div class="w-1/3 h-full ">
+        <img class="w-full h-full rounded-4xl shadow" src="https://www.shutterstock.com/image-photo/smiling-woman-holding-empty-shopping-260nw-2204413293.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+     <div class="box1 [filter:drop-shadow(5px_5px_10px_rgba(0,0,0,0.9))] min-w-full h-full">
+       <div class="smartphone w-full h-full text-center font-bold font-serif text-orange-600 bg-yellow-200 
+       text-shadow-lg/15 flex overflow-x-auto overflow-y-hidden gap-1 
+         [clip-path:polygon(20px_0,100%_0,100%_calc(100%-20px),calc(100%-20px)_100%,0_100%,0_20px)]">
+         <div class="w-1/2 h-full ml-20 leading-4 absolute z-2">
+             <h2 class="text-xl leading-5 ">DISCOVER CURATED SMARTPHONES STORES</h2> 
+             <p class="text-md">FOR YOUR EVERY NEED</p>
+         </div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+            <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+            <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+            <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+           <div class="min-w-50 h-full bg-red-300 [clip-path:polygon(0_50%,100%_0,100%_100%)] 
+           animate-ping" style="animation: leftSlide 3s linear infinite"></div>
+
+          
+        </div>
+     </div>
+</div>
+
+       <div class="min-[430px]:hidden w-full h-auto overflow-x-auto overflow-y-hidden flex gap2">
+        {% for mainmobile in mainmobile %}
+            <div class="w-full h-160 p-5 flex flex-wrap bg-no-repeat bg-[length:100%_100%]" style="background-image:url(
+              {{ mainmobile.bgmainimagembile }})">
+              <div class="w-90 h-75 backdrop-blur-[5px] rounded-2xl">
+                <a href="{% url 'Product_detailsmobilepage' mainmobile.id %}">
+                  <img class="w-full h-full rounded-4xl" src="{{ mainmobile.mainimagemobile }}" alt="">
+                </a>
+              </div>
+              <div class="w-130 h-78 rounded-2xl ">
+                  <p class="text-blue-400 leading-6
+                 hover:underline hover:text-shadow-lg">{{ mainmobile.nameofmmobile }}({{ mainmobile.specsofmmobileRamrom }})|{{ mainmobile.specsofcamera }} | 
+                 {{ mainmobile.specsofbattery }}
+                 |{{ mainmobile.specsfofprocessor }} | {{ mainmobile.specsofdurability }}   ......
+                 </p>
+                 <p class="text-white"> Rating:  [⭐⭐⭐⭐⭐<span class="text-blue-500">{{ mainmobile.mainmratings }}]</span></p>
+                 <p class="py-2 text-white">5k+ bought in past month</p>
+                 <p class="bg-red-600 p-2 w-1/2 rounded-sm text-white font-semibold">{{ mainmobile.mainmdeals }}</p>
+                 <p class='text-2xl font-semibold text-white'>₹{{ mainmobile.final_price }} <span class="font-normal text-sm">M.R.P: ₹{{ mainmobile.mainmmrp }} 
+                 <span class="text-white font-semibold">({{ mainmobile.mainmoffer }}% off)</span> ({{ mainmobile.mainmofferoncreditcard }}% on SBI Credit Card)</span></p>
+                 <p class="text-blue-500">✔️Prime</p>
+                 <p class="text-white">FREE delivery <span class=" font-semibold">{{ today }}</span> or fastest delivery <span class="font-semibold">Tomorrow 8 Aug</span></p>
+              </div>
+           </div>
+         {% endfor %}
+         
+       </div>
 
 
+
+      <div class="min-[430px]:hidden">
+      <br><br><br>
+      </div>
 {% include 'footer.html' %}
+{% include 'footermobile.html'%}
+
+<script>
+  const mainElement = document.querySelectorAll('.main');
+  mainElement.forEach((main) => {
+    const boxes = main.querySelectorAll('.box1');
+    const boxWidth = boxes[0]?.offsetWidth || 300;
+
+    let direction = "right";
+
+    function autoscrolling(){
+       maxScroll = main.scrollWidth - main.clientWidth;
+
+       if(direction === "right"){
+        main.scrollBy({left: boxWidth, behavior:'smooth'});
+         if(main.scrollLeft + boxWidth >= maxScroll){
+          direction = "left";
+         }
+       }
+       else{
+        main.scrollBy({left: -boxWidth, behavior: 'smooth'});
+         if(main.scrollLeft - boxWidth <= 0){
+          direction = "right";
+         }
+       }
+    }
+    setInterval(autoscrolling, 2000);
+  });
+</script>
 
   </body>
 </html>

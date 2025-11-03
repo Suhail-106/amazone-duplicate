@@ -7,10 +7,10 @@
   <title>Cart</title>
   <link href="{% static 'output.css' %}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 p-4">
+<body class="bg-gray-100 p-4  max-[430px]:p-0">
 
-  <div class="max-w-6xl mx-auto p-4">
-    <h2 class="text-2xl font-bold mb-6">🛒 Your Cart ({{ cart_count }} item)</h2>
+  <div class="max-w-6xl mx-auto p-4 max-[430px]:p-1 ">
+    <h2 class="text-2xl font-bold py-6 px-6">🛒 Your Cart ({{ cart_count }} item)</h2>
 
     {% if cart_items %}
       <ul class="space-y-4">
@@ -18,24 +18,35 @@
           <li class="flex items-center bg-white hover:scale-105 transition-transform
           duration-75 ease-in-out p-4 rounded shadow ">
             {% comment %} Dynamically pick correct image based on content {% endcomment %}
-            {% with content=item.content %}
-              {% if content == item.product.content1 %}
-                <img src="{{ item.product.image1 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
-              {% elif content == item.product.content2 %}
-                <img src="{{ item.product.image2 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
-              {% elif content == item.product.content3 %}
-                <img src="{{ item.product.image3 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
-              {% elif content == item.product.content4 %}
-                <img src="{{ item.product.image4 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
-              {% endif %}
-            {% endwith %}
+              {% with content=item.content %}
+                {% if content == item.product.content1 %}
+                 <a href="{% url 'product_detail' item.product.id item.content %}">
+                  <img src="{{ item.product.image1 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
+                 </a>
+                {% elif content == item.product.content2 %}
+                 <a href="{% url 'product_detail' item.product.id item.content %}">
+                  <img src="{{ item.product.image2 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
+                    </a>
+                {% elif content == item.product.content3 %}
+                 <a href="{% url 'product_detail' item.product.id item.content %}">
+                  <img src="{{ item.product.image3 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
+                    </a>
+                {% elif content == item.product.content4 %}
+                 <a href="{% url 'product_detail' item.product.id item.content %}">
+                  <img src="{{ item.product.image4 }}" alt="{{ content }}" class="w-20 h-20 object-cover rounded mr-4">
+                    </a>
+                {% endif %}
+              {% endwith %}
 
+             
             
             {# for mobile section #}
             {% for mob in mobile %}
             {% if mob.nameofmobile == item.content %}
+            <a class="cursor-pointer" href="{% url 'Product_detailsmobile' mob.id %}">
             <img src="{{ mob.imagemobile }}" alt="{{ mob.nameofmobile}}"
             class="w-20 h-20 object-cover rounded mr-4">
+            </a>
             {% endif %}
             {% endfor %}
            
@@ -43,33 +54,41 @@
             {# for bestseller #}
             {% for best in bestseller %}
             {% if best.contentm == item.content %}
+            <a href="{% url 'Product_detailsbestseller' best.id %}">
             <img  class="w-20 h-20 object-cover hover:scale-110 transition-transform
             ease-in-out duration-700 rounded mr-4" src="{{ best.Imagem }}" alt="{{ best.contentm }}">
+            </a>
             {% endif %}
             {% endfor %}
             
             {# for freshvegitables #}
             {% for fresh in fresh %}
             {% if fresh.nameoffresh == item.content %}
+            <a href="{% url 'Product_detailsfresh' fresh.id  %}">
             <img class="w-20 h-20 object-cover hover:scale-110 transition-transform
             ease-in-out duration-700 rounded mr-4"
              src="{{ fresh.vegitablebimagefresh }}" alt="{{ fresh.nameoffresh }}">
+            </a>
              {% endif %}
              {% endfor %}
 
               {# mainmobile items #}
               {% for m in mainmobile %}
                 {% if m.nameofmobile == item.content or m.specsofcamera == item.content or m.specsofdurability == item.content %}
+                <a href="{% url 'Product_detailsmobilepage' m.id  %}">
                   <img class="w-20 h-20 object-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ m.mainimagemobile }}" alt="">
+                </a>
                {% endif %}
               {% endfor %}
 
              {# electronicslaptop #}
              {% for elaptop in electronicslaptop %}
              {% if elaptop.laptopname == item.content %}
+                <a href="{% url 'Product_detailslaptop' elaptop.id  %}">
               <img class="w-20 h-20 object-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ elaptop.laptopimage }}" alt="">
+                </a>
                {% endif %}
               {% endfor %}
             
@@ -78,6 +97,7 @@
 
                {% for elheadphones in electronicsheadphones %}
                 {% if elheadphones.headphonesname == item.content %}
+                <a href="{% url 'Product_detailsheadphones' elheadphones.id  %}">
               <img class="w-20 h-20 object-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ elheadphones.headphonesimage }}" alt="">
                {% endif %}
@@ -87,8 +107,10 @@
                
                {% for vocalforlocal in vocalforlocal %}
                 {% if vocalforlocal.interestincontent == item.content %}
+                <a href="{% url 'Product_detailsvocalforlocal1' vocalforlocal.id  %}">
               <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ vocalforlocal.image }}" alt="">
+                </a>
                {% endif %}
               {% endfor %}
            
@@ -96,8 +118,10 @@
                
                {% for vocalforlocal1 in vocalforlocal1 %}
                 {% if vocalforlocal1.interestincontent1 == item.content %}
+                <a href="{% url 'Product_detailsvocalforlocal2' vocalforlocal1.id  %}">
               <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ vocalforlocal1.image1 }}" alt="">
+                </a>
                {% endif %}
               {% endfor %}
 
@@ -105,8 +129,10 @@
                
                {% for shopclothing in shopclothing %}
                 {% if shopclothing.contentshopclothing == item.content %}
+                <a href="{% url 'Product_detailsshopclothing' shopclothing.id  %}">
               <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ shopclothing.imageshopclothing }}" alt="">
+                </a>
                {% endif %}
               {% endfor %}
 
@@ -114,8 +140,10 @@
                
                {% for shopfootwear in shopfootwear %}
                 {% if shopfootwear.contentshopfootwear == item.content %}
+                <a href="{% url 'Product_detailsshopfootwear' shopfootwear.id  %}">
               <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ shopfootwear.imageshopfootwear }}" alt="">
+                </a>
                {% endif %}
               {% endfor %}
 
@@ -123,8 +151,10 @@
                
                {% for Budgetaddons in Budgetaddons %}
                 {% if Budgetaddons.contentshopBudget == item.content %}
+                <a href="{% url 'Product_detailsshopBudget' Budgetaddons.id  %}">
                  <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ Budgetaddons.imageshopBudget }}" alt="">
+                </a>
                {% endif %}
               {% endfor %}
 
@@ -132,8 +162,10 @@
                
                {% for shopBeauty in shopBeauty %}
                 {% if shopBeauty.contentshopBeauty == item.content %}
+                <a href="{% url 'Product_detailsshopbeauty' shopBeauty.id  %}">
                  <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ shopBeauty.imageshopBeauty  }}" alt="">
+                </a>  
                {% endif %}
               {% endfor %}
 
@@ -141,30 +173,260 @@
                
                {% for bedroom in bedroom %}
                 {% if bedroom.content == item.content %}
+                <a href="{% url 'Product_detailsbedroom' bedroom.id  %}">
                  <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
                   ease-in-out duration-700 rounded mr-4"src="{{ bedroom.image  }}" alt="">
+                </a>
                {% endif %}
               {% endfor %}
-
-
+     
+              {% for mainob in mainob %}
+              {% if mainob.name == item.content %}
+               <img class="w-20 h-20 eadphonesnameobject-cover hover:scale-110 transition-transform
+                  ease-in-out duration-700 rounded mr-4"src="{{ mainob.image  }}" alt="">
+              {% endif %}
+              {% endfor %}
               
 
 
-            <div class="flex-1">
-              <h3 class="text-lg font-semibold">{{ item.content }}</h3>
+            <div class="flex-1 max-[430px]:w-40">
+              <h3 class="text-lg font-semibold max-[430px]:text-sm">{{ item.content }}</h3>
               <p class="text-sm text-gray-600">Price: ₹{{ item.price }} |
                 <span class="text-sm text-gray-600">Quantity: {{ item.quantity }}</span>
               </p>
               <p class="font-semibold">Offer: {{ item.off174 }}%  </p> 
-              <p class="font-bold">Total pay: ₹{{ item.offer }}
-                <span>
-                    <form method="post" action="{% url 'remove_from_cart' item.id %}">
+              <p class="font-bold">Total pay: ₹{{ item.offer }}</p> 
+                    <div class="flex"> 
+                       <span>
+                    <form method="post" action="{% url 'remove_from_cart' item.id %}" class="w-25 ">
                     {% csrf_token %}
                      <button type="submit" class="bg-blue-600 text-white px-4 rounded hover:bg-red-500 font-bold">Remove</button>
                    </form>
+                   
                 </span>
-              </p> 
-                    
+
+                <!-----------------buy now button--------------------------------->
+               <!-----------------------------buy buttons-------------------------->
+
+
+                    {# Home&kitchen bedroom #}
+                         {% for bedroom in bedroom %}
+                {% if bedroom.content == item.content %}
+                    <span>
+                        <form method="post" action="{% url 'buy_now_bedroom' bedroom.id %}" class="w-50">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                   </span>
+               {% endif %}
+              {% endfor %}
+
+
+                     {# fashion shopBeauty #}
+               
+               {% for shopBeauty in shopBeauty %}
+                {% if shopBeauty.contentshopBeauty == item.content %}
+                <span>
+                        <form method="post" action="{% url 'buy_now_shopbeauty' shopBeauty.id %}" class="w-50">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                   </span>
+               {% endif %}
+              {% endfor %}
+
+
+                        {# fashion shopbudget #}
+               
+               {% for Budgetaddons in Budgetaddons %}
+                {% if Budgetaddons.contentshopBudget == item.content %}
+              <span>
+                        <form method="post" action="{% url 'buy_now_shopBudget' Budgetaddons.id %}" class="w-50">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                   </span>
+               {% endif %}
+              {% endfor %}
+
+
+
+
+
+
+               
+                   {# fashion shopfootwear #}
+               
+               {% for shopfootwear in shopfootwear %}
+                {% if shopfootwear.contentshopfootwear == item.content %}
+              <span>
+                        <form method="post" action="{% url 'buy_now_shopfootwear' shopfootwear.id %}" class="w-50">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                   </span>
+               {% endif %}
+              {% endfor %}
+
+                
+                   {# fashion shopclothing #}
+               
+               {% for shopclothing in shopclothing %}
+                {% if shopclothing.contentshopclothing == item.content %}
+               <span>
+                        <form method="post" action="{% url 'buy_now_shopclothing' shopclothing.id %}" class="w-50">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                   </span>
+               {% endif %}
+              {% endfor %}
+
+
+
+                   {# fashion vocalforlocal1 #}
+               
+               {% for vocalforlocal1 in vocalforlocal1 %}
+                {% if vocalforlocal1.interestincontent1 == item.content %}
+                  <span>
+                        <form method="post" action="{% url 'buy_now_vocalforlocal2' vocalforlocal1.id %}" class="w-50">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                   </span>
+               {% endif %}
+              {% endfor %}
+
+                  {# fashion vocalforlocal #}
+               
+               {% for vocalforlocal in vocalforlocal %}
+                {% if vocalforlocal.interestincontent == item.content %}
+              <span>
+                        <form method="post" action="{% url 'buy_now_vocalforlocal1' vocalforlocal.id %}" class="w-50">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                   </span>
+               {% endif %}
+              {% endfor %}
+
+
+                    <!--------------------headphones----------------------------------->
+                    {% for elheadphones in electronicsheadphones %}
+                    {% if elheadphones.headphonesname == item.content %}
+                     <span>
+                        <form method="post" action="{% url 'buy_now_headphones' elheadphones.id %}" class="w-50">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                   </span>
+                  {% endif %}
+                  {% endfor %}
+
+
+
+                {% for fresh in fresh %}
+                {% if item.content == fresh.nameoffresh %}
+                <span>
+                    <form method="post" action="{% url 'buy_now_fresh' fresh.id %}" class="w-50">
+                    {% csrf_token %}
+                     <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                </span>
+              {% endif %}
+               {% endfor %}
+
+               {% for best in bestseller %}
+               {% if item.content == best.contentm %}
+                <span>
+                    <form method="post" action="{% url 'buy_now_bestseller' best.id %}" class="w-50">
+                    {% csrf_token %}
+                     <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                   </form>
+                </span>
+              {% endif %}
+               {% endfor %}
+       
+                 {% with content=item.content %}
+                {% if content == item.product.content1 %}
+                  <span>
+                     <form method="post" action="{% url 'buy_now' item.product.id item.content %}" class="w-50">
+                         {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                     </form>
+                 </span>
+
+                  {% elif content == item.product.content2 %}
+                  <span>
+                     <form method="post" action="{% url 'buy_now' item.product.id item.content %}" class="w-50">
+                         {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                     </form>
+                 </span>
+
+                 {% elif content == item.product.content3 %}
+                  <span>
+                     <form method="post" action="{% url 'buy_now' item.product.id item.content %}" class="w-50">
+                         {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                     </form>
+                 </span>
+
+                  {% elif content == item.product.content4 %}
+                  <span>
+                     <form method="post" action="{% url 'buy_now' item.product.id item.content %}" class="w-50">
+                         {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                     </form>
+                 </span>
+
+               {% endif %}
+               {% endwith %}
+
+             <!-----------------------electronics laptop----------------------------------->
+
+                 {% for elaptop in electronicslaptop %}
+                {% if elaptop.laptopname == item.content %}
+                  <span>
+                     <form method="post" action="{% url 'buy_now_laptop' elaptop.id %}" class="w-50">
+                         {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                     </form>
+                 </span>
+
+                    {% endif %}
+                  {% endfor %}
+                 <!----------------------homepage mobile----------------------->
+                 {% for mob in mobile %}
+                    {% if mob.nameofmobile == item.content %}
+                          <span>
+                           <form method="post" action="{% url 'buy_now_mobile' mob.id %}" class="w-50">
+                            {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                           </form>
+                         </span>
+                 
+                   {% endif %}
+                {% endfor %}
+                
+
+
+                <!--------------------------mainmobilepage ------------------------------->
+                {% for phone in mainmobile %}
+                {% if phone.nameofmobile == item.content or phone.specsofcamera == phone.content or phone.specsofdurability == item.content %}
+                      <span>
+                           <form method="post" action="{% url 'buy_now_mobilepage' phone.id %}" class="w-50">
+                            {% csrf_token %}
+                        <button type="submit" class="bg-yellow-600 px-5 rounded font-semibold">Buy Now</button>
+                           </form>
+                         </span>
+               {% endif %}
+              {% endfor %}
+
+
+
+
+                </div>
             </div>
           </li>
         {% endfor %}
@@ -175,7 +437,7 @@
   </div>
     <!-- 💰 Total Section -->
     <!-- 💰 Total Section -->
-<div class="mt-6 bg-white p-4 rounded shadow text-xl font-bold flex flex-wrap">
+<div class="mt-6 bg-white p-4 rounded shadow text-xl font-bold max-[430px]:font-semibold flex flex-wrap">
  <div class="w-full flex justify-between"><span>Total offer precentage:</span>
     
     <span> {{ total_offer_percentage }} %</span>

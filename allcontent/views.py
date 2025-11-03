@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from maincontainer.models import main, product as productMOdel, CartItem, actiontoys, electronicsstored, mobile,electronicslaptop, electronicsheadphones
-from mobileviews.models import mainob, cartItemMobile, mainob2, mainob3, mainob4, bestseller
+from mobileviews.models import mainob, cartItemMobile, mainob2, mainob3,  bestseller
 from maincontainer.views import filtered_products1
 
 
@@ -43,7 +43,6 @@ def allcontent(request):
     allcartItemMobile = cartItemMobile.objects.all()
     allmainob2 = mainob2.objects.all()
     allmainob3 = mainob3.objects.all()
-    allmainob4 = mainob4.objects.all()
     allbestseller = bestseller.objects.all()
 
     return render(request,

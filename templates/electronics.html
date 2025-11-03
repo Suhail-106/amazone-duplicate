@@ -77,7 +77,8 @@
         <div class="scroll-box w-full h-full flex flex-wrap px-15 ">
             <div id="actionToys1" class="min-w-full h-100 px-8 gap-15 flex  overflow-x-auto">
               {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+              <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
+
                <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8
                ">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
@@ -107,7 +108,8 @@
                 
                  <div id="actionToys" class=" min-w-full h-100  px-8 gap-15 flex overflow-x-auto">
               {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+                            <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
+
                <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
              shadow-sm shadow-black group">
@@ -180,7 +182,8 @@
             <div class="scroll-box w-full h-full flex flex-wrap px-15">
             <div id="actionToys2" class="w-full h-100 gap-15  px-8 flex overflow-x-auto">
              {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+                           <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
+
                <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
              shadow-sm shadow-black group">
@@ -208,7 +211,8 @@
              </div>
               <div id="actionToys3" class=" min-w-full h-100 gap-15  px-8 flex overflow-x-auto">
               {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+                            <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
+
                <div class="min-w-70 h-70 bg-red-50 rounded-xl shadow p-8">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
              shadow-sm shadow-black group">
@@ -247,7 +251,8 @@
         <div class="scroll-box w-full h-full flex flex-wrap ">
             <div id="actionToys1" class="min-w-full h-57 px-2 gap-2 flex  overflow-x-auto">
               {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+                            <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
+
                <div class="min-w-55 h-55 bg-red-50 rounded-xl shadow p-4">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
              shadow-sm shadow-black group">
@@ -264,7 +269,8 @@
              </div>
                  <div id="actionToys" class="min-w-full h-57 px-2 gap-2 flex  overflow-x-auto">
               {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+                            <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
+
                <div class="min-w-55 h-55 bg-red-50 rounded-xl shadow p-4">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
              shadow-sm shadow-black ">
@@ -283,7 +289,8 @@
             <div class="scroll-box w-full h-full flex flex-wrap">
             <div id="actionToys2" class="w-full h-57 px-2 gap-2 flex overflow-x-auto">
              {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+                            <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
+
                <div class="min-w-55 h-55 bg-red-50 rounded-xl shadow p-4">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
                  shadow-sm shadow-black">
@@ -300,7 +307,7 @@
              </div>
               <div id="actionToys3" class="min-w-full h-57 px-2 gap-2 flex  overflow-x-auto">
               {% for electronicslaptop in electronicslaptop %}
-              <a class="cursor-pointer" href="{% url 'laptopaddtocart' electronicslaptop.id %}">
+                 <a class="cursor-pointer" href="{% url 'Product_detailslaptop' electronicslaptop.id %}">
                <div class="min-w-55 h-55 bg-red-50 rounded-xl shadow p-4">
                  <div class="relative min-w-full h-full bg-gradient-to-t from-blue-500 to-transparent p-3 rounded-full 
              shadow-sm shadow-black">
@@ -382,8 +389,9 @@
            <div class="min-w-85 h-full bg-white">
               <div class="w-full h-2/3 bg-red-600"></div>
            </div>
-           {% for electronicsheadphones in electronicsheadphones %}
-           <a href="{% url 'headphonesaddtocart' electronicsheadphones.id %}">
+            {% for electronicsheadphones in electronicsheadphones %}
+            <a href="{% url 'Product_detailsheadphones' electronicsheadphones.id %}">
+
             <div class="tiltContainer min-w-85 h-full">
              <div class="tiltBox min-w-85 h-full bg-white shadow rounded">
               
@@ -425,7 +433,7 @@
      <div class="w-full h-80 bg-red-50 p-1 min-[430px]:hidden">
        <div id="actionToys4" class="w-full h-full gap-4 overflow-x-auto overflow-y-hidden flex">
            {% for electronicsheadphones in electronicsheadphones %}
-           <a href="{% url 'headphonesaddtocart' electronicsheadphones.id %}">
+           <a href="{% url 'Product_detailsstored' electronicsheadphones.id %}">
             <div class="min-w-70 h-full bg-white shadow rounded">
               <div class="w-full h-50 p-2 px-15">
                 <img class="w-full h-full rounded-2xl" src="{{ electronicsheadphones.headphonesimage }}" alt="">
@@ -469,7 +477,7 @@
               <div class="w-full h-2/3 bg-red-600"></div>
            </div>
           {% for electronicsstored in electronicsstored %}
-          <a href="{% url 'storedaddtocart' electronicsstored.id %}">
+          <a href="{% url 'Product_detailsstored' electronicsstored.id %}">
            <div class="tiltContainer min-w-85 h-full  ">
            <div class="tiltBox w-full h-full bg-white shadow rounded">
             <div class="w-full h-55 p-2 px-15">

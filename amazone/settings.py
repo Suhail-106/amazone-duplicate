@@ -146,7 +146,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'companypvtltd35@gmail.com'
-EMAIL_HOST_PASSWORD = 'nckolvbdbvnzdkim'
+EMAIL_HOST_PASSWORD = 'qiplpmuhcjbvzjpy'
 
 #SSL CONTEXT KE LIYE
 EMAIL_SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
